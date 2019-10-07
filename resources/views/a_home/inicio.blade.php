@@ -265,13 +265,13 @@
 		<section class="ftco-section" id="doctor-section">
 			<div class="container-fluid px-5">
 				<div class="row justify-content-center mb-5 pb-2">
-				<div class="col-md-8 text-center heading-section ftco-animate">
-					<h2 class="mb-4">Especialistas</h2>
-					{{-- <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p> --}}
-				</div>
+					<div class="col-md-8 text-center heading-section ftco-animate">
+						<h2 class="mb-4">Especialistas</h2>
+						{{-- <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p> --}}
+					</div>
 				</div>	
 				<div class="row justify-content-center">
-					<div class="col-md-3 col-lg-3 ftco-animate">
+					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
 								<div class="img align-self-stretch" style="background-image: url(/assets_home/images/doc-8.jpg);"></div>
@@ -282,8 +282,8 @@
 								<div class="faded">
 									<p>De pequeño mi padre me hablaba de la importancia de la higene bucal, como cepillarse los dientes, hasta el día de hoy lo cuido.</p>
 								</div>
-							<div>
-						<div>
+							</div>
+						</div>
 					</div>
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
@@ -351,7 +351,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> 
 
 
     {{-- <section class="ftco-section bg-light" id="blog-section">
