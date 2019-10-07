@@ -327,7 +327,7 @@
 		            <div class="block-18">
 		              <div class="text">
 		                <strong class="number" data-number="500">0</strong>
-		                <span>Personas con LindaSonrisa</span>
+		                <span>Personas con Linda Sonrisa</span>
 		              </div>
 		            </div>
 		          </div>
