@@ -99,7 +99,7 @@
 	    				<div class="row justify-content-start pb-3">
 			          <div class="col-md-12 heading-section ftco-animate p-4 p-lg-5">
 			            <h2 class="mb-4"> <span>LindaSonrisa</span> Cambia La Forma De Sonreir</h2>
-			            <p>Creado por <strong>Luis y Marco</strong>, estudiantes en Odontológia de la Pontificia Universidad Católica. Crean el proyecto <strong>LindaSonrisa</strong> cuyo objetivo es dar una linda sorisa a aquellas personas qe no tienen la posibilidad económica para adquirir el servicio de forma particular.</p>
+			            <p>Creado por <strong>Luis y Marco</strong>, estudiantes en Odontológia de la Pontificia Universidad Católica. Crean el proyecto <strong>LindaSonrisa</strong> cuyo objetivo es dar una linda sonrisa a aquellas personas que no tienen la posibilidad económica para adquirir el servicio de forma particular.</p>
 			            <p><a href="{{ route('loginCliente') }}" class="btn btn-secondary py-3 px-4">Solicitar Inscripción</a></p>
 			          </div>
 			        </div>
@@ -196,7 +196,7 @@
 				<div class="row justify-content-center" id="solicitar">
 					<div class="col-md-9 text-center">
 						<h2>¿Cómo adquerir el beneficio?</h2>
-						<p><strong>Linda<em>Sonrisa</em></strong>: Es un proyecto de salud dental gratuito, cuyo objetivo es dar un servicio de alta calidad y tecnología, a todas las personas que lo requieren</p>
+						<p><strong>Linda<em>Sonrisa</em></strong>: Es un proyecto de salud dental gratuito, cuyo objetivo es dar un servicio de alta calidad y tecnología a todas las personas que lo requieren.</p>
 						
 					
 					</div>
@@ -220,7 +220,7 @@
     									<span class="flaticon-stethoscope"></span>
     								</div>
     								<h3><a href="#">Paso 1</a></h3>
-    								<p>Informaté de los servicios que ofrecemos 100% gratuitos</p>
+    								<p>Infórmate de los servicios que ofrecemos 100% gratuitos</p>
     							</div>
     						</div>
     					</div>
@@ -232,7 +232,7 @@
 												<span class="flaticon-stethoscope"></span>
 											</div>
 											<h3><a href="#">Paso 2</a></h3>
-											<p>Acercate a nuestro Centro Ubicado en .....</p>
+											<p>Acércate a nuestro Centro Ubicado en .....</p>
 										</div>
 									</div>
 
@@ -280,12 +280,10 @@
 								<h3 class="mb-2">Dr. Luis </h3>
 								<span class="position mb-2">Dentista</span>
 								<div class="faded">
-									<p>Desde pequeño mi padre me decía que me lavaras los dientes, hasta el dia de hoy los cuido.</p>
-									
-		              
-						</div>
-									</div>
+									<p>De pequeño mi padre me hablaba de la importancia de la higene bucal, como cepillarse los dientes, hasta el día de hoy lo cuido.</p>
 								</div>
+							<div>
+						<div>
 					</div>
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
@@ -296,10 +294,8 @@
 								<h3 class="mb-2">Dr. Marco</h3>
 								<span class="position mb-2">Dentista</span>
 								<div class="faded">
-									<p>Entregamos una atención de calidad y siempre preocupados por nuestros pacientes.</p>
-									
-		        
-	             		 </div>
+									<p>Siempre optamos por entregar una atención de calidad beneficiendo a nuestros clientes.</p>
+								</div>
 							</div>
 						</div>
 					</div>
