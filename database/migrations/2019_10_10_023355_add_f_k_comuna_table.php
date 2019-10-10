@@ -27,7 +27,7 @@ class AddFKComunaTable extends Migration
     public function down()
     {
         Schema::table('COMUNA', function (Blueprint $table) {
-            $table->dropForeign('COMUNA_ID_REGION_FK');
+            $table->dropForeign('COMUNA_ID_REGION_F');
         });
     }
 }
