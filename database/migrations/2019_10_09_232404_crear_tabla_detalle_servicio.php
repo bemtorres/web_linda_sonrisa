@@ -14,7 +14,9 @@ class CrearTablaDetalleServicio extends Migration
     public function up()
     {
         Schema::create('DETALLE_SERVICIO', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_detalle_servicio');
+            $table->integer('id_producto');
+            $table->integer('id_servicio');
             $table->timestamps();
         });
     }

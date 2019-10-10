@@ -14,7 +14,17 @@ class CrearTablaProducto extends Migration
     public function up()
     {
         Schema::create('PRODUCTO', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_producto');
+            $table->string('nombre_producto', 100);
+            $table->text('descripcion');
+            $table->integer('id_familia');
+            $table->integer('id_tipo_producto');
+            $table->integer('stock');
+            $table->integer('stock_critico');
+            $table->integer('precio_compra')->nullable();
+            $table->integer('precio_venta')->nullable();
+            $table->integer('bloqueo');
+            $table->integer('activo');
             $table->timestamps();
         });
     }

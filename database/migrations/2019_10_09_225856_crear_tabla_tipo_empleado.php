@@ -14,7 +14,8 @@ class CrearTablaTipoEmpleado extends Migration
     public function up()
     {
         Schema::create('TIPO_EMPLEADO', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_tipo_empleado');
+            $table->string('nombre_tipo_empleado');
             $table->timestamps();
         });
     }

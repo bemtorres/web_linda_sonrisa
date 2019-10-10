@@ -16,7 +16,6 @@ class CrearTablaRegion extends Migration
         Schema::create('REGION', function (Blueprint $table) {
             $table->bigIncrements('id_region');
             $table->string('nombre_region');
-            $table->timestamps();
         });
     }
 

@@ -14,7 +14,9 @@ class CrearTablaOrdenEmpleado extends Migration
     public function up()
     {
         Schema::create('ORDEN_EMPLEADO', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_orden_empleado');
+            $table->integer('id_empleado');
+            $table->integer('id_ficha_proveedor');
             $table->timestamps();
         });
     }

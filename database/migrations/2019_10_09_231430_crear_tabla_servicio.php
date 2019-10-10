@@ -14,7 +14,9 @@ class CrearTablaServicio extends Migration
     public function up()
     {
         Schema::create('SERVICIO', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_servicio');
+            $table->string('nombre_servicio', 100);
+            $table->integer('mostrar');
             $table->timestamps();
         });
     }
