@@ -52,7 +52,7 @@
 	    <div class="container">
 			
 		  {{-- <a class="navbar-brand" href="/">LindaSonrisa</a> --}}
-		  <img src="/assets/img/banner.png" width="25%" class="navbar-brand img align-self-stretch" alt="" srcset="">
+		  <img src="/assets/img/banner.png" width="15%" class="navbar-brand img align-self-stretch" alt="" srcset="">
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -71,15 +71,15 @@
 	    </div>
 	  </nav>
 	  
-	  <section class="hero-wrap js-fullheight" style="background-image: url('/assets_home/images/bg_3.jpg');" data-section="home" data-stellar-background-ratio="0.5">
+	  <section class="hero-wrap js-fullheight" style="background-image: url('/assets_home/images/bg-fondo.jpg');" data-section="home" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-6 pt-5 ftco-animate">
           	<div class="mt-5">
-          		<span class="subheading">Proyecto Linda Sonrisa</span>
-	            <h1 class="mb-4">Salud Integral <br> Para tus Dientes</h1>
-	            <p class="mb-4">Ofrece una nueva experiencia en servicio y atención, con box dentales equipados con la mejor tecnología y que atienden diversas especialidades, para el tratamiento dental.</p>
+          		<span class="text-dark"><u>Proyecto Linda Sonrisa</u></span>
+	            <h1 class="mb-4">Salud Dental</h1>
+	            <p class="mb-4 bg-grey">Ofrece una nueva experiencia en servicio y atención, con box dentales equipados con la mejor tecnología y que atienden diversas especialidades, para el tratamiento dental.</p>
 	            <p><a href="{{ route('loginCliente') }}" class="btn btn-primary py-3 px-4">Reserva tu hora</a></p>
             </div>
           </div>
@@ -87,7 +87,7 @@
       </div>
     </section>
 
-		<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+	<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
     	<div class="container">
     		<div class="row d-flex">
     			<div class="col-md-6 col-lg-5 d-flex">
@@ -97,15 +97,15 @@
     			<div class="col-md-6 col-lg-7 pl-lg-5 py-md-5">
     				<div class="py-md-5">
 	    				<div class="row justify-content-start pb-3">
-			          <div class="col-md-12 heading-section ftco-animate p-4 p-lg-5">
-			            <h2 class="mb-4"> <span>LindaSonrisa</span> Cambia La Forma De Sonreir</h2>
-			            <p>Creado por <strong>Luis y Marco</strong>, estudiantes en Odontológia de la Pontificia Universidad Católica. Crean el proyecto <strong>LindaSonrisa</strong> cuyo objetivo es dar una linda sonrisa a aquellas personas que no tienen la posibilidad económica para adquirir el servicio de forma particular.</p>
-			            <p><a href="{{ route('loginCliente') }}" class="btn btn-secondary py-3 px-4">Solicitar Inscripción</a></p>
-			          </div>
-			        </div>
-		        </div>
-	        </div>
-        </div>
+							<div class="col-md-12 heading-section ftco-animate p-4 p-lg-5">
+								<h2 class="mb-4"> <span>LindaSonrisa</span> Cambia La Forma De Sonreir</h2>
+								<p>Creado por <strong>Luis y Marco</strong>, estudiantes en Odontológia de la Pontificia Universidad Católica. Crean el proyecto <strong>LindaSonrisa</strong> cuyo objetivo es dar una linda sonrisa a aquellas personas que no tienen la posibilidad económica para adquirir el servicio de forma particular.</p>
+								<p><a href="{{ route('loginCliente') }}" class="btn btn-secondary py-3 px-4">Solicitar Inscripción</a></p>
+							</div>
+						</div>
+		        	</div>
+	        	</div>
+        	</div>
     	</div>
     </section>
 
