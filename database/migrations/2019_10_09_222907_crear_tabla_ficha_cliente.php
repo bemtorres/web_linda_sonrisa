@@ -15,16 +15,17 @@ class CrearTablaFichaCliente extends Migration
     {
         Schema::create('FICHA_CLIENTE', function (Blueprint $table) {
             $table->bigIncrements('id_ficha_cliente');
-            $table->string('username', 60);
+            $table->string('username', 60)->unique();
             $table->string('password', 64);
-            $table->string('run', 15);
+            $table->string('run', 15)->unique();
             $table->string('nombres', 100);
             $table->string('apellidos', 100);
             $table->string('telefono', 60)->nullable();
-            $table->string('correo', 100);
+            $table->string('correo', 100)->unique();
             $table->integer('id_comuna');
             $table->integer('bloqueo');
             $table->integer('activo');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

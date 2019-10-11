@@ -15,12 +15,12 @@ class CrearTablaFichaProveedor extends Migration
     {
         Schema::create('FICHA_PROVEEDOR', function (Blueprint $table) {
             $table->bigIncrements('id_ficha_proveedor');
-            $table->string('username', 60);
+            $table->string('username', 60)->unique();;
             $table->string('password', 64);
             $table->string('nombre_empresa', 100);
             $table->text('rubro');
             $table->string('telefono', 60)->nullable();
-            $table->string('correo', 100);
+            $table->string('correo', 100)->unique();
             $table->integer('bloqueo');
             $table->integer('activo');
             $table->timestamps();

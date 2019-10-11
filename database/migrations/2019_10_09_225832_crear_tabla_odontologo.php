@@ -15,13 +15,13 @@ class CrearTablaOdontologo extends Migration
     {
         Schema::create('ODONTOLOGO', function (Blueprint $table) {
             $table->bigIncrements('id_odontologo');
-            $table->string('username', 60);
+            $table->string('username', 60)->unique();
             $table->string('password', 64);
             $table->string('run', 15);
             $table->string('nombres', 100);
             $table->string('apellidos', 100);
             $table->string('telefono', 60)->nullable();
-            $table->string('correo', 100);
+            $table->string('correo', 100)->unique();
             $table->integer('activo');
             $table->timestamps();
         });

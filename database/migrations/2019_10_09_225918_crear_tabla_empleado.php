@@ -15,16 +15,17 @@ class CrearTablaEmpleado extends Migration
     {
         Schema::create('EMPLEADO', function (Blueprint $table) {
             $table->bigIncrements('id_empleado');
-            $table->string('username', 60);
+            $table->string('username', 60)->unique();;
             $table->string('password', 64);
             $table->string('run', 15);
             $table->string('nombres', 100);
             $table->string('apellidos', 100);
             $table->string('telefono', 60)->nullable();
-            $table->string('correo', 100);
+            $table->string('correo', 100)->unique();
             $table->integer('id_tipo_empleado');
             $table->integer('bloqueado');
             $table->integer('activo');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
