@@ -1,6 +1,6 @@
 <ul class="nav">
     <li class="nav-item active">
-        <a href="{{ route('home') }}">
+        <a href="">
             <i class="fas fa-home"></i>
             <p>Calendario</p>
             <span class="badge badge-count">5</span>
@@ -21,7 +21,7 @@
         <div class="collapse" id="base1">
             <ul class="nav nav-collapse">								
                 <li>
-                    <a href="{{ route('clientes') }}">
+                    <a href="">
                         <span class="sub-item">Clientes</span>
                     </a>
                 </li>
@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('limpio')}}">
+                    <a href="">
                         <span class="sub-item">Historial</span>
                     </a>
                 </li>
@@ -47,7 +47,7 @@
         <div class="collapse" id="base">
             <ul class="nav nav-collapse">								
                 <li>
-                    <a href="{{ route('empleado.index') }}">
+                    <a href="">
                         <span class="sub-item">Odontólogos</span>
                     </a>
                 </li>
@@ -57,7 +57,7 @@
                     </a>
                 </li> --}}
                 <li>
-                    <a href="{{ route('limpio')}}">
+                    <a href="">
                         <span class="sub-item">Proveedores</span>
                     </a>
                 </li>

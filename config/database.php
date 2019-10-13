@@ -15,8 +15,8 @@ return [
     |
     */
 
+    // 'default' => env('DB_CONNECTION', 'oracle'),
     'default' => env('DB_CONNECTION', 'mysql'),
-
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -90,19 +90,19 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-        'oracle' => [
-            'driver'         => 'oracle',
-            'tns'            => env('DB_TNS', 'orcl'),
-            'host'           => env('ORACLE_HOST', ''),
-            'port'           => env('ORACLE_PORT', '1521'),
-            'database'       => env('ORACLE_DATABASE', ''),
-            'username'       => env('ORACLE_USERNAME', ''),
-            'password'       => env('ORACLE_PASSWORD', ''),
-            'charset'        => env('ORACLE_CHARSET', 'AL32UTF8'),
-            'prefix'         => env('ORACLE_PREFIX', ''),
-            'prefix_schema'  => env('ORACLE_SCHEMA_PREFIX', ''),
-            'server_version' => env('ORACLE_SERVER_VERSION', '11g'),
-        ],
+        // 'oracle' => [
+        //     'driver'         => 'oracle',
+        //     'tns'            => env('DB_TNS', 'orcl'),
+        //     'host'           => env('ORACLE_HOST', ''),
+        //     'port'           => env('ORACLE_PORT', '1521'),
+        //     'database'       => env('ORACLE_DATABASE', ''),
+        //     'username'       => env('ORACLE_USERNAME', ''),
+        //     'password'       => env('ORACLE_PASSWORD', ''),
+        //     'charset'        => env('ORACLE_CHARSET', 'AL32UTF8'),
+        //     'prefix'         => env('ORACLE_PREFIX', ''),
+        //     'prefix_schema'  => env('ORACLE_SCHEMA_PREFIX', ''),
+        //     'server_version' => env('ORACLE_SERVER_VERSION', '11g'),
+        // ],
 
     ],
 

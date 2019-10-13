@@ -25,10 +25,10 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		min-height: 35rem;
+		/* min-height: 35rem; */
 		padding: 15rem 0;
-		background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.1)), color-stop(75%, rgba(22, 22, 22, 0.5)), to(#161616)), url("/assets_home/images/footer-bg.jpg");
-		background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url("/assets_home/images/footer-bg.jpg");
+		background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.1)), color-stop(75%, rgba(22, 22, 22, 0.5)), to(#161616)), url("/assets_home/images/bg_2.jpg");
+		background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url("/assets_home/images/bg_2.jpg");
 		background-position: center;
 		background-repeat: no-repeat;
 		background-attachment: scroll;
@@ -38,7 +38,7 @@
 	</style>
 </head>
 <body class="login">
-	<div class="wrapper wrapper-login ">
+	<div class="wrapper imgFondo wrapper-login ">
 		<div class="container container-login animated fadeIn">
 			<center>
 					<img src="/assets/img/IMG1.png" width="50%" class="animated bounce text-center" alt="" srcset="">
@@ -46,8 +46,13 @@
 			</center>
 		{{-- <h3 class="text-center">Linda<em>Sonrisa</em></h3> --}}
 			<div class="login-form">
-				<form action="/login" method="POST">
+				<form action="{{ route('loginEmpleado') }}" method="POST">
 					{!! csrf_field() !!}
+					@if (session('info'))
+						<div class="alert alert-danger">
+							{{ session('info') }}
+						</div>
+					@endif
 					<div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
 						<label for="username" class="placeholder"><b>Nombre de usuario</b></label>
 						<input id="username" name="username" type="text" class="form-control" required>
@@ -63,14 +68,15 @@
 							</div>
 						</div>
 						{!! $errors->first('password', '<span class="help-block">:message</span>') !!}
-					</div>
+					</div>		
 					<div class="form-group form-action-d-flex mb-3">
+							{{-- {!! $errors->has('info', '<span class="help-block">:message</span>') !!} --}}
+							
 						<div class="custom-control custom-checkbox">
-							{{-- <input type="checkbox" class="custom-control-input" id="rememberme"> --}}
-							{{-- <label class="custom-control-label m-0" for="rememberme">Recuerdame</label> --}}
+							{{-- <input type="checkbox" class="custom-control-input" id="rememberme" name="rememberme">  --}}
+							{{-- <label class="custom-control-label m-0" for="rememberme">Recordar</label> --}}
 						</div>
 						<button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Iniciar Sesión</button>
-						{{-- <a href="{{ route('login') }}" >Iniciar Sesión</a> --}}
 					</div>
 				</form>
 		
