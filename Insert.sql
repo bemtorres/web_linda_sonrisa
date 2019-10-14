@@ -385,3 +385,17 @@ INSERT INTO empleado VALUES(2,'admin2','5994471abb01112afcc18159f6cc74b4f511b998
 
 INSERT INTO empleado VALUES(2,'admin1','$2y$10$YCYY7P2f33gf31TMrTEqUOpTV7yYR5qhH9Hn8aEYHw6feczarLL56','190553388','Benjamin Elias','Mora Torres','123123','b.morat@alumnos2.duoc.cl',1,0,1,'','11-10-2019','12-10-2019');
 
+
+Route::get('p', function(){
+
+    $admin = new App\Administrador;
+    $admin->username = 'admin';
+    $admin->password = bcrypt('12345');
+    $admin->email = 'Rincon@gmail.com';
+    $admin->nombres = 'Nicolas';
+    $admin->apellidos = 'Rincon';
+    $admin->activo = 1;
+    $admin->save();
+    return $admin;
+
+});
