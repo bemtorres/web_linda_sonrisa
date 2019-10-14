@@ -1,13 +1,3 @@
-@php
-	$nombreUsuario = "Federico";
-	echo "asdasd";
-	if(Auth::check()){
-		echo "Benjmain";
-	}else{
-		echo "nada";
-	}
-	// echo Auth::guard('empleado')->user();
-@endphp
 @extends('layout.layout')
 @section('contenido')
 @php

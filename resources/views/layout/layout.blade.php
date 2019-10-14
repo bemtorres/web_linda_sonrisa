@@ -1,5 +1,10 @@
 @php
 	$nombreUsuario = "";
+	if (auth('empleado')->check()){
+		$nombreUsuario =  auth('empleado')->user()->nombres;
+	}    
+	
+
 	// if(Auth::guard('empleado')->check()){
 	// 	$nombreUsuario = Auth::guard('empleado')->user()->nombres;
 	// 	echo $nombreUsuario;

@@ -2,17 +2,16 @@
 
 namespace App\Modelo;
 
-// use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Empleado extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'EMPLEADO';
-    protected $primaryKey = 'ID_EMPLEADO';
+    protected $table = 'empleado';
+    protected $primaryKey = 'id_empleado';
 
     protected $guard = 'empleado';
     // protected $fillable = ['rut_empleado','nombre_empleado','categoria','password'];

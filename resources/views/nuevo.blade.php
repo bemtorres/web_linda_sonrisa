@@ -8,10 +8,10 @@
 </head>
 <body>
 
-    {{ auth()->user() }}
-    {{-- @if (auth())
+    @if (auth('empleado')->check())
         
-    @endif --}}
+    <p>{{  auth('empleado')->user()->nombres }}</p>
+    @endif
 
 </body>
 </html>

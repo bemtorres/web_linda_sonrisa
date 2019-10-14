@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Autentificar;
+namespace App\Http\Controllers\Autentificador;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ValidarLoginEmpleado;
-// use Illuminate\Support\Facades\Hash;
-use Auth;
-
 use App\Modelo\Empleado;
+use Auth;
+use App\Http\Requests\ValidarLoginEmpleado as AuthRequest;
 
-class LoginEController extends Controller
+
+class AuthAdminController extends Controller
 {
-    public function loginLaravel(ValidarLoginEmpleado $request){
+    public function loginLaravel(AuthRequest $request){
         
         $empleado = Empleado::where('username',$request->username)->first();
+
+        // return $empleado;
         if($empleado){
             $pass =  hash('sha256', $request->password);
             if($empleado->password== $pass){
                 // Auth::loginUsingId($empleado->id_empleado, true);
                 // true == $request->remember;
-                if(Auth::guard('empleado')->loginUsingId($empleado->id_empleado, true)){
+                if(Auth::guard('empleado')->loginUsingId($empleado->id_empleado)){
                     
                 
                     // Auth::guard('empleado')->login($empleado);
@@ -43,16 +44,16 @@ class LoginEController extends Controller
                             break;
                     }
                 }else{
-                    // return 'no';
-                    return back()->with('info','Error. Intente Nuevamente.'); 
+                    return 'no';
+                    // return back()->with('info','Error. Intente Nuevamente.'); 
                 }             
             }else{
-                return back()->with('info','Error. Intente Nuevamente.'); 
-                // return 'las contraseñas no son iguales';
+                // return back()->with('info','Error. Intente Nuevamente.'); 
+                return 'las contraseñas no son iguales' . $empleado->password . " - - " . $pass;
             }
         }else{
-            return back()->with('info','Error. Intente Nuevamente.'); 
-            // return 'no existe';
+            // return back()->with('info','Error. Intente Nuevamente.'); 
+            return 'no existe';
         }
     
     }
@@ -64,18 +65,20 @@ class LoginEController extends Controller
     }
 
     
-    public function login(ValidarLoginEmpleado $request){
+    public function login(AuthRequest $request){
         
         // $pass = $request['password'];
 
         if(Auth::guard('empleado')->attempt([
                 'username'=>$request->username,
                 'password'=>$request->password
-            ], false)){
+            ])){
             
-            // return $request;
-            return redirect()->route('inicio.admin');
-            // return redirect('/');
+            
+            // return Auth::guard('empleado')->user();
+            
+            // return redirect()->route('inicio.admin');
+            return redirect('home');
         }else{
             return 'no funciona';
         }
