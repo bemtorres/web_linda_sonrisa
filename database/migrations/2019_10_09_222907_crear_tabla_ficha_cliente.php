@@ -23,6 +23,7 @@ class CrearTablaFichaCliente extends Migration
             $table->string('telefono', 60)->nullable();
             $table->string('correo', 100)->unique();
             $table->integer('id_comuna');
+            $table->text('direccion');
             $table->integer('bloqueo');
             $table->integer('activo');
             $table->rememberToken();

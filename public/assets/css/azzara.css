@@ -108,7 +108,7 @@ body {
   background-color: #36a3f7 !important; }
 
 .bg-success {
-  background-color: #35cd3a !important; }
+  background-color: #44C282 !important; }
 
 .bg-warning {
   background-color: #ffa534 !important; }
@@ -146,7 +146,7 @@ body {
   background: linear-gradient(-45deg, #145180, #36a3f7) !important; }
 
 .bg-success-gradient {
-  background: #35cd3a !important;
+  background: #2cb631 !important;
   background: -webkit-linear-gradient(legacy-direction(-45deg), #0d8010, #35cd3a) !important;
   background: linear-gradient(-45deg, #0d8010, #35cd3a) !important; }
 

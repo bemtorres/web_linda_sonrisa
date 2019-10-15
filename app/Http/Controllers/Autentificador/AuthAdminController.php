@@ -80,7 +80,8 @@ class AuthAdminController extends Controller
             // return redirect()->route('inicio.admin');
             return redirect('home');
         }else{
-            return 'no funciona';
+            // return 'no funciona';
+               return back()->with('info','Cliente no existe.'); 
         }
     
     }

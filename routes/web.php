@@ -28,14 +28,14 @@ Route::get('inicio-empleado', ['as' => 'inicio.empleado' , 'uses' => 'Vista\Home
 Route::get('inicio-admin', ['as' => 'inicio.admin' , 'uses' => 'Vista\HomeController@indexAdmin' ]);
 
 
-Route::get('clientes', ['as' => 'clientes' , function () {
-    return view('clientes.index');
-}]);
 
 Route::get('empleados', ['as' => 'empleados' , function () {
     return view('empleados.index');
 }]);
+
+// Resources
 Route::resource('empleado', 'EmpleadoController');
+Route::resource('cliente', 'ClienteController');
 
 
 Route::get('limpio', ['as' => 'limpio' , function () {

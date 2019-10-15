@@ -15,7 +15,7 @@ class CrearTablaCentro extends Migration
     {
         Schema::create('CENTRO', function (Blueprint $table) {
             $table->bigIncrements('id_centro');
-            $table->integer('nombre_centro');
+            $table->string('nombre_centro');
             $table->string('direccion');
             $table->integer('id_comuna');
             $table->timestamps();
