@@ -23,20 +23,14 @@ Route::get('logout', ['as'=>'salir' , 'uses' => 'Autentificador\AuthAdminControl
 
 Route::get('home', function () { return view('home'); });
 
-// Vistas
-Route::get('inicio-empleado', ['as' => 'inicio.empleado' , 'uses' => 'Vista\HomeController@indexEmpleado' ]);
-Route::get('inicio-admin', ['as' => 'inicio.admin' , 'uses' => 'Vista\HomeController@indexAdmin' ]);
-
-
-
-Route::get('empleados', ['as' => 'empleados' , function () {
-    return view('empleados.index');
-}]);
 
 // Resources
-Route::resource('empleado', 'EmpleadoController');
-Route::resource('cliente', 'ClienteController');
-Route::resource('administrador', 'AdministradorController');
+Route::resource('empleado','EmpleadoController');
+Route::resource('cliente','ClienteController');
+Route::resource('administrador','AdministradorController');
+Route::resource('proveedor','ProveedorController');
+Route::resource('odontologo','OdontologoController');
+
 
 
 Route::get('limpio', ['as' => 'limpio' , function () {

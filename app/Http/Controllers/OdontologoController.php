@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Modelo\Odontologo;
 use Illuminate\Http\Request;
+use App\Http\Requests\ValidarCreateOdontologo as CreateOdontologoRequest;
 
 class OdontologoController extends Controller
 {
@@ -13,7 +15,8 @@ class OdontologoController extends Controller
      */
     public function index()
     {
-        //
+        $odontologos = Odontologo::all();        
+        return view('odontologos.index',compact('odontologos'));
     }
 
     /**
@@ -23,7 +26,7 @@ class OdontologoController extends Controller
      */
     public function create()
     {
-        //
+        return view('odontologos.create'); 
     }
 
     /**
@@ -32,9 +35,19 @@ class OdontologoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateOdontologoRequest $request)
     {
-        //
+        $o = new Odontologo;        
+        $o->run = $request->input('run');
+        $o->username = $o->run; 
+        $o->password = bcrypt('12345');
+        $o->nombres = $request->input('nombres');
+        $o->apellidos = $request->input('apellidos');
+        $o->telefono = $request->input('telefono');
+        $o->correo = $request->input('correo');
+        $o->activo = 1;
+        $o->save(); 
+        return redirect()->route('odontologo.index');
     }
 
     /**

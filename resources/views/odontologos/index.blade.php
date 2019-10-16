@@ -5,7 +5,7 @@
 <div class="content">
 	<div class="page-inner">
 		<div class="page-header">
-			<h4 class="page-title">Odontologos</h4>
+			<h4 class="page-title">Odontólogos</h4>
 			<ul class="breadcrumbs">
 				<li class="nav-home">
 					<a href="/home">
@@ -21,8 +21,8 @@
 				<div class="card">
 					<div class="card-header">
 								<div class="d-flex align-items-center">
-									<h4 class="card-title">Tabla de Odontologo</h4>
-									<a href="{{ route('cliente.create') }}" class="btn btn-success btn-round ml-auto"><i class="fa fa-plus">Nuevo Beneficiado</i></a>
+									<h4 class="card-title">Tabla de Odontólogo</h4>
+									<a href="{{ route('odontologo.create') }}" class="btn btn-info btn-round ml-auto"><i class="fa fa-plus">Nuevo Odontólogo</i></a>
 								
 								</div>
 							</div>
@@ -47,7 +47,7 @@
 								</tfoot>
 								<tbody>
 								
-									@foreach ($odontologo as $o)
+									@foreach ($odontologos as $o)
 									<tr>
 										<td>{{ $o->run }}</td>
 										<td>{{ $o->nombres . " " . $o->apellidos }}</td>

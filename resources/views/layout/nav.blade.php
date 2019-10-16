@@ -47,7 +47,7 @@
         <div class="collapse" id="base">
             <ul class="nav nav-collapse">								
                 <li>
-                    <a href="">
+                    <a href="{{ route('odontologo.index') }}">
                         <span class="sub-item">Odontólogos</span>
                     </a>
                 </li>
@@ -58,7 +58,7 @@
                 </li>
               
                 <li>
-                    <a href="">
+                    <a href="{{ route('proveedor.index') }}">
                         <span class="sub-item">Proveedores</span>
                     </a>
                 </li>

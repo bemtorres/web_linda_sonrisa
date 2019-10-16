@@ -17,7 +17,7 @@
 		<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Nuevo Odontólogo</h4>
+						<h4 class="page-title">Nuevo Proveedor</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -28,50 +28,43 @@
 						</ul>
 					</div>
 					<div class="row">
-						
 						<div class="col-md-6">
-							@if (session('info'))
-								<div class="alert alert-danger">
-									{{ session('info') }}
-								</div>
-							@endif
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Formulario Nuevo Odontólogo</div>
+									<div class="card-title">Formulario Nuevo Proveedor</div>
 								</div>
-							
-								<form action="{{ route('odontologo.store') }}" method="post">
+								<form action="{{ route('proveedor.store') }}" method="post">
 									<div class="card-body">
-										{!! csrf_field() !!}
+										{!! csrf_field() !!}		
 										<div class="form-group">
-											<label for="text1">Run</label>
-											<input type="text" class="form-control" id="text1" name="run" value="{{ old('run') }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
+											<label for="text1">Usuario de sesión</label>
+											<input type="text" class="form-control" id="text1" name="username" required value="{{ old('username') }}" placeholder="">
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-										</div>
-
+										</div>									
 										<div class="form-group">
-											<label for="text1">Nombres</label>
-											<input type="text" class="form-control" id="text1" name="nombres" value="{{ old('nombres') }}" placeholder="" required>
-											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-										</div>
-										<div class="form-group">
-											<label for="text1">Apellidos</label>
-											<input type="text" class="form-control" id="text1" name="apellidos" value="{{ old('apellidos') }}" placeholder="" required>
+											<label for="text1">Nombre Empresa</label>
+											<input type="text" class="form-control" id="text1" name="nombre_empresa" required value="{{ old('nombre_empresa') }}" placeholder="">
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">
-											<label for="text1">Telefono</label>
-											<input type="tel" class="form-control" id="text1" name="telefono"  value="{{ old('correo') }}" placeholder="" required>
+											<label for="text1">Rubro</label>
+											<input type="text" class="form-control" id="text1" name="rubro" required value="{{ old('username') }}" placeholder="">
+											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+										</div>
+										<div class="form-group">
+											<label for="text1">Correo</label>
+											<input type="email" class="form-control" id="text1" name="correo" required value="{{ old('correo') }}" placeholder="">
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>	
 										<div class="form-group">
-											<label for="text1">Correo</label>
-											<input type="email" class="form-control" id="text1" name="correo"  value="{{ old('correo') }}" placeholder="" required>
+											<label for="text1">Telefono</label>
+											<input type="tel" class="form-control" id="text1" name="telefono" required value="{{ old('telefono') }}" placeholder="">
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-										</div>				
+										</div>	
 									</div>
 									<div class="card-action">
-										<button type="submit" class="btn btn-success pull-rigth">Agregar</button>
+										<button type="submit" class="btn btn-success pull-right">Agregar</button>
+										<br>
 									</div>
 								</form>
 							</div>							
