@@ -3,10 +3,10 @@
 
 @section('contenido')
 
-<div class="content imgFondoEmpleado">
+<div class="content Administradores">
 	<div class="page-inner">
 		<div class="page-header">
-			<h4 class="page-title">Empleados</h4>
+			<h4 class="page-title bg-white btn-rounded"> Administradores </h4>
 			<ul class="breadcrumbs">
 				<li class="nav-home">
 					<a href="/home">
@@ -22,8 +22,8 @@
 				<div class="card">
 					<div class="card-header">
 								<div class="d-flex align-items-center">
-									<h4 class="card-title">Tabla de Empleados</h4>
-									<a href="{{ route('empleado.create') }}" class="btn btn-info btn-round ml-auto"><i class="fa fa-plus"> Nuevo Empleado</i></a>
+									<h4 class="card-title">Tabla de Administradores</h4>
+									<a href="{{ route('administrador.create') }}" class="btn btn-info btn-round ml-auto"><i class="fa fa-plus"> Nuevo Administrador</i></a>
 								
 								</div>
 							</div>
@@ -47,14 +47,14 @@
 									</tr>
 								</tfoot>
 								<tbody>
-									@foreach ($empleados as $e)										
+									@foreach ($admins as $a)										
 									<tr>
-										<td>{{ $e->run }}</td>
-										<td>{{ $e->nombres . " " . $e->apellidos }}</td>
-										<td>{{ $e->correo }}</td>
+										<td>{{ $a->run }}</td>
+										<td>{{ $a->nombres . " " . $a->apellidos }}</td>
+										<td>{{ $a->correo }}</td>
 										<td>
-											<a href="{{ route('empleado.edit', $e->id_empleado ) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-											<form action="{{ route('empleado.destroy' , $e->id_empleado ) }}" method="post">
+											<a href="{{ route('empleado.edit', $a->id_empleado ) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+											<form action="{{ route('empleado.destroy' , $a->id_empleado ) }}" method="post">
 													{!! csrf_field() !!}
 													{!! method_field('DELETE') !!}
 													<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>

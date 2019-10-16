@@ -36,6 +36,7 @@ Route::get('empleados', ['as' => 'empleados' , function () {
 // Resources
 Route::resource('empleado', 'EmpleadoController');
 Route::resource('cliente', 'ClienteController');
+Route::resource('administrador', 'AdministradorController');
 
 
 Route::get('limpio', ['as' => 'limpio' , function () {

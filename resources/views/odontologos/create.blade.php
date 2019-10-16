@@ -1,10 +1,6 @@
 @extends('layout.layout')
 
 @section('contenido')
-<style>
-
-
-   </style>
 <script>
     function validarRut(string) {//solo letras y numeros
       var out = '';
@@ -18,7 +14,7 @@
     }   
   </script>
 
-		<div class="content ">
+		<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
 						<h4 class="page-title">Nuevo Cliente</h4>
@@ -31,7 +27,7 @@
 							
 						</ul>
 					</div>
-					<div class="row ">
+					<div class="row">
 						
 						<div class="col-md-6">
 								@if (session('info'))
@@ -93,11 +89,7 @@
 									</div>
 								</form>
 							</div>							
-						</div>	
-						<div class="col-md-6">
-							<img src="/assets_home/images/Fondo/paciente_fondo.jpg" width="100%" alt="">
-						</div>
-
+						</div>					
 					</div>
 				</div>
 			</div>

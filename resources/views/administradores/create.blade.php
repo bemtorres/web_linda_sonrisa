@@ -17,7 +17,7 @@
 		<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Nuevo Empleado</h4>
+						<h4 class="page-title">Nuevo Adminitrador</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -31,9 +31,9 @@
 						<div class="col-md-6">
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Formulario Nuevo Empleado</div>
+									<div class="card-title">Formulario Nuevo Administrador</div>
 								</div>
-								<form action="{{ route('empleado.store') }}" method="post">
+								<form action="{{ route('administrador.store') }}" method="post">
 									<div class="card-body">
 										{!! csrf_field() !!}									
 										<div class="form-group">

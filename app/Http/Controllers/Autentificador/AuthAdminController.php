@@ -81,7 +81,7 @@ class AuthAdminController extends Controller
             return redirect('home');
         }else{
             // return 'no funciona';
-               return back()->with('info','Cliente no existe.'); 
+               return back()->with('info','Empleado no existe.'); 
         }
     
     }

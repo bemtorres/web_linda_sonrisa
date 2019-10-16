@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
-use App\Modelo\Empleado;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
+use App\Modelo\Empleado;
 use App\Http\Requests\ValidarCreateEmpleado as CreateEmpleadoRequest;
 
-class EmpleadoController extends Controller
+class AdministradorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
-        $empleados = Empleado::all()->where('id_tipo_empleado',2);        
-        return view('empleados.index',compact('empleados'));
+        $admins = Empleado::all()->where('id_tipo_empleado',1);        
+        return view('administradores.index',compact('admins'));
     }
 
     /**
@@ -28,8 +26,8 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
-        return view('empleados.create'); 
+        
+        return view('administradores.create'); 
     }
 
     /**
@@ -40,7 +38,6 @@ class EmpleadoController extends Controller
      */
     public function store(CreateEmpleadoRequest $request)
     {
-        //
         $e = new Empleado;        
         $e->run = $request->input('run');
         $e->username = $e->run; 
@@ -51,9 +48,9 @@ class EmpleadoController extends Controller
         $e->correo = $request->input('correo');
         $e->bloqueado = 0;
         $e->activo = 1;
-        $e->id_tipo_empleado=2;
+        $e->id_tipo_empleado=1;
         $e->save(); 
-        return redirect()->route('empleado.index');
+        return redirect()->route('administrador.index');
     }
 
     /**
@@ -65,8 +62,6 @@ class EmpleadoController extends Controller
     public function show($id)
     {
         //
-        $u = Empleado::findOrFail($id);
-        return view('empleados.show', compact('u'));
     }
 
     /**
@@ -78,9 +73,6 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         //
-        $u = Empleado::findOrFail($id);
-
-        return view('empleados.edit', compact('u'));
     }
 
     /**
@@ -93,17 +85,6 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $e = Empleado::findOrFail($id);
-        $e->username= $request->input('username');;
-        $e->password= bcrypt('12345');
-        $e->run= $request->input('rut');;
-        $e->nombres= $request->input('nombres');;
-        $e->apellidos= $request->input('apellidos');;
-        // $e->id_tipo_user='2';
-        $e->correo= $request->input('correo');;
-        $e->activo=1;
-        $e->update();
-        return redirect()->route('empleado.index');
     }
 
     /**
@@ -115,9 +96,5 @@ class EmpleadoController extends Controller
     public function destroy($id)
     {
         //
-        // $e = Empleado::findOrFail($id)->delete();
-        DB::table('users')->where('id_user', $id)->delete();
-
-        return redirect()->route('empleado.index');
     }
 }

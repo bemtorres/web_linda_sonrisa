@@ -41,6 +41,7 @@
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="/assets/css/demo.css">
+	<link rel="stylesheet" href="/assets/css/stylelindasonrisa.css">
 </head>
 <body data-background-color="bg3">
 	<div class="wrapper">

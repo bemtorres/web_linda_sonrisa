@@ -51,14 +51,20 @@
                         <span class="sub-item">Odontólogos</span>
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="">
-                        <span class="sub-item">Odontologos</span>
+                <li>
+                    <a href="{{ route('empleado.index') }}">
+                        <span class="sub-item">Empleados</span>
                     </a>
-                </li> --}}
+                </li>
+              
                 <li>
                     <a href="">
                         <span class="sub-item">Proveedores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('administrador.index') }}">
+                        <span class="sub-item">Administradores</span>
                     </a>
                 </li>
             </ul>

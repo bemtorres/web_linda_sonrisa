@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Modelo\Ficha_cliente as Cliente;
 
 use App\Modelo\Comuna;
-use App\Http\Requests\ValidarCrearCliente as CreateClienteRequest;
+use App\Http\Requests\ValidarCreateCliente as CreateClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -40,19 +40,24 @@ class ClienteController extends Controller
      */
     public function store(CreateClienteRequest $request)
     {
-        $c = new Cliente;   
-        $c->run = $request->input('run');
-        $c->username = $c->run; 
-        $c->password = bcrypt('123123');
-        $c->nombres = $request->input('nombres');
-        $c->apellidos = $request->input('apellidos');
-        $c->telefono = $request->input('telefono');
-        $c->correo = $request->input('correo');
-        $c->id_comuna = $request->input('id_comuna');
-        $c->bloqueo = 0;
-        $c->activo = 1;
-        $c->direccion = $request->input('direccion');
-        $c->save();       
+        try {
+            $c = new Cliente;   
+            $c->run = $request->input('run');
+            $c->username = $c->run; 
+            $c->password = bcrypt('123123');
+            $c->nombres = $request->input('nombres');
+            $c->apellidos = $request->input('apellidos');
+            $c->telefono = $request->input('telefono');
+            $c->correo = $request->input('correo');
+            $c->id_comuna = $request->input('id_comuna');
+            $c->bloqueo = 0;
+            $c->activo = 1;
+            $c->direccion = $request->input('direccion');
+            $c->save();   
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+            
 
         return redirect()->route('cliente.index');
     }
@@ -76,12 +81,21 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $c = Cliente::findOrFail($id);
+        return $c;
     }
 
+   /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function gestion($id)
     {
-        //
+        $c = Cliente::findOrFail($id);
+        return $c;
     }
 
     /**

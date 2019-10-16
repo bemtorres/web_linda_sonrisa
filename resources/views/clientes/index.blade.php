@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
 @section('contenido')
-	
-<div class="content">
+
+<div class="content imgFondoPaciente">
 	<div class="page-inner">
 		<div class="page-header">
 			<h4 class="page-title">Clientes</h4>
@@ -53,8 +53,8 @@
 										<td>{{ $c->nombres . " " . $c->apellidos }}</td>
 										<td>{{ $c->correo }}</td>
 										<td>
-											<a href="{{ route('cliente.edit' , $c->id_cliente) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
-											<a href="{{ route('cliente.gestion', $c->id_cliente) }}" class="btn btn-warning"><i class="fa fa-file"></i></a>
+											<a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+											<a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-warning"><i class="fa fa-file"></i></a>
 										</td>
 									</tr>
 									@endforeach
