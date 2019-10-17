@@ -17,7 +17,7 @@
 		<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Nuevo Adminitrador</h4>
+						<h4 class="page-title">Nuevo Administrador</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -69,7 +69,10 @@
 									</div>
 								</form>
 							</div>							
-						</div>					
+						</div>	
+						<div class="col-md-6 hidden-sm-down">
+							<img src="/assets_home/images/Fondo/fondo_admin_vertical.jpg" alt="">	
+						</div>				
 					</div>
 				</div>
 			</div>

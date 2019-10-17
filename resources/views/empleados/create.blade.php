@@ -69,6 +69,10 @@
 									</div>
 								</form>
 							</div>							
+						</div>	
+						<div class="col-md-6">
+							<img src="/assets_home/images/Fondo/empleado_fondo.jpg" width="100%" alt="">
+							<img src="/assets_home/images/Fondo/proveedor.jfif" width="100%" alt="">
 						</div>					
 					</div>
 				</div>

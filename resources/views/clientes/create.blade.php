@@ -96,7 +96,9 @@
 						</div>	
 						<div class="col-md-6">
 							<img src="/assets_home/images/Fondo/paciente_fondo.jpg" width="100%" alt="">
+							<img src="/assets_home/images/Fondo/consulta-dentista.jpg" width="100%" alt="">
 						</div>
+						
 
 					</div>
 				</div>
