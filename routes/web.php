@@ -30,6 +30,8 @@ Route::resource('cliente','ClienteController');
 Route::resource('administrador','AdministradorController');
 Route::resource('proveedor','ProveedorController');
 Route::resource('odontologo','OdontologoController');
+Route::resource('familia','FamiliaController');
+Route::resource('tipoproducto','TipoProductoController');
 
 
 

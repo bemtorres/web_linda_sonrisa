@@ -1,9 +1,9 @@
 <ul class="nav">
     <li class="nav-item active">
-        <a href="">
+        <a href="/home">
             <i class="fas fa-home"></i>
-            <p>Calendario</p>
-            <span class="badge badge-count">5</span>
+            <p>home</p>
+            {{-- <span class="badge badge-count">5</span> --}}
         </a>
     </li>
     <li class="nav-section">
@@ -25,7 +25,7 @@
                         <span class="sub-item">Clientes</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="">
                         <span class="sub-item">Calendario</span>
                     </a>
@@ -34,7 +34,7 @@
                     <a href="">
                         <span class="sub-item">Historial</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </li>
@@ -71,26 +71,52 @@
         </div>
     </li>
     <li class="nav-item">
+            <a data-toggle="collapse" href="#soli">
+                <i class="fa fa-file"></i>
+                <p>Solicitudes</p>
+                <span class="caret"></span>
+            </a>
+            <div class="collapse" id="soli">
+                <ul class="nav nav-collapse">
+                    <li>
+                        <a href="">
+                            <span class="sub-item">Solicitudes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="sub-item">Recepción de Productos</span>
+                        </a>
+                    </li>                  
+                </ul>
+            </div>
+        </li>
+    <li class="nav-item">
         <a data-toggle="collapse" href="#charts1">
             <i class="fa fa-barcode"></i>
-            <p>Productos</p>
+            <p>Servicios</p>
             <span class="caret"></span>
         </a>
         <div class="collapse" id="charts1">
             <ul class="nav nav-collapse">
                 <li>
                     <a href="">
+                        <span class="sub-item">Servicios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
                         <span class="sub-item">Productos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <span class="sub-item">Solicitudes</span>
+                    <a href="{{ route('tipoproducto.index') }}">
+                        <span class="sub-item">Tipos de productos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <span class="sub-item">Recepción</span>
+                    <a href="{{ route('familia.index') }}">
+                        <span class="sub-item">Familias de productos</span>
                     </a>
                 </li>
             </ul>

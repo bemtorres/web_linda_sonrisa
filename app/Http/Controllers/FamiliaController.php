@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Modelo\Ficha_proveedor as Proveedor;
 use Illuminate\Http\Request;
+use App\Modelo\Familia;
+use App\Http\Requests\ValidarCreateFamilia as FamiliaRequest;
 
-use App\Http\Requests\ValidarCreateProveedor as CreateProveedorRequest;
-
-class ProveedorController extends Controller
+class FamiliaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        $proveedores = Proveedor::all();        
-        return view('proveedores.index',compact('proveedores'));
+        $familias = Familia::get();
+        return view('familias_productos.index',compact('familias'));
     }
 
     /**
@@ -27,7 +26,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        return view('proveedores.create'); 
+        return view('familias_productos.create'); 
     }
 
     /**
@@ -36,20 +35,17 @@ class ProveedorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateProveedorRequest $request)
+    public function store(FamiliaRequest $request)
     {
-        $p = new Proveedor;        
-        $p->username = $request->input('username'); 
-        // $p->password = bcrypt('12345');
-        $p->password =  hash('sha256', $request->input('password'));
-        $p->nombre_empresa = $request->input('nombre_empresa');
-        $p->rubro = $request->input('rubro');
-        $p->telefono = $request->input('telefono');
-        $p->correo = $request->input('correo');
-        $p->activo = 1;
-        $p->bloqueo = 0;
-        $p->save(); 
-        return redirect()->route('proveedor.index');
+        try {
+            $f = new Familia();
+            $f->nombre_familia = $request->input('nombre_familia');
+            $f->save();
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+    
+        return redirect()->route('familia.index');
     }
 
     /**
@@ -71,7 +67,7 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        return $id;
+      
     }
 
     /**
@@ -81,9 +77,17 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FamiliaRequest $request, $id)
     {
-        //
+        try {
+            $f = Familia::findOrFail($id);
+            $f->nombre_familia = $request->input('nombre_familia');
+            $f->update();
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+    
+        return redirect()->route('familia.index');
     }
 
     /**

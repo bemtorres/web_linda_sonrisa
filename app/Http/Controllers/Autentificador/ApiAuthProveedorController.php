@@ -20,10 +20,10 @@ class ApiAuthProveedorController extends Controller
                 $p = $proveedor->toArray();
                 return Response()->json(array('proveedor'=>$p),200);   
             }else{
-                return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un fabricante con ese código 2.'])],404);
+                return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra.'])],404);
             }
         }else{
-            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra un fabricante con ese código.'])],404);
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra.'])],404);
         }
     
     }

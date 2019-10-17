@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidadCreateProveedor extends FormRequest
+class ValidarCreateTipoProducto extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class ValidadCreateProveedor extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|min:3|max:100',
-            'nombre_empresa' => 'required|min:3|max:100',
-            'rubro' => 'required|min:3|max:100',
-            'telefono' => 'required',
-            'correo' => 'required|email'
+            'nombre_tipo_producto' => 'required|min:3|max:100',
         ];
     }
 }
