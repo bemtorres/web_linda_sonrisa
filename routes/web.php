@@ -32,6 +32,8 @@ Route::resource('proveedor','ProveedorController');
 Route::resource('odontologo','OdontologoController');
 Route::resource('familia','FamiliaController');
 Route::resource('tipoproducto','TipoProductoController');
+Route::resource('producto','ProductoController');
+Route::resource('servicio','ServicioController');
 
 
 

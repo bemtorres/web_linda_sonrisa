@@ -17,7 +17,7 @@
 		</div>
 		
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
 						<div class="d-flex align-items-center">
@@ -32,62 +32,37 @@
 								<thead>
 									<tr>
 										<th>#</th>
-										<th>Nombre</th>
+										<th>Nombre Producto</th>
+										<th>Descripción</th>
+										<th>Familia</th>
+										<th>Tipo Producto</th>
+										<th>Stock Disponible</th>
+										<th>Stock Critico</th>
 										<th></th>
 									</tr>
 								</thead>
-								{{-- <tfoot>
-									<tr>
-										<th>Nombre</th>
-										<th></th>
-									</tr>
-								</tfoot> --}}
 								<tbody>
 									@php
 										$i=1;	
 									@endphp
-									@foreach ($familias as $f)
+									@foreach ($productos as $p)
 									<tr>
 										<td>{{ $i }}</td>
 										@php
 											$i++;	
 										@endphp
-										<td>{{ $f->nombre_familia }}</td>
+										<td>{{ $p->nombre_producto }}</td>
+										<td>{{ $p->descripcion }}</td>
+										
+										<td>{{ $p->familia->nombre_familia }}</td>
+										
+										{{-- <td>{{ App\Modelo\Familia::where('id_familia',$p->id_familia)->first()->nombre_familia }}</td> --}}
+										<td>{{ $p->tipo->nombre_tipo_producto }}</td>
+										<td>{{ $p->stock }}</td>
+										<td>{{ $p->stock_critico }}</td>
 										<td>
-											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal{{ $f->id_familia }}">
-													<i class="fa fa-edit"></i>
-												</button>
-												
-												<!-- Modal -->
-												<div class="modal fade" id="modal{{ $f->id_familia }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-														<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-														</div>
-														<form action="{{ route('familia.update' , $f->id_familia) }}" method="post">
-																<div class="modal-body">		
-																	<div class="card-body">
-																		{!! csrf_field() !!}
-																		{!! method_field('PUT') !!}
-																		<div class="form-group">
-																			<label for="text1">Nombre Familia</label>
-																			<input type="text" class="form-control" id="text1" name="nombre_familia" value="{{ $f->nombre_familia }}" required>
-																			{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-																		</div>
-																	</div>
-																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-																	<button type="submit" class="btn btn-primary">Guardar Cambios</button>
-																</div>
-														</form>
-													</div>
-													</div>
-												</div>
+											<a href="" class="btn btn-success"><i class="fa fa-edit"></i></a>
+											<a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 										</td>
 									</tr>
 									@endforeach

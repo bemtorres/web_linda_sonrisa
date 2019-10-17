@@ -41,7 +41,7 @@
 								@endif
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Fomulario Nuevo Cliente</div>
+									<div class="card-title">Formulario Nuevo Cliente</div>
 								</div>
 							
 								<form action="{{ route('cliente.store') }}" method="post">

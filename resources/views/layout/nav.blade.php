@@ -100,12 +100,12 @@
         <div class="collapse" id="charts1">
             <ul class="nav nav-collapse">
                 <li>
-                    <a href="">
+                    <a href="{{ route('servicio.index') }}">
                         <span class="sub-item">Servicios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('producto.index') }}">
                         <span class="sub-item">Productos</span>
                     </a>
                 </li>

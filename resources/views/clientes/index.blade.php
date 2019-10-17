@@ -33,7 +33,8 @@
 									<tr>
 										<th>Run</th>
 										<th>Nombre</th>
-										<th>Apellido</th>
+										<th>Correo</th>
+										<th>Confirmado</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -42,7 +43,7 @@
 										<th>Run</th>
 										<th>Nombre</th>
 										<th>Correo</th>
-										<th></th>
+										<th>Confirmado</th>
 										<th></th>
 									</tr>
 								</tfoot>
@@ -53,7 +54,7 @@
 										<td>{{ $c->run }}</td>
 										<td>{{ $c->nombres . " " . $c->apellidos }}</td>
 										<td>{{ $c->correo }}</td>
-										<td> <span class="rounded bg-danger text-white">Pendiente</span> </td>
+										<td> <span class="rounded bg-danger text-white">Pendiente documentos</span> </td>
 										<td>
 											<a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
 											<a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-warning"><i class="fa fa-file"></i></a>
