@@ -34,6 +34,9 @@ Route::resource('familia','FamiliaController');
 Route::resource('tipoproducto','TipoProductoController');
 Route::resource('producto','ProductoController');
 Route::resource('servicio','ServicioController');
+Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
+Route::get('servicio/detalles/{id}','ServicioController@verServicios')->name('servicio.ver');
+
 
 
 
@@ -41,4 +44,9 @@ Route::get('limpio', ['as' => 'limpio' , function () {
     return view('limpio');
 }]);
 
+
+Route::get('usuarios', function () {
+    $usuarios = App\Modelo\Empleado::all();
+    return  $usuarios;
+});
 

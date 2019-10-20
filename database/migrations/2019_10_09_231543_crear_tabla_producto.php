@@ -13,7 +13,7 @@ class CrearTablaProducto extends Migration
      */
     public function up()
     {
-        Schema::create('PRODUCTO', function (Blueprint $table) {
+        Schema::create('producto', function (Blueprint $table) {
             $table->bigIncrements('id_producto');
             $table->string('nombre_producto', 100);
             $table->text('descripcion');

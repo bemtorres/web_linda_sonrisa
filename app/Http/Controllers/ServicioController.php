@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modelo\Servicio;
+use App\Modelo\Detalle_servicio as Detalle;
+use App\Modelo\Producto;
 use App\Http\Requests\ValidarCreateServicio as ServicioRequest;
 
 class ServicioController extends Controller
@@ -82,6 +84,7 @@ class ServicioController extends Controller
         try {
             $s = Servicio::findOrFail($id);
             $s->nombre_servicio = $request->input('nombre_servicio');
+            $s->mostrar = $request->input('mostrar');
             $s->update();
         } catch (\Throwable $th) {
             return back()->with('info','Error intente nuevamente.'); 
@@ -103,8 +106,22 @@ class ServicioController extends Controller
         } catch (\Throwable $th) {
             return back()->with('info','Error intente nuevamente.'); 
         }
-    
+        
         return redirect()->route('servicio.index');
+    }
+
+    public function verServicios($id)
+    {
+        try {
+            $servicio = Servicio::findOrFail($id);
+            $detalles = Detalle::get()->where('id_servicio',$id); 
+            $productos = Producto::get();
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+        
+        
+        return view('servicios.detalles.detalle',compact('servicio','detalles','productos'));
     }
 
     /**

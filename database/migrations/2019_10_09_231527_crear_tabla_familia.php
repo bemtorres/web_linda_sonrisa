@@ -13,7 +13,7 @@ class CrearTablaFamilia extends Migration
      */
     public function up()
     {
-        Schema::create('FAMILIA', function (Blueprint $table) {
+        Schema::create('familia', function (Blueprint $table) {
             $table->bigIncrements('id_familia');
             $table->string('nombre_familia',100);
             $table->timestamps();

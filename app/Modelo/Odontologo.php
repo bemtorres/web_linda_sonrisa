@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Odontologo extends Model
 {
-    protected $table = 'ODONTOLOGO';
-    protected $primaryKey = 'ID_ODONTOLOGO';
+    protected $table = 'odontologo';
+    protected $primaryKey = 'id_odontologo';
 }

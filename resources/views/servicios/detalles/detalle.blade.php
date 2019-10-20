@@ -5,7 +5,7 @@
 <div class="content">
 	<div class="page-inner">
 		<div class="page-header">
-			<h4 class="page-title">Servicios</h4>
+        <h4 class="page-title">Detalles del servicios {{ $servicio->nombre_servicio }}</h4>
 			<ul class="breadcrumbs">
 				<li class="nav-home">
 					<a href="/home">
@@ -21,9 +21,9 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="d-flex align-items-center">
-							<h4 class="card-title">Tabla Servicios</h4>
+							<h4 class="card-title">Tabla Productos del Servicios</h4>
 							<button type="button" class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#exampleModal">
-								<i class="fa fa-plus"></i>Agregar Servicio
+								<i class="fa fa-plus"></i>Agregar Producto al Servicio
 							</button>
 						</div>
 						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

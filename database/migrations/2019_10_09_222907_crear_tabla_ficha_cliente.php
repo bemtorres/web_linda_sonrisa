@@ -13,7 +13,7 @@ class CrearTablaFichaCliente extends Migration
      */
     public function up()
     {
-        Schema::create('FICHA_CLIENTE', function (Blueprint $table) {
+        Schema::create('ficha_cliente', function (Blueprint $table) {
             $table->bigIncrements('id_ficha_cliente');
             $table->string('username', 60)->unique();
             $table->string('password', 64);

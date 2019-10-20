@@ -13,7 +13,7 @@ class CrearTablaDetalleOrden extends Migration
      */
     public function up()
     {
-        Schema::create('DETALLE_ORDEN', function (Blueprint $table) {
+        Schema::create('detalle_orden', function (Blueprint $table) {
             $table->bigIncrements('id_detalle_orden');
             $table->integer('id_orden_empleado');
             $table->integer('id_producto');

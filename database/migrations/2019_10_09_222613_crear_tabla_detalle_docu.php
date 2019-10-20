@@ -13,7 +13,7 @@ class CrearTablaDetalleDocu extends Migration
      */
     public function up()
     {
-        Schema::create('DETALLE_DOCUMENTO', function (Blueprint $table) {
+        Schema::create('detalle_documento', function (Blueprint $table) {
             $table->bigIncrements('id_detalle_documento');
             $table->integer('id_ficha_cliente');
             $table->integer('id_documento');

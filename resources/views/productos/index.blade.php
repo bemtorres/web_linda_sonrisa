@@ -54,9 +54,9 @@
 										<td>{{ $p->nombre_producto }}</td>
 										<td>{{ $p->descripcion }}</td>
 										
-										<td>{{ $p->familia->nombre_familia }}</td>
-										
+										<td>{{ $p->familia->nombre_familia }}</td>										
 										{{-- <td>{{ App\Modelo\Familia::where('id_familia',$p->id_familia)->first()->nombre_familia }}</td> --}}
+
 										<td>{{ $p->tipo->nombre_tipo_producto }}</td>
 										<td>{{ $p->stock }}</td>
 										<td>{{ $p->stock_critico }}</td>
@@ -66,16 +66,14 @@
 										</td>
 									</tr>
 									@endforeach
-						
+							
 									
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
-			</div>
-
-			
+			</div>			
 
 		</div>
 	</div>

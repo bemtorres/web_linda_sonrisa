@@ -13,7 +13,7 @@ class CrearTablaOdontologo extends Migration
      */
     public function up()
     {
-        Schema::create('ODONTOLOGO', function (Blueprint $table) {
+        Schema::create('odontologo', function (Blueprint $table) {
             $table->bigIncrements('id_odontologo');
             $table->string('username', 60)->unique();
             $table->string('password', 64);

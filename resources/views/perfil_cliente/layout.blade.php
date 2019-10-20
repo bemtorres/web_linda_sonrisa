@@ -1,19 +1,8 @@
 @php
 	$nombreUsuario = "";
-	if (auth('empleado')->check()){
-		$nombreUsuario =  auth('empleado')->user()->nombres;
+	if (auth('cliente')->check()){
+		$nombreUsuario =  auth('cliente')->user()->nombres;
 	}    
-	
-
-	// if(Auth::guard('empleado')->check()){
-	// 	$nombreUsuario = Auth::guard('empleado')->user()->nombres;
-	// 	echo $nombreUsuario;
-	// }
-	// $cargoUsuario  = "";	
-	// if(auth('empleado')->check()){
-	// 	echo "si";
-	// }
-	
 @endphp
 <!DOCTYPE html>
 <html lang="es">
@@ -154,7 +143,7 @@
 						</div>
 					</div>
 					{{-- nav --}}
-					@include('layout.nav')
+					@include('nav')
 					{{-- endNav --}}
 				</div>
 			</div>

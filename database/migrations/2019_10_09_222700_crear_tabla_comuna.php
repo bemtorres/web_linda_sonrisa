@@ -13,7 +13,7 @@ class CrearTablaComuna extends Migration
      */
     public function up()
     {
-        Schema::create('COMUNA', function (Blueprint $table) {
+        Schema::create('comuna', function (Blueprint $table) {
             $table->bigIncrements('id_comuna');
             $table->string('nombre_comuna');
             $table->integer('id_region');

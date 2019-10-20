@@ -13,7 +13,7 @@ class CrearTablaServicio extends Migration
      */
     public function up()
     {
-        Schema::create('SERVICIO', function (Blueprint $table) {
+        Schema::create('servicio', function (Blueprint $table) {
             $table->bigIncrements('id_servicio');
             $table->string('nombre_servicio', 100);
             $table->integer('mostrar');

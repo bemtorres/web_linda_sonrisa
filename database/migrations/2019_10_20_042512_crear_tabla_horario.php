@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFKComunaTable extends Migration
+class CrearTablaHorario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddFKComunaTable extends Migration
      */
     public function up()
     {
-        Schema::table('COMUNA', function (Blueprint $table) {
-            $table->integer('ID_REGION')->unsigned();
-            $table->foreign('ID_REGION')->references('ID_REGION')->on('REGION');
+        Schema::create('horario', function (Blueprint $table) {
+            $table->bigIncrements('id_horario');
+            $table->string('horario');
+            $table->integer('activo');
         });
     }
 
@@ -26,8 +27,6 @@ class AddFKComunaTable extends Migration
      */
     public function down()
     {
-        Schema::table('COMUNA', function (Blueprint $table) {
-            $table->dropForeign(['ID_REGION']);
-        });
+        Schema::dropIfExists('horario');
     }
 }

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tipo_empleado extends Model
 {
-    protected $table = 'TIPO_EMPLEADO';
-    protected $primaryKey = 'ID_TIPO_EMPLEADO';
+    protected $table = 'tipo_empleado';
+    protected $primaryKey = 'id_tipo_empleado';
     public $incrementing = false;
     // public $timestamps = false;
 }

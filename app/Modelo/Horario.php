@@ -4,10 +4,10 @@ namespace App\Modelo;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Region extends Model
+class Horario extends Model
 {
-    protected $table = 'region';
-    protected $primaryKey = 'id_region';
+    protected $table = 'horario';
+    protected $primaryKey = 'id_horario';
     public $incrementing = false;
     public $timestamps = false;
 }

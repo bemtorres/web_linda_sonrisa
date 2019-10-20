@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Centro extends Model
 {    
-    protected $table = 'CENTRO';
-    protected $primaryKey = 'ID_CENTRO';
+    protected $table = 'centro';
+    protected $primaryKey = 'id_centro';
 }

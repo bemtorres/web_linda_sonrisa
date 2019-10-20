@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ficha_proveedor extends Model
 {
-    protected $table = 'FICHA_PROVEEDOR';
-    protected $primaryKey = 'ID_FICHA_PROVEEDOR';
+    protected $table = 'ficha_proveedor';
+    protected $primaryKey = 'id_ficha_proveedor';
+
+    public function comuna(){
+        return $this->belongsTo(Comuna::class,'id_comuna');
+    }
 }
