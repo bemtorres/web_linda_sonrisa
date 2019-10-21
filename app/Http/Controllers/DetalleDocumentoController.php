@@ -46,13 +46,13 @@ class DetalleDocumentoController extends Controller
               
         $cliente = Cliente::findOrFail($detalle->id_ficha_cliente);
        
-        $detalle->ruta =  $detalle->id_documento . "-" . $cliente->run . ".pdf";  
+        $detalle->ruta =  $request->file('archivo')->store('public');  
        
         // $path = $request->photo->storeAs('images', 'filename.jpg');
         // \Storage::disk('local')->put($detalle->ruta,  \File::get($file));
         $detalle->save();
         
-        \Storage::disk('local')->put($detalle->ruta,  \File::get($file));
+        // \Storage::disk('local')->put($detalle->ruta,  \File::get($file));
         
         return redirect()->route('cliente.documento',$detalle->id_ficha_cliente);
  

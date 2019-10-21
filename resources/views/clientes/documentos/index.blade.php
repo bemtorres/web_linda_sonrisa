@@ -87,7 +87,8 @@
 									<tr>
 										<td>{{ $d->documento->nombre_documento }}</td>
 										<td>	
-											<a href="{{ $d->ver }}" target="_blink" class="btn btn-info"><i class="fa fa-file-pdf"></i></a>
+											<a href="{{ Storage::url($d->ruta) }}" target="_blink" class="btn btn-info"><i class="fa fa-file-pdf"></i></a>
+										
 											<a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>	
 										</td>
 									</tr>
