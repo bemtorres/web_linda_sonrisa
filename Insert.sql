@@ -382,7 +382,7 @@ INSERT INTO centro VALUES(1,'LindaSonrisa Central','Av 1234',1039,'2019-10-12','
 -- (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
 
 -- INSERT INTO empleado VALUES(2,'admin2','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5','190553388','Benjamin Elias','Mora Torres','123123','b.morat@alumnos2.duoc.cl',1,0,1,'',(TO_DATE('2019/10/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss')),(TO_DATE('1995/04/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')));
-INSERT INTO empleado VALUES(2,'admin1','$2y$10$YCYY7P2f33gf31TMrTEqUOpTV7yYR5qhH9Hn8aEYHw6feczarLL56','190553388','Benjamin Elias','Mora Torres','123123','b.morat@alumnos2.duoc.cl',1,0,1,'','2019-11-10','2019-11-10');
+INSERT INTO empleado VALUES(2,'admin1','$2y$10$YCYY7P2f33gf31TMrTEqUOpTV7yYR5qhH9Hn8aEYHw6feczarLL56','123456789','Benjamin Elias','Mora Torres','123123','b.morat@alumnos2.duoc.cl',1,0,1,'','2019-11-10','2019-11-10');
 
 
 INSERT INTO horario VALUES(1,'10:00',1);
