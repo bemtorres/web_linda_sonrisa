@@ -365,10 +365,10 @@ INSERT INTO comuna VALUES(16019,'San Carlos',16000);
 INSERT INTO comuna VALUES(16020,'San Fabián',16000);
 INSERT INTO comuna VALUES(16021,'San Nicolás',16000);
 
-INSERT INTO documento VALUES(1,'Fotocopia Carnet (Ambas parte)','2019-10-12','2019-10-12');
-INSERT INTO documento VALUES(2,'Ficha de Protección Social','2019-10-12','2019-10-12');
-INSERT INTO documento VALUES(3,'Certificado de residencia','2019-10-12','2019-10-12');
-INSERT INTO documento VALUES(4,'Liquidación de los últimos 4 meses','2019-10-12','2019-10-12');
+INSERT INTO documento VALUES(1,'Fotocopia Carnet (Ambas parte)',1,'2019-10-12','2019-10-12');
+INSERT INTO documento VALUES(2,'Ficha de Protección Social',1,'2019-10-12','2019-10-12');
+INSERT INTO documento VALUES(3,'Certificado de residencia',1,'2019-10-12','2019-10-12');
+INSERT INTO documento VALUES(4,'Liquidación de los últimos 4 meses',1,'2019-10-12','2019-10-12');
 
 INSERT INTO tipo_empleado VALUES(1,'Administrador','2019-10-12','2019-10-12');
 INSERT INTO tipo_empleado VALUES(2,'Empleado','2019-10-12','2019-10-12');

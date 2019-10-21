@@ -16,6 +16,7 @@ class CrearTablaDocumento extends Migration
         Schema::create('documento', function (Blueprint $table) {
             $table->bigIncrements('id_documento');
             $table->string('nombre_documento');
+            $table->integer('activo');
             $table->timestamps();
         });
     }

@@ -1,10 +1,7 @@
 @extends('layout.layout')
 
 @section('contenido')
-<style>
 
-
-   </style>
 <script>
     function validarRut(string) {//solo letras y numeros
       var out = '';
@@ -69,12 +66,20 @@
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">
+												<label for="exampleFormControlSelect1">Región</label>
+												<select class="form-control" id="id_region" name="id_region" required>
+													@foreach ($regiones as $r)	
+													<option value="{{ $r->id_region }}">{{ $r->nombre_region }}</option>
+													@endforeach
+												</select>
+											</div>
+										<div class="form-group">
 											<label for="exampleFormControlSelect1">Comuna</label>
-											<select class="form-control" id="exampleFormControlSelect1" name="id_comuna" required>
-												<option class="disabled">Seleccione una comuna</option>
+											<select class="form-control" id="id_comuna" name="id_comuna" required>
+												{{-- <option class="disabled">Seleccione una comuna</option>
 												@foreach ($comuna as $c)	
 												<option value="{{ $c->id_comuna }}">{{ $c->nombre_comuna }}</option>
-												@endforeach
+												@endforeach --}}
 											</select>
 										</div>	
 										<div class="form-group">
@@ -105,4 +110,30 @@
 			</div>
 	
 @stop
-	
+@section('scripts')
+	<script>
+		CargarComuna();
+        function CargarComuna() {
+            var id_region = document.getElementById('id_region').value;
+
+            web = "{{request()->getHttpHost()}}" ;
+            url = 'http://' + web + '/comunas/' + id_region;
+            fetch(url)
+                .then(resp=>{
+                    return resp.json();
+                }).then(result =>{
+                    var $select = $('#id_comuna');
+                    $select.find('option').remove();
+                    //alert(options);
+                    $.each(result, function(key,value) {
+                        // console.log(value.id_comuna + " " + value.nombre_comuna );
+                        
+                        $select.append('<option value=' + value.id_comuna + '>' + value.nombre_comuna + '</option>');
+                    });
+                    console.log($select);
+                    
+            });
+        }
+   
+    </script>
+@stop

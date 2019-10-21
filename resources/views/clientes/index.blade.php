@@ -54,10 +54,14 @@
 										<td>{{ $c->run }}</td>
 										<td>{{ $c->nombres . " " . $c->apellidos }}</td>
 										<td>{{ $c->correo }}</td>
-										<td> <span class="rounded bg-danger text-white">Pendientes de documentos</span> </td>
+										@if ($c->bloqueo==1)
+											<td> <span class="rounded bg-danger btn-sm text-white">Pendientes de documentos</span> </td>
+										@else
+											<td> <span class="rounded bg-success text-white">Habilitado</span> </td>
+										@endif
 										<td>
 											<a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
-											<a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-warning"><i class="fa fa-file"></i></a>
+											<a href="{{ route('cliente.documento', $c->id_ficha_cliente) }}" class="btn btn-warning"><i class="fa fa-file"></i></a>
 										</td>
 									</tr>
 									@endforeach

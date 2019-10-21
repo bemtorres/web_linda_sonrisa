@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Modelo\Ficha_cliente as Cliente;
 
 use App\Modelo\Comuna;
+use App\Modelo\Region;
 use App\Http\Requests\ValidarCreateCliente as CreateClienteRequest;
 
 class ClienteController extends Controller
@@ -28,8 +29,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        $comuna = Comuna::get();
-        return view('clientes.create' , compact('comuna')); 
+        $regiones = Region::get();
+        return view('clientes.create' , compact('regiones')); 
     }
 
     /**
@@ -50,7 +51,7 @@ class ClienteController extends Controller
             $c->telefono = $request->input('telefono');
             $c->correo = $request->input('correo');
             $c->id_comuna = $request->input('id_comuna');
-            $c->bloqueo = 0;
+            $c->bloqueo = 1;
             $c->activo = 1;
             $c->direccion = $request->input('direccion');
             $c->save();   

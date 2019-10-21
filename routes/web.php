@@ -27,6 +27,7 @@ Route::get('home', function () { return view('home'); });
 // Resources
 Route::resource('empleado','EmpleadoController');
 Route::resource('cliente','ClienteController');
+Route::get('cliente/documentos/{id}' ,'DetalleDocumentoController@index')->name('cliente.documento');
 Route::resource('administrador','AdministradorController');
 Route::resource('proveedor','ProveedorController');
 Route::resource('odontologo','OdontologoController');
@@ -38,6 +39,13 @@ Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio
 Route::get('servicio/detalles/{id}','ServicioController@verServicios')->name('servicio.ver');
 
 
+// FETCH
+Route::get('comunas/{id}','ComunaController@buscar');
+Route::get('prueba', function(){
+    return view('prueba.index');
+});
+Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
+
 
 
 Route::get('limpio', ['as' => 'limpio' , function () {
@@ -45,8 +53,5 @@ Route::get('limpio', ['as' => 'limpio' , function () {
 }]);
 
 
-Route::get('usuarios', function () {
-    $usuarios = App\Modelo\Empleado::all();
-    return  $usuarios;
-});
+
 

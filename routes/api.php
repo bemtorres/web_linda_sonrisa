@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::get('proveedor/auth', 'Autentificador\ApiAuthProveedorController@login');
 Route::post('proveedor/auth', 'Autentificador\ApiAuthProveedorController@login');
 
+Route::get('usuarios', function () {
+    $usuarios = App\Modelo\Empleado::all();
+    return  $usuarios;
+});
