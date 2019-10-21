@@ -41,7 +41,7 @@
 						    <span class="text">contacto@lindasonrisa.xyz</span>
 					    </div>
 					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right justify-content-end">
-						<p class="mb-0 register-link"><a href="{{ route('loginCliente') }}" class="mr-3">Ingreso Cliente</a><a href="{{ route('loginAdmin') }}">Ingreso Funcionario</a></p>
+						<p class="mb-0 register-link"><a href="/login-cliente" class="mr-3">Ingreso Cliente</a><a href="{{ route('loginAdmin') }}">Ingreso Funcionario</a></p>
 					    </div>
 				    </div>
 			    </div>
@@ -65,7 +65,7 @@
 	          {{-- <li class="nav-item"><a href="#solicitar" class="nav-link"><span>Inscripción</span></a></li> --}}
 			  <li class="nav-item"><a href="#doctor-section" class="nav-link"><span>Especialistas</span></a></li>
 				<li class="nav-item cta mr-md-2"><a   href="#solicitar" class="nav-link">Obtener Beneficios</a></li>
-	          <li class="nav-item cta mr-md-2"><a  href="{{ route('loginCliente') }}" class="nav-link">Reserva tu hora</a></li>
+	          <li class="nav-item cta mr-md-2"><a  href="/login-cliente" class="nav-link">Reserva tu hora</a></li>
 	        </ul>
 	      </div>
 	    </div>

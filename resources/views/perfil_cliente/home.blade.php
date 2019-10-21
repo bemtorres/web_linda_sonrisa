@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('perfil_cliente.layout')
 @section('contenido')
 @php
 	$nClientes =1;

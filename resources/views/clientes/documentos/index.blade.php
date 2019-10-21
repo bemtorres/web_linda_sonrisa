@@ -67,9 +67,23 @@
 					<div class="card-header">
 						<div class="d-flex align-items-center">
 							<h4 class="card-title">Documentos Listos</h4>	
-							<a href="" class="btn btn-warning btn-pull-right"><i class="fas fa-folder-open"></i></a>
-																	
+													
 						</div>
+						<table>
+							<tbody>
+								<tr>
+									<td>Cliente: </td>
+									<td>{{ $cliente->nombres . " " . $cliente->apellidos }}</td>
+								</tr>	
+								{{-- <tr>
+									<td>Cliente </td>
+									<td>
+										<a href="" class="btn btn-warning btn-sm pull-right"><i class="fas fa-folder-open"></i></a>
+									</td>
+									</tr>	 --}}
+								
+							</tbody>
+						</table>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -77,7 +91,6 @@
 								<thead>
 									<tr>
 										<th>Nombre</th>
-										<th></th>
 										<th></th>
 									</tr>
 								</thead>
@@ -89,7 +102,7 @@
 										<td>	
 											<a href="{{ Storage::url($d->ruta) }}" target="_blink" class="btn btn-info"><i class="fa fa-file-pdf"></i></a>
 										
-											<a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>	
+											<a href="{{ route('documento.eliminar',$d->id_detalle_documento) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>	
 										</td>
 									</tr>
 									@endforeach

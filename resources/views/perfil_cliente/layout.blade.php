@@ -78,8 +78,8 @@
 									<div class="user-box">
 										<div class="avatar-lg"><img src="/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
-											<h4>Administrador</h4>
-											<p class="text-muted">Admin@lindasonrisa.xyz</p>
+											<h4>Paciente</h4>
+											<p class="text-muted"> 	</p>
 											{{-- <a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a> --}}
 										</div>
 									</div>
@@ -90,7 +90,7 @@
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">Cambiar Contraseña</a>
 									<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="">Salir</a>
+									<a class="dropdown-item" href="{{ route('salirCliente') }}">Salir</a>
 								</li>
 							</ul>
 						</li>
@@ -134,7 +134,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="{{ route('salirCliente') }}">
 											<span class="link-collapse btn btn-block btn-danger text-white">Salir</span>
 										</a>
 									</li>
@@ -143,7 +143,7 @@
 						</div>
 					</div>
 					{{-- nav --}}
-					@include('nav')
+					@include('perfil_cliente.nav')
 					{{-- endNav --}}
 				</div>
 			</div>

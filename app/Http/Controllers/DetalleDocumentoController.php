@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use App\Modelo\Ficha_cliente as Cliente;
@@ -42,18 +43,10 @@ class DetalleDocumentoController extends Controller
         $detalle->id_ficha_cliente = $request->input('id_cliente');
         $detalle->id_documento = $request->input('id_documento');
 
-        // $detalle = Detalle::where('id_cliente',$detalle->id_ficha_cliente)->get();
-              
         $cliente = Cliente::findOrFail($detalle->id_ficha_cliente);
-       
         $detalle->ruta =  $request->file('archivo')->store('public');  
-       
-        // $path = $request->photo->storeAs('images', 'filename.jpg');
-        // \Storage::disk('local')->put($detalle->ruta,  \File::get($file));
         $detalle->save();
-        
-        // \Storage::disk('local')->put($detalle->ruta,  \File::get($file));
-        
+   
         return redirect()->route('cliente.documento',$detalle->id_ficha_cliente);
  
     }
@@ -113,13 +106,15 @@ class DetalleDocumentoController extends Controller
         //
     }
 
-    public function eliminar(Request $request){
-        $id_documento = $request->input('id_documento');
-        $id_cliente = $request->input('id_cliente');
+    public function eliminar($id){
 
-        $d = Detalle::findOrFail($id_documento);        
+        $d = Detalle::findOrFail($id);   
+        //  $id_documento = $request->input('id_documento');
+        $id_cliente = $d->id_ficha_cliente;
+
+        // $d = Detalle::findOrFail($id_documento);        
         Storage::delete($d->ruta);
-        $d = Detalle::findOrFail($id_documento)->delete();
+        $d = Detalle::findOrFail($id)->delete();
         return redirect()->route('cliente.documento',$id_cliente);
     }
   

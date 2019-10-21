@@ -83,8 +83,12 @@ class ClienteController extends Controller
     public function edit($id)
     {
         
-        $c = Cliente::findOrFail($id);
-        return $c;
+        // $c = Cliente::findOrFail($id);
+        // return $c;
+        $cliente = Cliente::findOrFail($id);
+        $regiones = Region::get();
+        // return $c;
+        return view('clientes.edit' , compact('regiones','cliente')); 
     }
 
    /**
@@ -95,8 +99,23 @@ class ClienteController extends Controller
      */
     public function gestion($id)
     {
-        $c = Cliente::findOrFail($id);
-        return $c;
+        $cliente = Cliente::findOrFail($id);
+        // return $c;
+        return view('clientes.edit' , compact('cliente')); 
+    }
+
+
+    public function activar($id)
+    {
+        $cliente = Cliente::findOrFail($id);
+        if($cliente->bloqueo==1){
+            $cliente->bloqueo=0;
+        }else{
+            $cliente->bloqueo=1;
+        }
+        $cliente->update();
+        $regiones = Region::get();
+        return view('clientes.edit' , compact('cliente','regiones')); 
     }
 
     /**

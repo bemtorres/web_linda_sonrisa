@@ -101,7 +101,7 @@
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">Cambiar Contraseña</a>
 									<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="">Salir</a>
+									<a class="dropdown-item" href="{{ route('salirAdmin') }}">Salir</a>
 								</li>
 							</ul>
 						</li>
@@ -145,9 +145,9 @@
 										</a>
 									</li>
 									<li>
-										<a href="">
-											<span class="link-collapse btn btn-block btn-danger text-white">Salir</span>
-										</a>
+									<a href="{{ route('salirAdmin') }}">
+										<span class="link-collapse btn btn-block btn-danger text-white">Salir</span>
+									</a>
 									</li>
 								</ul>
 							</div>

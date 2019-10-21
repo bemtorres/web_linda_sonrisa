@@ -18,7 +18,7 @@
 		<div class="content ">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Nuevo Cliente</h4>
+						<h4 class="page-title">Editar Cliente</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -38,7 +38,7 @@
 								@endif
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Formulario Nuevo Cliente</div>
+									<div class="card-title">Formulario de Edición Cliente</div>
 								</div>
 							
 								<form action="{{ route('cliente.store') }}" method="post">
@@ -46,30 +46,34 @@
 										{!! csrf_field() !!}
 										<div class="form-group">
 											<label for="text1">Run</label>
-											<input type="text" class="form-control" id="text1" name="run" value="{{ old('run') }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
+											<input type="text" class="form-control" id="text1" name="run" value="{{ $cliente->run }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 
 										<div class="form-group">
 											<label for="text1">Nombres</label>
-											<input type="text" class="form-control" id="text1" name="nombres" value="{{ old('nombres') }}" placeholder="" required>
+											<input type="text" class="form-control" id="text1" name="nombres" value="{{ $cliente->nombres }}" placeholder="" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">
 											<label for="text1">Apellidos</label>
-											<input type="text" class="form-control" id="text1" name="apellidos" value="{{ old('apellidos') }}" placeholder="" required>
+											<input type="text" class="form-control" id="text1" name="apellidos" value="{{ $cliente->apellidos }}" placeholder="" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">
 											<label for="text1">Telefono</label>
-											<input type="tel" class="form-control" id="text1" name="telefono"  value="{{ old('correo') }}" placeholder="" required>
+											<input type="tel" class="form-control" id="text1" name="telefono"  value="{{ $cliente->correo }}" placeholder="" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">
 												<label for="exampleFormControlSelect1">Región</label>
 												<select class="form-control" id="id_region" name="id_region" onChange="CargarComuna()" required>
 													@foreach ($regiones as $r)	
-													<option value="{{ $r->id_region }}">{{ $r->nombre_region }}</option>
+														@if ($r->id_region==$cliente->comuna->region->id_region)
+															<option selected value="{{ $r->id_region }}">{{ $r->nombre_region }}</option>
+														@else
+															<option value="{{ $r->id_region }}">{{ $r->nombre_region }}</option>
+														@endif
 													@endforeach
 												</select>
 											</div>
@@ -84,17 +88,30 @@
 										</div>	
 										<div class="form-group">
 											<label for="text1">Dirección</label>
-											<input type="text" class="form-control" id="text1" name="direccion"  value="{{ old('direccion') }}" placeholder="" required>
+											<input type="text" class="form-control" id="text1" name="direccion"  value="{{ $cliente->direccion }}" placeholder="" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>		
 										<div class="form-group">
 											<label for="text1">Correo</label>
-											<input type="email" class="form-control" id="text1" name="correo"  value="{{ old('correo') }}" placeholder="" required>
+											<input type="email" class="form-control" id="text1" name="correo"  value="{{ $cliente->correo }}" placeholder="" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-										</div>				
+										</div>	
+										<div class="form-group">
+											<label for="text1">Documentos listos <small>(Has click para activar o desactivar cliente)</small></label>
+											@if ($cliente->bloqueo==0)
+												<a href="{{ route('cliente.activar', $cliente->id_ficha_cliente) }}" class="btn btn-success  btn-block pull-right"><i class="fa fa-ok"></i>Activado</a>
+											@else
+												<a href="{{ route('cliente.activar', $cliente->id_ficha_cliente) }}" class="btn btn-danger btn-block pull-right"><i class="fa"></i>Pendientes</a>
+											@endif
+											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+										</div>	
+													
 									</div>
 									<div class="card-action">
-										<button type="submit" class="btn btn-success pull-rigth">Agregar</button>
+										<a href="{{ route('cliente.index') }}" class="btn btn-danger">Volver</a>
+							
+										<button type="submit" class="btn btn-success pull-right">Guardar Cambios</button>
+										<br>
 									</div>
 								</form>
 							</div>							

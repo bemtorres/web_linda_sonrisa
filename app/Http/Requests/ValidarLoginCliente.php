@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidarLoginEmpleado extends FormRequest
+class ValidarLoginCliente extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class ValidarLoginEmpleado extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|max:30',
+            'username' => 'required|min:8|max:9',
             'password' => 'required|min:4|max:8'
         ];
     }

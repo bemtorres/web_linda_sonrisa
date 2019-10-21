@@ -58,8 +58,8 @@ class AuthAdminController extends Controller
     
     }
 
-    public function logout()
-    {
+    public function logout(){
+        
         Auth::guard('empleado')->logout();
         return redirect()->route('loginAdmin');
     }

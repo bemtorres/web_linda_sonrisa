@@ -17,16 +17,19 @@ Route::get('login-cliente',[ 'as' => 'loginCliente' ,  function () { return view
 Route::get('login-admin',[ 'as' => 'loginAdmin' ,  function () { return view('auth.login-empleado'); }]);
 // Iniciar sesion
 Route::post('loginEmpleado',[ 'as' => 'loginEmpleado' , 'uses' => 'Autentificador\AuthAdminController@login']);
+Route::post('loginSocio',[ 'as' => 'loginSocio' , 'uses' => 'Autentificador\AuthClienteController@login']);
 // Cerrar sesion
-Route::get('logout', ['as'=>'salir' , 'uses' => 'Autentificador\AuthAdminController@logout']);
-
-
+Route::get('logout-admin', ['as'=>'salirAdmin' , 'uses' => 'Autentificador\AuthAdminController@logout']);
+Route::get('logout-cliente','Autentificador\AuthClienteController@logout')->name('salirCliente');
+// HOME
 Route::get('home', function () { return view('home'); });
+Route::get('socios-home', function () { return view('perfil_cliente.home'); });
 
 
 // Resources
 Route::resource('empleado','EmpleadoController');
 Route::resource('cliente','ClienteController');
+Route::get('cliente/activar/{id}' ,'ClienteController@activar')->name('cliente.activar');
 Route::get('cliente/documentos/{id}' ,'DetalleDocumentoController@index')->name('cliente.documento');
 Route::resource('administrador','AdministradorController');
 Route::resource('proveedor','ProveedorController');
@@ -45,6 +48,7 @@ Route::get('prueba', function(){
     return view('prueba.index');
 });
 Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
+Route::get('documento/eliminar/{id}' ,'DetalleDocumentoController@eliminar')->name('documento.eliminar');
 
 
 
