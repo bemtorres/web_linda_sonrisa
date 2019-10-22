@@ -115,7 +115,7 @@
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
 									{{ $nombreUsuario }}
-								<span class="user-level">Administrator</span>
+								<span class="user-level">Paciente</span>
 									<span class="caret"></span>
 								</span>
 							</a>

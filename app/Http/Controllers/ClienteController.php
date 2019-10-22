@@ -45,7 +45,8 @@ class ClienteController extends Controller
             $c = new Cliente;   
             $c->run = $request->input('run');
             $c->username = $c->run; 
-            $c->password = bcrypt('123123');
+            // $c->password = bcrypt('12345');
+            $c->password =  hash('sha256',12345);
             $c->nombres = $request->input('nombres');
             $c->apellidos = $request->input('apellidos');
             $c->telefono = $request->input('telefono');
