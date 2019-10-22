@@ -23,7 +23,7 @@ Route::get('logout-admin', ['as'=>'salirAdmin' , 'uses' => 'Autentificador\AuthA
 Route::get('logout-cliente','Autentificador\AuthClienteController@logout')->name('salirCliente');
 // HOME
 Route::get('home', function () { return view('home'); });
-Route::get('solicitud-hora', function () { return view('perfil_cliente.home'); });
+Route::get('cliente-home', function () { return view('perfil_cliente.home'); });
 
 
 // Resources
@@ -44,9 +44,11 @@ Route::resource('reservar-hora','ReservarHoraController');
 
 // FETCH
 Route::get('comunas/{id}','ComunaController@buscar');
-Route::get('prueba', function(){
-    return view('prueba.index');
-});
+// Route::get('prueba', function(){
+//     return view('prueba.index');
+// });
+Route::get('verhorario/fecha/{fecha}','ReservarHoraController@horasDisponibles');
+
 Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
 Route::get('documento/eliminar/{id}' ,'DetalleDocumentoController@eliminar')->name('documento.eliminar');
 

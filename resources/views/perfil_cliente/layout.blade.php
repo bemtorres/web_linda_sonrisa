@@ -1,7 +1,9 @@
 @php
 	$nombreUsuario = "";
+	$id_usuario =0;
 	if (auth('cliente')->check()){
 		$nombreUsuario =  auth('cliente')->user()->nombres;
+		$id_usuario =  auth('cliente')->user()->id_ficha_cliente;
 	}    
 @endphp
 <!DOCTYPE html>
@@ -70,13 +72,13 @@
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
 										
-									<img src="/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+									<img src="/assets/img/perfil.png" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
 								<li>
 									<div class="user-box">
-										<div class="avatar-lg"><img src="/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+										<div class="avatar-lg"><img src="/assets/img/perfil.png" alt="image profile" class="avatar-img rounded"></div>
 										<div class="u-text">
 											<h4>Paciente</h4>
 											<p class="text-muted"> 	</p>
@@ -109,7 +111,7 @@
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+							<img src="/assets/img/perfil.png" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">

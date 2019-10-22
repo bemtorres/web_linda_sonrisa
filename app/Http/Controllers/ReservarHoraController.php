@@ -8,6 +8,8 @@ use App\Modelo\Reservar_hora as Reservar;
 use App\Modelo\Ficha_cliente as Cliente;
 use App\Modelo\Servicio;
 use App\Modelo\Horario;
+use App\Http\Requests\ValidarSolicitudHora as SolicitudRequest;
+
 
 class ReservarHoraController extends Controller
 {
@@ -19,12 +21,23 @@ class ReservarHoraController extends Controller
     public function index()
     {
         $servicios = Servicio::get();
-        return view('perfil_cliente.home',compact('servicios'));
+        return view('perfil_cliente.solicitud',compact('servicios'));
     }
 
     public function horasDisponibles($fecha){
         
-        return $fechas;
+        $servicios = Reservar::where('fecha_reserva',$fecha)->get();
+        $horarios = Horario::get();
+
+        foreach ($servicios as $s) {
+            foreach ($horarios as $h) {
+                if($s->id_horario==$h->id_horario){
+                    $h->activo = 0;
+                }
+            }
+        }
+
+        return $horarios;
     }
 
     /**
@@ -43,9 +56,27 @@ class ReservarHoraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SolicitudRequest $request)
     {
-        //
+        try {
+            $r = new Reservar();
+            $r->id_centro = 1;
+            $r->fecha_reserva = $request->input('fecha_agenda');
+            $r->id_horario = $request->input('id_horario');
+            $r->id_servicio = $request->input('id_servicio');
+            $r->id_ficha_cliente = $request->input('id_cliente');
+            $r->id_estado_reserva =1;
+            $r->activo =1;
+            $r->save();
+            $estado = 1;
+
+            $servicios = Servicio::get();
+            return view('perfil_cliente.solicitud',compact('estado','servicios'));
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente ' . $th);
+        }
+      
+        
     }
 
     /**

@@ -56,7 +56,7 @@ class ProductoController extends Controller
         } catch (\Throwable $th) {
             return back()->with('info',$th); 
         }
-     
+        
     }
 
     /**
