@@ -40,7 +40,9 @@ Route::resource('producto','ProductoController');
 Route::resource('servicio','ServicioController');
 Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
 Route::get('servicio/detalles/{id}','ServicioController@verServicios')->name('servicio.ver');
+
 Route::resource('reservar-hora','ReservarHoraController');
+Route::get('cliente-historial','ReservarHoraController@historial')->name('cliente.historial');
 
 // FETCH
 Route::get('comunas/{id}','ComunaController@buscar');
@@ -51,6 +53,7 @@ Route::get('verhorario/fecha/{fecha}','ReservarHoraController@horasDisponibles')
 
 Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
 Route::get('documento/eliminar/{id}' ,'DetalleDocumentoController@eliminar')->name('documento.eliminar');
+
 
 
 

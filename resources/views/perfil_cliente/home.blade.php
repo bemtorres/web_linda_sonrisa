@@ -1,11 +1,23 @@
 @extends('perfil_cliente.layout')
 @section('contenido')
 @php
-	$nClientes =1;
-	$nConsultas = 100;
-	$hola = "123123";
-	$fecha = Carbon\Carbon::now()->format('Y-m-d');
+	$fecha_hoy = Carbon\Carbon::now()->format('Y-m-d');
+	$id_usuario =0;
+	if (auth('cliente')->check()){
+		$nombreUsuario =  auth('cliente')->user()->nombres;
+		$id_usuario =  auth('cliente')->user()->id_ficha_cliente;
+	}    
+	$r = App\Modelo\Reservar_hora::where([ 
+		['id_ficha_cliente', '=', $id_usuario],
+		['id_estado_reserva','=', '1']])->first();
+
+	$proxima_fecha = "";
+	$servicio = "No tienes pendiente";
 	
+	if(isset($r)){
+		$proxima_fecha = $r->fecha_reserva . " " . $r->horario->horario;
+		$servicio = $r->servicio->nombre_servicio;
+	}
 @endphp
 <div class="content">
 	<div class="page-inner ">
@@ -24,8 +36,8 @@
 							</div>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">Próxima consulta</p>
-								<h4 class="card-title">No tienes pendiente</h4>
+									<p class="card-category">Próxima consulta {{ $servicio }}</p>
+								<h4 class="card-title">{{ $proxima_fecha  }} </h4>
 								</div>
 							</div>
 						</div>
@@ -44,7 +56,6 @@
 								</div>
 								<div class="col col-stats ml-3 ml-sm-0">
 									<div class="numbers">
-										{{-- <p class="card-category">Reserva tu hora</p> --}}
 									<h4 class="card-title">Reserva tu hora</h4>
 									</div>
 								</div>

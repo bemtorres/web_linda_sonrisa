@@ -24,6 +24,7 @@ class ReservarHoraController extends Controller
         return view('perfil_cliente.solicitud',compact('servicios'));
     }
 
+    // Fecth consulta para saber los horarios disponibles
     public function horasDisponibles($fecha){
         
         $servicios = Reservar::where('fecha_reserva',$fecha)->get();
@@ -38,6 +39,13 @@ class ReservarHoraController extends Controller
         }
 
         return $horarios;
+    }
+
+
+
+    public function historial()
+    {
+        return view('perfil_cliente.historial');
     }
 
     /**
