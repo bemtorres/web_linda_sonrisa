@@ -15,7 +15,8 @@
 	$servicio = "No tienes pendiente";
 	
 	if(isset($r)){
-		$proxima_fecha = $r->fecha_reserva . " " . $r->horario->horario;
+		
+		$proxima_fecha = date_format(date_create($r->fecha_reserva), 'd-m-Y') . " " . $r->horario->horario;
 		$servicio = $r->servicio->nombre_servicio;
 	}
 @endphp
@@ -65,7 +66,7 @@
 				</a>
 			</div>
 			<div class="col-md-6">
-				<a href="{{ route('reservar-hora.index') }}">
+				<a href="{{ route('cliente.historial') }}">
 					<div class="card card-stats card-round">
 						<div class="card-body ">
 							<div class="row align-items-center">

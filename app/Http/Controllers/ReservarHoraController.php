@@ -27,13 +27,16 @@ class ReservarHoraController extends Controller
     // Fecth consulta para saber los horarios disponibles
     public function horasDisponibles($fecha){
         
-        $servicios = Reservar::where('fecha_reserva',$fecha)->get();
+        $reservas = Reservar::where('fecha_reserva',$fecha)->get();
         $horarios = Horario::get();
 
-        foreach ($servicios as $s) {
+        foreach ($reservas as $r) {
             foreach ($horarios as $h) {
-                if($s->id_horario==$h->id_horario){
-                    $h->activo = 0;
+                if($r->id_horario==$h->id_horario){
+                    if($r->id_estado_reserva!=0){
+                        $h->activo = 0;
+                    }
+                    
                 }
             }
         }
@@ -118,7 +121,17 @@ class ReservarHoraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+
+            $r = Reservar::findOrFail($id);
+            $r->id_estado_reserva = 0;          
+            $r->update();   
+        } catch (\Throwable $th) {
+            // return $th;
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+            
+        return redirect()->route('cliente.historial');
     }
 
     /**

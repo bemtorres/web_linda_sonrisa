@@ -8,7 +8,7 @@
 		$nombreUsuario =  auth('cliente')->user()->nombres;
 		$id_usuario =  auth('cliente')->user()->id_ficha_cliente;
 	}    
-	$reservas = App\Modelo\Reservar_hora::where('id_ficha_cliente', '=', $id_usuario)->orderBy('fecha_reserva', 'asc')->get();
+	$reservas = App\Modelo\Reservar_hora::where('id_ficha_cliente', '=', $id_usuario)->orderBy('fecha_reserva','desc')->orderBy('id_horario','asc')->get();
 
 
 	$i=1;
@@ -19,10 +19,6 @@
 			<h4 class="page-title">Historial de consultas</h4>
 			<ul class="breadcrumbs">
 				<li class="nav-home">
-					<a href="/home">
-						<i class="flaticon-home"></i>
-					</a>
-					
 				</li>				
 			</ul>
 		</div>
@@ -42,7 +38,9 @@
 									<tr>
 										<th>#</th>
 										<th>Fecha Consulta</th>
+										<th>Horario</th>
 										<th>Servicio</th>
+										<th>Odontólogo</th>
 										<th>Estado</th>
 										<th></th>
 									</tr>
@@ -51,7 +49,9 @@
 									<tr>
 										<th>#</th>
 										<th>Fecha Consulta</th>
+										<th>Horario</th>
 										<th>Servicio</th>
+										<th>Odontólogo</th>
 										<th>Estado</th>
 										<th></th>
 									</tr>
@@ -65,7 +65,14 @@
 											$i++;
 										@endphp
 										<td>{{  date('d-m-Y', strtotime($r->fecha_reserva)) }}</td>
+										<td>{{  $r->horario->horario }}</td>
 										<td>{{ $r->servicio->nombre_servicio }}</td>
+										@if ($r->id_odontologo > 0)
+											<td>{{ $r->odontologo->nombres . " " . $r->odontologo->apellidos }}</td>
+										@else
+											<td></td>
+										@endif
+										
 										@if ($r->id_estado_reserva==1)
 											<td> <span class="rounded bg-warning btn-sm btn-block text-white">Pendiente</span> </td>
 										@else
@@ -73,11 +80,43 @@
 												<td> <span class="rounded bg-success btn-sm  btn-block text-white">Realizado</span> </td>
 									
 											@else
-												<td> <span class="rounded bg-danger btn-sm btn-block text-white">Cancelado</span> </td>
+												@if ($r->id_estado_reserva==3)
+													<td> <span class="rounded bg-danger btn-sm  btn-block text-white">No Asistió</span> </td>
+										
+												@else
+													<td> <span class="rounded bg-danger btn-sm btn-block text-white">Cancelado</span> </td>
+												@endif
 											@endif
 										@endif
 										<td>
-											<a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											@if ($r->id_estado_reserva==1)
+												<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ModalA{{ $r->id_reservar_hora }}"><i class="flaticon-cross"></i></button>
+												<div class="modal fade" id="ModalA{{ $r->id_reservar_hora }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel">Cancelar Hora</h5>
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<form action="{{ route('reservar-hora.update', $r->id_reservar_hora ) }}" method="post">
+																<div class="modal-body">		
+																	<div class="card-body">
+																		{!! csrf_field() !!}
+																		{!! method_field('PUT') !!}
+																		<h3>¿Desea cancelar su hora para el día {{ date('d-m-Y', strtotime($r->fecha_reserva))  }} a las {{ $r->horario->horario }} ?</h3>
+																	</div>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+																	<button type="submit" class="btn btn-primary">Sí</button>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+											@endif
 										</td>
 									</tr>
 									@endforeach

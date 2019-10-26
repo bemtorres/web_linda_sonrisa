@@ -33,9 +33,9 @@ class AuthClienteController extends Controller
                 Auth::guard('cliente')->loginUsingId($c->id_ficha_cliente);
                 // $servicios = Servicio::get();
                 // return redirect('solicitud-hora');
-                return redirect()->route('reservar-hora.index');
+                return redirect()->route('homeCliente');
             }else{
-                return back()->with('info','Cliente no existe.'); 
+                return back()->with('info','Intente nuevamente.'); 
             }
 
         } catch (\Throwable $th) {

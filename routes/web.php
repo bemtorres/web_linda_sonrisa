@@ -26,7 +26,16 @@ Route::get('logout-admin', ['as'=>'salirAdmin' , 'uses' => 'Autentificador\AuthA
 Route::get('logout-cliente','Autentificador\AuthClienteController@logout')->name('salirCliente');
 // HOME
 Route::get('home', function () { return view('home'); });
-Route::get('cliente-home', function () { return view('perfil_cliente.home'); });
+Route::get('cliente-home', function () { return view('perfil_cliente.home'); })->name('homeCliente');
+
+//perfil
+    //Cliente
+Route::get('cliente-perfil', function () { return view('perfil_cliente.perfil'); })->name('homePerfil');
+Route::get('cliente-cambio', function () { return view('perfil_cliente.cambio'); })->name('homeCambio');
+
+//CambiarContraseña
+    //Cliente
+Route::post('cliente-cambio/cambio/{id}', 'ClienteController@cambiarClave' )->name('homeCambio.cambiar');
 
 
 // Resources

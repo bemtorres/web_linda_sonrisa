@@ -165,4 +165,42 @@ class ClienteController extends Controller
     {
         //
     }
+
+
+    public function cambiarClave(Request $request, $id)
+    {
+       
+        // return $id;
+        try {
+
+            $cliente = Cliente::findOrFail($id);
+            $pass1 =  $request->input('password1');
+            $pass2 =  $request->input('password2');
+            $pass3 =  $request->input('password3');
+            
+            $p  = $cliente->password;
+            $p1 = hash('sha256',$pass1);
+            if($p1 == $p){
+                if($pass2==$pass3){
+                    $p2 =  hash('sha256',$pass2);
+                    if($p1!=$p2){
+                        $cliente->password = $p2;        
+                        $cliente->update();   
+                    }else{
+                        return back()->with('info','La contraseña son las mismas.'); 
+                    }
+                }else{
+                    return back()->with('info','La contraseña nueva no coinciden.'); 
+                }
+            }else{
+                return back()->with('info','La contraseña actual no coinciden.'); 
+            }           
+        } catch (\Throwable $th) {
+            // return $th;
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+            
+        return redirect()->route('homeCambio')->with('success','Se ha cambiado la contraseña');
+       
+    }
 }

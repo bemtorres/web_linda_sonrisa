@@ -88,9 +88,9 @@
 								</li>
 								<li>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Mi perfil</a>
+									<a class="dropdown-item" href="{{ route('homePerfil') }}">Mi perfil</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Cambiar Contraseña</a>
+									<a class="dropdown-item" href="{{ route('homeCambio')}}">Cambiar Contraseña</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="{{ route('salirCliente') }}">Salir</a>
 								</li>
@@ -126,12 +126,12 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="#profile">
+										<a href="{{ route('homePerfil') }}">
 											<span class="link-collapse btn btn-block btn-success text-white">Mi Perfil</span>
 										</a>
 									</li>
 									<li>
-										<a href="#edit">
+										<a href="{{ route('homeCambio') }}">
 											<span class="link-collapse btn btn-block btn-warning text-white">Cambio de Contraseña</span>
 										</a>
 									</li>

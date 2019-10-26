@@ -22,6 +22,8 @@ class Reservar_hora extends Model
         return $this->belongsTo(Ficha_cliente::class,'id_ficha_cliente');
     }
 
-  
+    public function odontologo(){
+        return $this->belongsTo(Odontologo::class,'id_odontologo');
+    }
     
 }

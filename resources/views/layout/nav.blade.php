@@ -1,5 +1,10 @@
+@php
+    function activar($url){
+        return request()->is($url) ? 'active' : '';
+    }
+@endphp
 <ul class="nav">
-    <li class="nav-item active">
+    <li class="nav-item {{ activar('home') }}">
         <a href="/home">
             <i class="fas fa-home"></i>
             <p>home</p>
