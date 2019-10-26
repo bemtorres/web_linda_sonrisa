@@ -116,7 +116,9 @@ class ClienteController extends Controller
         }
         $cliente->update();
         $regiones = Region::get();
-        return view('clientes.edit' , compact('cliente','regiones')); 
+
+        return redirect()->route('cliente.edit', $cliente->id_ficha_cliente);
+        // return view('clientes.edit' , compact('cliente','regiones')); 
     }
 
     /**
@@ -128,7 +130,29 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        // return $id;
+        try {
+
+            $cliente = Cliente::findOrFail($id);
+            $cliente->run = $request->input('run');
+            $cliente->username = $cliente->run; 
+            // $c->password = bcrypt('12345');
+            $cliente->password =  hash('sha256',12345);
+            $cliente->nombres = $request->input('nombres');
+            $cliente->apellidos = $request->input('apellidos');
+            $cliente->telefono = $request->input('telefono');
+            $cliente->correo = $request->input('correo');
+            $cliente->id_comuna = $request->input('id_comuna');
+            $cliente->direccion = $request->input('direccion');
+            $cliente->update();   
+        } catch (\Throwable $th) {
+            // return $th;
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+            
+        return redirect()->route('cliente.edit', $cliente->id_ficha_cliente);
+       
     }
 
     /**

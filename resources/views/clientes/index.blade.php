@@ -57,11 +57,11 @@
 										@if ($c->bloqueo==1)
 											<td> <span class="rounded bg-danger btn-sm text-white">Pendientes de documentos</span> </td>
 										@else
-											<td> <span class="rounded bg-success text-white">Habilitado</span> </td>
+											<td> <span class="rounded bg-success btn-sm text-white">Habilitado</span> </td>
 										@endif
 										<td>
 											<a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
-											<a href="{{ route('cliente.documento', $c->id_ficha_cliente) }}" class="btn btn-warning"><i class="fa fa-file"></i></a>
+											<a href="{{ route('cliente.documento', $c->id_ficha_cliente) }}" class="btn btn-warning"><i class="fas fa-file-pdf"></i></a>
 										</td>
 									</tr>
 									@endforeach

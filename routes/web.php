@@ -18,6 +18,9 @@ Route::get('login-admin',[ 'as' => 'loginAdmin' ,  function () { return view('au
 // Iniciar sesion
 Route::post('loginEmpleado',[ 'as' => 'loginEmpleado' , 'uses' => 'Autentificador\AuthAdminController@login']);
 Route::post('loginSocio',[ 'as' => 'loginSocio' , 'uses' => 'Autentificador\AuthClienteController@login']);
+// Recuperar
+Route::get('recuperar-empleado',function () { return view('auth.recuperar-empleado'); })->name('recuperarEmpleado');
+Route::get('recuperar-cliente', function () { return view('auth.recuperar-cliente'); })->name('recuperarCliente');
 // Cerrar sesion
 Route::get('logout-admin', ['as'=>'salirAdmin' , 'uses' => 'Autentificador\AuthAdminController@logout']);
 Route::get('logout-cliente','Autentificador\AuthClienteController@logout')->name('salirCliente');

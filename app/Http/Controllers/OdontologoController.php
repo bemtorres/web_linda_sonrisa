@@ -40,7 +40,9 @@ class OdontologoController extends Controller
         $o = new Odontologo;        
         $o->run = $request->input('run');
         $o->username = $o->run; 
-        $o->password = bcrypt('12345');
+        // $o->password = bcrypt('12345');
+        
+        $o->password = hash('sha256',12345);
         $o->nombres = $request->input('nombres');
         $o->apellidos = $request->input('apellidos');
         $o->telefono = $request->input('telefono');

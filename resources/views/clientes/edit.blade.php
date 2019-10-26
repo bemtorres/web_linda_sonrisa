@@ -1,7 +1,9 @@
 @extends('layout.layout')
 
 @section('contenido')
-
+@php
+	$comuna = App\Modelo\Comuna::get();
+@endphp
 <script>
     function validarRut(string) {//solo letras y numeros
       var out = '';
@@ -41,9 +43,11 @@
 									<div class="card-title">Formulario de Edición Cliente</div>
 								</div>
 							
-								<form action="{{ route('cliente.store') }}" method="post">
+								<form action="{{ route('cliente.update', $cliente->id_ficha_cliente) }}" method="post">
 									<div class="card-body">
 										{!! csrf_field() !!}
+										{!! method_field('PUT') !!}
+										
 										<div class="form-group">
 											<label for="text1">Run</label>
 											<input type="text" class="form-control" id="text1" name="run" value="{{ $cliente->run }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
@@ -67,7 +71,7 @@
 										</div>
 										<div class="form-group">
 												<label for="exampleFormControlSelect1">Región</label>
-												<select class="form-control" id="id_region" name="id_region" onChange="CargarComuna()" required>
+												<select class="form-control" id="id_region" name="id_region" required>
 													@foreach ($regiones as $r)	
 														@if ($r->id_region==$cliente->comuna->region->id_region)
 															<option selected value="{{ $r->id_region }}">{{ $r->nombre_region }}</option>
@@ -80,10 +84,14 @@
 										<div class="form-group">
 											<label for="exampleFormControlSelect1">Comuna</label>
 											<select class="form-control" id="id_comuna" name="id_comuna" required>
-												{{-- <option class="disabled">Seleccione una comuna</option>
+												<option class="disabled">Seleccione una comuna</option>
 												@foreach ($comuna as $c)	
-												<option value="{{ $c->id_comuna }}">{{ $c->nombre_comuna }}</option>
-												@endforeach --}}
+													@if ($c->id_comuna==$cliente->id_comuna)
+														<option selected value="{{ $c->id_comuna }}">{{ $c->nombre_comuna }}</option>
+													@else
+														<option value="{{ $c->id_comuna }}">{{ $c->nombre_comuna }}</option>
+													@endif													
+												@endforeach
 											</select>
 										</div>	
 										<div class="form-group">
@@ -127,7 +135,7 @@
 			</div>
 	
 @stop
-@section('scripts')
+{{-- @section('scripts')
 	<script>
 		CargarComuna();
         function CargarComuna() {
@@ -152,5 +160,5 @@
             });
         }
    
-    </script>
-@stop
+    </script> --}}
+{{-- @stop --}}

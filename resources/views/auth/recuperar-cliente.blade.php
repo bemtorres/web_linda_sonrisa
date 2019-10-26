@@ -62,27 +62,18 @@
 				<form action="{{ route('loginSocio') }}" method="POST">
 					{!! csrf_field() !!}
 					<div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
+						<h3>Recuperar Contraseña</h3>
 						<label for="username" class="placeholder"><b>RUT</b></label>
 						<input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
 										
 						{!! $errors->first('username', '<span class="help-block">:message</span>') !!}
-					</div>
-					<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-						<label for="password" class="placeholder"><b>Contraseña</b></label>
-						<div class="position-relative">
-							<input id="password" name="password" type="password" class="form-control" placeholder="*********" autocomplete="off" required>
-							<div class="show-password">
-								<i class="flaticon-interface"></i>
-							</div>
-						</div>
-						{!! $errors->first('password', '<span class="help-block">:message</span>') !!}
-					</div>
+					</div>				
 					<div class="form-group form-action-d-flex mb-3">
 						<div class="custom-control custom-checkbox">
 							{{-- <input type="checkbox" class="custom-control-input" id="rememberme"> --}}
 							{{-- <label class="custom-control-label m-0" for="rememberme">Recuerdame</label> --}}
 						</div>
-						<button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Iniciar Sesión</button>
+						<button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Enviar</button>
 						{{-- <a href="{{ route('login') }}" >Iniciar Sesión</a> --}}
 					</div>
 				</form>
@@ -92,9 +83,7 @@
 				</div> --}}
 				<div class="login-account">
 					{{-- <span class="msg">Don't have an account yet ?</span> --}}
-					<a href="{{ route('recuperarCliente') }}" class="link float-right">¿Has olvidado tu contraseña?</a>
-					
-					<a href="/" id="show-signup" class="link">Volver</a>
+					<a href="/login-cliente" id="show-signup" class="link">Volver</a>
 				</div>
 			</div>
 		</div>

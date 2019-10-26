@@ -55,13 +55,13 @@
 					@endif
 					<div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
 						<label for="username" class="placeholder"><b>Nombre de usuario</b></label>
-						<input id="username" name="username" type="text" value="{{ old('username')  }}" class="form-control" autofocus required>
+						<input id="username" name="username" type="text"  placeholder="Ingresa tu nombre de usuario"  value="{{ old('username')  }}" class="form-control" autofocus required>
 						{!! $errors->first('username', '<span class="help-block">:message</span>') !!}
 					</div>
 					<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
 						<label for="password" class="placeholder"><b>Contraseña</b></label>
 						<div class="position-relative">
-							<input id="password" name="password" type="password" autocomplete="off" class="form-control" required>
+							<input id="password" name="password" type="password" placeholder="***************" autocomplete="off" class="form-control" required>
 							<div class="show-password">
 								<i class="flaticon-interface"></i>
 							</div>
@@ -86,7 +86,7 @@
 				<div class="login-account">
 					{{-- <span class="msg">Don't have an account yet ?</span> --}}
 					<a href="/" id="show-signup" class="link">Volver</a>
-					<a href="#" class="link float-right">¿Has olvidado tu contraseña?</a>
+					<a href="{{ route('recuperarEmpleado') }}" class="link float-right">¿Has olvidado tu contraseña?</a>
 					
 				</div>
 			</div>

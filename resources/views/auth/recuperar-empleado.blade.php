@@ -27,8 +27,8 @@
 		height: 100%;
 		/* min-height: 35rem; */
 		padding: 15rem 0;
-		background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.1)), color-stop(75%, rgba(22, 22, 22, 0.5)), to(#161616)), url("/assets_home/images/bg-fondo.jpg");
-		background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url("/assets_home/images/bg-fondo.jpg");
+		background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.1)), color-stop(75%, rgba(22, 22, 22, 0.5)), to(#161616)), url("/assets_home/images/bg_2.jpg");
+		background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url("/assets_home/images/bg_2.jpg");
 		background-position: center;
 		background-repeat: no-repeat;
 		background-attachment: scroll;
@@ -36,18 +36,6 @@
 	}
 
 	</style>
-	<script>
-			function validarRut(string) {//solo letras y numeros
-			  var out = '';
-			  //Se añaden las letras validas
-			  var filtro = '1234567890Kk';//Caracteres validos
-		
-			  for (var i = 0; i < string.length; i++)
-				if (filtro.indexOf(string.charAt(i)) != -1)
-				  out += string.charAt(i).toUpperCase();
-			  return out;
-			}   
-		  </script>
 </head>
 <body class="login">
 	<div class="wrapper  imgFondo wrapper-login ">
@@ -61,28 +49,20 @@
 			<div class="login-form">
 				<form action="{{ route('loginSocio') }}" method="POST">
 					{!! csrf_field() !!}
-					<div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
-						<label for="username" class="placeholder"><b>RUT</b></label>
-						<input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
+					<div class="form-group {{ $errors->has('correo') ? 'has-error' : '' }}">
+						<h3>Recuperar Contraseña</h3>
+						<label for="username" class="placeholder"><b>Correo Electrónico</b></label>
+						<input type="email" class="form-control" id="correo" name="correo" value="{{ old('correo') }}" placeholder="" maxlength="9" required>
 										
-						{!! $errors->first('username', '<span class="help-block">:message</span>') !!}
-					</div>
-					<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-						<label for="password" class="placeholder"><b>Contraseña</b></label>
-						<div class="position-relative">
-							<input id="password" name="password" type="password" class="form-control" placeholder="*********" autocomplete="off" required>
-							<div class="show-password">
-								<i class="flaticon-interface"></i>
-							</div>
-						</div>
-						{!! $errors->first('password', '<span class="help-block">:message</span>') !!}
-					</div>
-					<div class="form-group form-action-d-flex mb-3">
+						{!! $errors->first('correo', '<span class="help-block">:message</span>') !!}
+					</div>				
+					<div class="form-group form-action-d-flex mb-3">						
+						<a href="/login-admin" class="btn btn-danger fw-bold pull-left">Volver</a>
 						<div class="custom-control custom-checkbox">
 							{{-- <input type="checkbox" class="custom-control-input" id="rememberme"> --}}
 							{{-- <label class="custom-control-label m-0" for="rememberme">Recuerdame</label> --}}
 						</div>
-						<button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Iniciar Sesión</button>
+						<button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Enviar</button>
 						{{-- <a href="{{ route('login') }}" >Iniciar Sesión</a> --}}
 					</div>
 				</form>
@@ -91,10 +71,7 @@
 					<a href="#" class="btn btn-primary btn-rounded btn-login">Sign In</a>
 				</div> --}}
 				<div class="login-account">
-					{{-- <span class="msg">Don't have an account yet ?</span> --}}
-					<a href="{{ route('recuperarCliente') }}" class="link float-right">¿Has olvidado tu contraseña?</a>
 					
-					<a href="/" id="show-signup" class="link">Volver</a>
 				</div>
 			</div>
 		</div>
