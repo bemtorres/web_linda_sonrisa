@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Modelo\Servicio;
+use App\Modelo\Detalle_servicio as Detalle;
+
 class DetalleServicioController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +40,14 @@ class DetalleServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $d = new Detalle();
+        $d->id_servicio = $request->input('id_servicio');
+        $d->id_producto = $request->input('id_producto');
+        $d->cantidad = $request->input('cantidad');
+        $d->save();
+        return redirect()->route('servicio.ver',$d->id_servicio)->with('success','Se ha agregado');
+        // route('servicio.ver', $s->id_servicio)
+        // return $request;
     }
 
     /**
@@ -48,6 +61,7 @@ class DetalleServicioController extends Controller
         //
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -68,7 +82,15 @@ class DetalleServicioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $d = Detalle::findOrFail($id);
+            $d->cantidad = $request->input('cantidad');
+            $d->update();
+            return back()->with('success',"Se ha eliminado"); 
+        } catch (\Throwable $th) {
+            return back()->with('info',"No se ha eliminado"); 
+        }
+       
     }
 
     /**
@@ -79,6 +101,14 @@ class DetalleServicioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $d = Detalle::findOrFail($id)->delete();
+            return back()->with('success',"Se ha eliminado"); 
+        } catch (\Throwable $th) {
+            return back()->with('info',"No se ha eliminado"); 
+        }
+       
     }
+
+  
 }

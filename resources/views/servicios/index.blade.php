@@ -151,37 +151,36 @@
 												
 											<!-- Modal -->
 											<div class="modal fade" id="modal{{ $s->id_servicio }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													<div class="modal-dialog" role="document">
+												<div class="modal-dialog" role="document">
 													<div class="modal-content">
 														<div class="modal-header">
-														<h5 class="modal-title" id="exampleModalLabel">Actualizar Servicio</h5>
-														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<h5 class="modal-title" id="exampleModalLabel">Actualizar Servicio</h5>
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">&times;</span>
-														</button>
+															</button>
 														</div>
 														<form action="{{ route('servicio.update' ,  $s->id_servicio) }}" method="post">
-																<div class="modal-body">		
-																	<div class="card-body">
-																		{!! csrf_field() !!}
-																		{!! method_field('PUT') !!}
-																		<div class="form-group">
-																			<label for="text1">Nombre Servicio</label>
-																			<input type="text" class="form-control" id="text1" name="nombre_servicio" value="{{  $s->nombre_servicio }}" required>
-																		
-																			{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-																		</div>
-																		<input type="check" class="hidden" hidden id="text1" name="mostrar" value="1" required>
-									
+															<div class="modal-body">		
+																<div class="card-body">
+																	{!! csrf_field() !!}
+																	{!! method_field('PUT') !!}
+																	<div class="form-group">
+																		<label for="text1">Nombre Servicio</label>
+																		<input type="text" class="form-control" id="text1" name="nombre_servicio" value="{{  $s->nombre_servicio }}" required>
+																	
+																		{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 																	</div>
+																	<input type="check" class="hidden" hidden id="text1" name="mostrar" value="1" required>
 																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-																	<button type="submit" class="btn btn-primary">Guardar Cambios</button>
-																</div>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+																<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+															</div>
 														</form>
 													</div>
-													</div>
 												</div>
+											</div>
 										</td>									
 									</tr>
 									@endforeach

@@ -61,7 +61,7 @@
 										<td>{{ $p->stock }}</td>
 										<td>{{ $p->stock_critico }}</td>
 										<td>
-											<a href="" class="btn btn-success"><i class="fa fa-edit"></i></a>
+											<a href="{{ route('producto.edit', $p->id_producto ) }}" class="btn btn-success"><i class="fa fa-edit"></i></a>
 											<a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 										</td>
 									</tr>

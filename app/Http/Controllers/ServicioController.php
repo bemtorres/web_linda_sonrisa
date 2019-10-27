@@ -114,14 +114,11 @@ class ServicioController extends Controller
     {
         try {
             $servicio = Servicio::findOrFail($id);
-            $detalles = Detalle::get()->where('id_servicio',$id); 
-            $productos = Producto::get();
         } catch (\Throwable $th) {
             return back()->with('info','Error intente nuevamente.'); 
         }
-        
-        
-        return view('servicios.detalles.detalle',compact('servicio','detalles','productos'));
+                
+        return view('servicios.detalles.index',compact('servicio'));
     }
 
     /**

@@ -70,6 +70,19 @@ class ProductoController extends Controller
         //
     }
 
+    public function buscarProducto($id)
+    {
+        try {
+            //code...
+            $p = Producto::findOrFail($id);
+            return $p;
+        } catch (\Throwable $th) {
+            return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra.'])],404);
+        }
+                  
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -78,7 +91,10 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $p = Producto::findOrFail($id);
+        $tipos = Tipo::get();
+        $familias = Familia::get();
+        return view('productos.edit',compact('tipos','familias','p'));
     }
 
     /**
@@ -90,7 +106,21 @@ class ProductoController extends Controller
      */
     public function update(ProductoRequest $request, $id)
     {
-        //
+        // return $request;
+        try {
+            $p = Producto::findOrFail($id);
+            $p->nombre_producto = $request->input('nombre_producto');
+            $p->descripcion = $request->input('descripcion');
+            $p->id_familia = $request->input('id_familia');
+            $p->id_tipo_producto = $request->input('id_tipo_producto');
+            $p->stock = $request->input('stock');
+            $p->stock_critico = $request->input('stock_critico');
+            $p->update();
+            // return redirect()->route('producto.edit',$id);
+            return back()->with('success',"Se ha actualizado"); 
+        } catch (\Throwable $th) {
+            return back()->with('info',"Error intente nuevamente"); 
+        }
     }
 
     /**

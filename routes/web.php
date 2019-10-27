@@ -50,7 +50,11 @@ Route::resource('familia','FamiliaController');
 Route::resource('tipoproducto','TipoProductoController');
 Route::resource('producto','ProductoController');
 Route::resource('servicio','ServicioController');
+Route::resource('detalleservicio','DetalleServicioController');
+
 Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
+//Servicios
+    //ver
 Route::get('servicio/detalles/{id}','ServicioController@verServicios')->name('servicio.ver');
 
 Route::resource('reservar-hora','ReservarHoraController');
@@ -62,6 +66,8 @@ Route::get('comunas/{id}','ComunaController@buscar');
 //     return view('prueba.index');
 // });
 Route::get('verhorario/fecha/{fecha}','ReservarHoraController@horasDisponibles');
+Route::get('detalleservicios/cantidad/producto/{id}','ProductoController@buscarProducto');
+
 
 Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
 Route::get('documento/eliminar/{id}' ,'DetalleDocumentoController@eliminar')->name('documento.eliminar');
