@@ -21,12 +21,11 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-								<div class="d-flex align-items-center">
-									<h4 class="card-title">Tabla de Proveedores</h4>
-									<a href="{{ route('proveedor.create') }}" class="btn btn-info btn-round ml-auto"><i class="fa fa-plus"> Nuevo Proveedor</i></a>
-								
-								</div>
-							</div>
+						<div class="d-flex align-items-center">
+							<h4 class="card-title">Tabla de Proveedores</h4>
+							<a href="{{ route('proveedor.create') }}" class="btn btn-primary btn-round ml-auto " ><i class="fa fa-plus"></i> Nuevo Proveedor</a>
+						</div>
+					</div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="basic-datatables" class="display table table-striped table-hover" >

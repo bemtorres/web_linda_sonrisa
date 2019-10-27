@@ -2,6 +2,9 @@
     function activar($url){
         return request()->is($url) ? 'active' : '';
     }
+    function show($url){
+        return request()->is($url) ? 'show' : '';
+    }
 @endphp
 <ul class="nav">
     <li class="nav-item {{ activar('home') }}">
@@ -17,15 +20,15 @@
         </span>
         <h4 class="text-section">Sistema</h4>
     </li>
-    <li class="nav-item">
-        <a data-toggle="collapse" href="#base1">
+    <li class="nav-item  {{ activar('cliente*') }}">
+        <a data-toggle="collapse" href="#base1"  >
             <i class="fas fa-user"></i>
             <p>Cliente</p>
             <span class="caret"></span>
         </a>
-        <div class="collapse" id="base1">
+        <div class="collapse {{ show('cliente*') }}" id="base1">
             <ul class="nav nav-collapse">								
-                <li>
+                <li class=" {{ activar('cliente*') }}">
                     <a href="{{ route('cliente.index') }}">
                         <span class="sub-item">Clientes</span>
                     </a>
@@ -43,31 +46,31 @@
             </ul>
         </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ activar('odontologo*') }}{{ activar('empleado*') }}{{ activar('proveedor*') }}{{ activar('administrador*') }}">
         <a data-toggle="collapse" href="#base">
             <i class="fas fa-users"></i>
             <p>Usuarios</p>
             <span class="caret"></span>
         </a>
-        <div class="collapse" id="base">
+        <div class="collapse {{ show('odontologo*') }}{{ show('empleado*') }}{{ show('proveedor*') }}{{ show('administrador*') }}" id="base">
             <ul class="nav nav-collapse">								
-                <li>
+                <li class="{{ activar('odontologo*')}}">
                     <a href="{{ route('odontologo.index') }}">
                         <span class="sub-item">Odontólogos</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ activar('empleado*')}}">
                     <a href="{{ route('empleado.index') }}">
                         <span class="sub-item">Empleados</span>
                     </a>
                 </li>
               
-                <li>
+                <li class="{{ activar('proveedor*')}}">
                     <a href="{{ route('proveedor.index') }}">
                         <span class="sub-item">Proveedores</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ activar('administrador*')}}">
                     <a href="{{ route('administrador.index') }}">
                         <span class="sub-item">Administradores</span>
                     </a>
@@ -96,30 +99,30 @@
                 </ul>
             </div>
         </li>
-    <li class="nav-item">
+    <li class="nav-item {{ activar('servicio*') }}{{ activar('producto*') }}{{ activar('tipoproducto*') }}{{ activar('familia*') }}">
         <a data-toggle="collapse" href="#charts1">
             <i class="fa fa-barcode"></i>
             <p>Servicios</p>
             <span class="caret"></span>
         </a>
-        <div class="collapse" id="charts1">
+        <div class="collapse {{ show('servicio*') }}{{ show('producto*') }}{{ show('tipoproducto*') }}{{ show('familia*') }}" id="charts1">
             <ul class="nav nav-collapse">
-                <li>
+                <li class=" {{ activar('servicio*') }}">
                     <a href="{{ route('servicio.index') }}">
                         <span class="sub-item">Servicios</span>
                     </a>
                 </li>
-                <li>
+                <li class=" {{ activar('producto*') }}">
                     <a href="{{ route('producto.index') }}">
                         <span class="sub-item">Productos</span>
                     </a>
                 </li>
-                <li>
+                <li class=" {{ activar('tipoproducto*') }}">
                     <a href="{{ route('tipoproducto.index') }}">
                         <span class="sub-item">Tipos de productos</span>
                     </a>
                 </li>
-                <li>
+                <li  class=" {{ activar('familia*') }}">
                     <a href="{{ route('familia.index') }}">
                         <span class="sub-item">Familias de productos</span>
                     </a>

@@ -73,7 +73,9 @@
 										</div>				
 									</div>
 									<div class="card-action">
-										<button type="submit" class="btn btn-success pull-rigth">Agregar</button>
+										<a href="{{ route('producto.index') }}" class="btn btn-danger">Volver</a>
+							
+										<button type="submit" class="btn btn-success pull-right">Agregar</button>
 									</div>
 								</form>
 							</div>							

@@ -30,10 +30,15 @@ class AuthClienteController extends Controller
 
             if($c->password==$pass){
                 // return $c;
-                Auth::guard('cliente')->loginUsingId($c->id_ficha_cliente);
-                // $servicios = Servicio::get();
-                // return redirect('solicitud-hora');
-                return redirect()->route('homeCliente');
+                if($c->bloqueo==0){
+                    Auth::guard('cliente')->loginUsingId($c->id_ficha_cliente);
+                    // $servicios = Servicio::get();
+                    // return redirect('solicitud-hora');
+                    return redirect()->route('homeCliente');
+                }else{
+                    return back()->with('info','Cliente bloqueado. <br> Comuniquese con <strong>LindaSonrisa</strong> para saber los motivos.'); 
+                }
+                
             }else{
                 return back()->with('info','Intente nuevamente.'); 
             }

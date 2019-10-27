@@ -48,10 +48,7 @@
 									{{-- <label for="text1">Apellidos</label> --}}
 									<input type="file" name="archivo" class="form-control-file" accept="application/pdf" required >
 									{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-								</div>
-								
-							
-											
+								</div>											
 							</div>
 							<div class="card-action">
 								<a href="{{ route('cliente.index') }}" class="btn btn-danger">Volver</a>

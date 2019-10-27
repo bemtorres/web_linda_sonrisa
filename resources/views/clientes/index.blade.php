@@ -22,8 +22,7 @@
 					<div class="card-header">
 								<div class="d-flex align-items-center">
 									<h4 class="card-title">Tabla de Beneficiados</h4>
-									<a href="{{ route('cliente.create') }}" class="btn btn-info btn-round ml-auto"><i class="fa fa-plus">Nuevo Beneficiado</i></a>
-								
+									<a href="{{ route('cliente.create') }}" class="btn btn-primary btn-round ml-auto " ><i class="fa fa-plus"></i> Nuevo Beneficiado</a>
 								</div>
 							</div>
 					<div class="card-body">

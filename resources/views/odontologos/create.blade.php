@@ -70,8 +70,9 @@
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>				
 									</div>
-									<div class="card-action">
-										<button type="submit" class="btn btn-success pull-rigth">Agregar</button>
+									<div class="card-action">	
+										<a href="{{ route('odontologo.index') }}" class="btn btn-danger">Volver</a>
+										<button type="submit" class="btn btn-success pull-right">Agregar</button>
 									</div>
 								</form>
 							</div>							

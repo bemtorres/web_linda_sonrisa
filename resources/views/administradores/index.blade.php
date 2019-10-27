@@ -23,8 +23,7 @@
 					<div class="card-header">
 								<div class="d-flex align-items-center">
 									<h4 class="card-title">Tabla de Administradores</h4>
-									<a href="{{ route('administrador.create') }}" class="btn btn-info btn-round ml-auto"><i class="fa fa-plus"> Nuevo Administrador</i></a>
-								
+									<a href="{{ route('administrador.create') }}" class="btn btn-primary btn-round ml-auto " ><i class="fa fa-plus"></i> Nuevo Administrador</a>
 								</div>
 							</div>
 					<div class="card-body">

@@ -63,6 +63,7 @@
 										</div>	
 									</div>
 									<div class="card-action">
+										<a href="{{ route('proveedor.index') }}" class="btn btn-danger">Volver</a>
 										<button type="submit" class="btn btn-success pull-right">Agregar</button>
 										<br>
 									</div>

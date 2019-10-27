@@ -23,7 +23,7 @@
 						<div class="d-flex align-items-center">
 							<h4 class="card-title">Tabla de Tipos de Productos</h4>
 							<button type="button" class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#exampleModal">
-								<i class="fa fa-plus"></i>Agregar Tipo Producto
+								<i class="fa fa-plus"></i> Agregar Tipo Producto
 							</button>
 						</div>
 						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

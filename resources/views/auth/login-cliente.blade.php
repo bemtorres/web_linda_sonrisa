@@ -55,7 +55,7 @@
 			<center><img src="/assets/img/IMG1.png" width="50%" class="animated bounce text-center" alt="" srcset=""></center>
 			@if (session('info'))
 				<div class="alert alert-danger">
-					{{ session('info') }}
+					{!! session('info') !!}
 				</div>
 			@endif
 			<div class="login-form">

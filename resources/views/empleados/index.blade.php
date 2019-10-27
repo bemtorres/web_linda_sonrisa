@@ -23,8 +23,7 @@
 					<div class="card-header">
 								<div class="d-flex align-items-center">
 									<h4 class="card-title">Tabla de Empleados</h4>
-									<a href="{{ route('empleado.create') }}" class="btn btn-info btn-round ml-auto"><i class="fa fa-plus"> Nuevo Empleado</i></a>
-								
+									<a href="{{ route('empleado.create') }}" class="btn btn-primary btn-round ml-auto " ><i class="fa fa-plus"></i> Nuevo Empleado</a>
 								</div>
 							</div>
 					<div class="card-body">
