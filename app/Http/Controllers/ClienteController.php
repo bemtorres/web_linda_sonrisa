@@ -117,7 +117,8 @@ class ClienteController extends Controller
         $cliente->update();
         $regiones = Region::get();
 
-        return redirect()->route('cliente.edit', $cliente->id_ficha_cliente);
+        return back()->with('success','Se ha actualizado.'); 
+        // return redirect()->route('cliente.edit', $cliente->id_ficha_cliente);
         // return view('clientes.edit' , compact('cliente','regiones')); 
     }
 
@@ -150,8 +151,8 @@ class ClienteController extends Controller
             // return $th;
             return back()->with('info','Error intente nuevamente.'); 
         }
-            
-        return redirect()->route('cliente.edit', $cliente->id_ficha_cliente);
+        return back()->with('success','Se ha actualizado.'); 
+        // return redirect()->route('cliente.edit', $cliente->id_ficha_cliente);
        
     }
 
