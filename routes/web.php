@@ -52,6 +52,7 @@ Route::resource('producto','ProductoController');
 Route::resource('servicio','ServicioController');
 Route::resource('detalleservicio','DetalleServicioController');
 Route::resource('detalleproveedor','DetalleProveedorController');
+Route::resource('ordenempleado','OrdenEmpleadoController');
 
 Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
 //Servicios
@@ -71,6 +72,7 @@ Route::get('comunas/{id}','ComunaController@buscar');
 // });
 Route::get('verhorario/fecha/{fecha}','ReservarHoraController@horasDisponibles');
 Route::get('detalleservicios/cantidad/producto/{id}','ProductoController@buscarProducto');
+Route::get('generarcodigo','OrdenEmpleadoController@code')->name('generarCodigo');
 
 
 Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
