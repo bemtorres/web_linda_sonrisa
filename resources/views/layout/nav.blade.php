@@ -87,7 +87,7 @@
             <div class="collapse" id="soli">
                 <ul class="nav nav-collapse">
                     <li>
-                        <a href="">
+                        <a href="{{ route('ordenempleado.index')}}">
                             <span class="sub-item">Solicitudes</span>
                         </a>
                     </li>
