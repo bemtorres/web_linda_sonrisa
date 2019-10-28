@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaDetalleServicio extends Migration
+class CrearTableDetalleProveedor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CrearTablaDetalleServicio extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_servicio', function (Blueprint $table) {
-            $table->bigIncrements('id_detalle_servicio');
+        Schema::create('detalle_proveedor', function (Blueprint $table) {
+            $table->bigIncrements('id_detalle_proveedor');
             $table->integer('id_producto');
-            $table->integer('id_servicio');
-            $table->integer('cantidad');
+            $table->integer('id_ficha_proveedor');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CrearTablaDetalleServicio extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_servicio');
+        Schema::dropIfExists('detalle_proveedor');
     }
 }

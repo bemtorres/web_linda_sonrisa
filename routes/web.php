@@ -51,11 +51,15 @@ Route::resource('tipoproducto','TipoProductoController');
 Route::resource('producto','ProductoController');
 Route::resource('servicio','ServicioController');
 Route::resource('detalleservicio','DetalleServicioController');
+Route::resource('detalleproveedor','DetalleProveedorController');
 
 Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
 //Servicios
-    //ver
+    //Ver Productos
 Route::get('servicio/detalles/{id}','ServicioController@verServicios')->name('servicio.ver');
+//Proveedor
+    //Ver Productos
+Route::get('proveedor/detalles/{id}','DetalleProveedorController@verProductos')->name('proveedor.ver');
 
 Route::resource('reservar-hora','ReservarHoraController');
 Route::get('cliente-historial','ReservarHoraController@historial')->name('cliente.historial');

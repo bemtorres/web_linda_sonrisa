@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Modelo\Ficha_proveedor as Proveedor;
 use Illuminate\Http\Request;
+// use App\Modelo\Servicio;
+use App\Modelo\Detalle_proveedor as Detalle;
+use App\Modelo\Ficha_proveedor as Proveedor;
 
-use App\Http\Requests\ValidarCreateProveedor as CreateProveedorRequest;
-
-class ProveedorController extends Controller
+class DetalleProveedorController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +17,7 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        $proveedores = Proveedor::all();        
-        return view('proveedores.index',compact('proveedores'));
+        //
     }
 
     /**
@@ -27,7 +27,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        return view('proveedores.create'); 
+        //
     }
 
     /**
@@ -36,20 +36,15 @@ class ProveedorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateProveedorRequest $request)
+    public function store(Request $request)
     {
-        $p = new Proveedor;        
-        $p->username = $request->input('username'); 
-        // $p->password = bcrypt('12345');
-        $p->password =  hash('sha256', $request->input('password'));
-        $p->nombre_empresa = $request->input('nombre_empresa');
-        $p->rubro = $request->input('rubro');
-        $p->telefono = $request->input('telefono');
-        $p->correo = $request->input('correo');
-        $p->activo = 1;
-        $p->bloqueo = 0;
-        $p->save(); 
-        return redirect()->route('proveedor.index');
+        $d = new Detalle();
+        $d->id_ficha_proveedor = $request->input('id_ficha_proveedor');
+        $d->id_producto = $request->input('id_producto');
+        $d->save();
+        return redirect()->route('proveedor.ver',$d->id_ficha_proveedor)->with('success','Se ha agregado');
+        // route('servicio.ver', $s->id_servicio)
+        // return $request;
     }
 
     /**
@@ -63,6 +58,7 @@ class ProveedorController extends Controller
         //
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,7 +67,7 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        return $id;
+        //
     }
 
     /**
@@ -82,8 +78,8 @@ class ProveedorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {    
+       
     }
 
     /**
@@ -94,7 +90,25 @@ class ProveedorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $d = Detalle::findOrFail($id)->delete();
+            return back()->with('success',"Se ha eliminado"); 
+        } catch (\Throwable $th) {
+            return back()->with('info',"No se ha eliminado"); 
+        }
+       
     }
- 
+
+    public function verProductos($id)
+    {
+        try {
+            $proveedor = Proveedor::findOrFail($id);
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+                
+        return view('proveedores.detalles.index',compact('proveedor'));
+    }
+
+    
 }
