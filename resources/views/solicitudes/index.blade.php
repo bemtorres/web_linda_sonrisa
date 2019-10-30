@@ -22,8 +22,29 @@
 					<div class="card-header">
 						<div class="d-flex align-items-center">
 							<h4 class="card-title">Tabla de Productos</h4>
-							<a href="{{ route('producto.create') }}" class="btn btn-primary btn-round ml-auto " ><i class="fa fa-plus"></i> Nuevo producto</a>
 						</div>
+						<div class="col-md-6">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Descripción</th>
+										<th>Color</th>
+									</tr>
+								</thead>
+								<tbody >
+									<tr>
+										<td><strong>Stock > 0 y Stock <= Stock Critico</strong></td>
+										<td class="bg-warning text-dark"><strong>Alerta se esta acabando</strong></td>
+									</tr>
+									<tr>
+										<td><strong>Stock <= 0</strong></td>
+										<td class="bg-danger text-white"><strong>No tenemos productos</strong></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						
 					
 					</div>
 					<div class="card-body">
@@ -49,6 +70,7 @@
 									
 										if($p->stock>0 && $p->stock<=$p->stock_critico){
 											$bg_color = "bg-warning";
+											$text_color = "text-white";
 										}	
 										if ($p->stock<=0) {
 											$bg_color = "bg-danger";

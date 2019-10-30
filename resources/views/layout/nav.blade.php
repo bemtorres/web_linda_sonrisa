@@ -78,24 +78,25 @@
             </ul>
         </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ activar('ordenempleado*') }}">
             <a data-toggle="collapse" href="#soli">
                 <i class="fa fa-file"></i>
                 <p>Solicitudes</p>
                 <span class="caret"></span>
             </a>
-            <div class="collapse" id="soli">
+            <div class="collapse {{ show('ordenempleado*') }} {{ show('ordenpedido*') }}" id="soli"> 
                 <ul class="nav nav-collapse">
-                    <li>
+                    <li class=" {{ activar('ordenempleado*') }}">
                         <a href="{{ route('ordenempleado.index')}}">
-                            <span class="sub-item">Solicitudes</span>
+                            <span class="sub-item">Monitoreo</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <span class="sub-item">Recepción de Productos</span>
+                    <li class=" {{ activar('ordenpedido*') }}">
+                        <a href="{{ route('ordenpedido.index')}}">
+                            <span class="sub-item">Solicitudes</span>
                         </a>
-                    </li>                  
+                    </li>                 
+                                  
                 </ul>
             </div>
         </li>

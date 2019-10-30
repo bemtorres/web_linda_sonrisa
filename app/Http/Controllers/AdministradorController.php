@@ -15,7 +15,7 @@ class AdministradorController extends Controller
      */
     public function index()
     {
-        $admins = Empleado::all()->where('id_tipo_empleado',1);        
+        $admins = Empleado::where('id_tipo_empleado',1)->get();        
         return view('administradores.index',compact('admins'));
     }
 

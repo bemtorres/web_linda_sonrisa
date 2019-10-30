@@ -190,6 +190,7 @@
 
             web = "{{request()->getHttpHost()}}" ;
             url = 'http://' + web + '/detalleservicios/cantidad/producto/' + id_producto;
+			
             fetch(url)
                 .then(resp=>{
                     return resp.json();

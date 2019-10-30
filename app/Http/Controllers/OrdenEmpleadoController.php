@@ -20,6 +20,12 @@ class OrdenEmpleadoController extends Controller
         return view('solicitudes.index',compact('productos'));
     }
 
+
+    public function nueva()
+    {
+        return view('solicitudes.create');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -49,7 +55,7 @@ class OrdenEmpleadoController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

@@ -53,6 +53,7 @@ Route::resource('servicio','ServicioController');
 Route::resource('detalleservicio','DetalleServicioController');
 Route::resource('detalleproveedor','DetalleProveedorController');
 Route::resource('ordenempleado','OrdenEmpleadoController');
+Route::resource('ordenpedido','DetalleOrdenController');
 
 Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
 //Servicios
@@ -65,14 +66,17 @@ Route::get('proveedor/detalles/{id}','DetalleProveedorController@verProductos')-
 Route::resource('reservar-hora','ReservarHoraController');
 Route::get('cliente-historial','ReservarHoraController@historial')->name('cliente.historial');
 
+//Orden Proveedores
+Route::get('orden/solicitud','OrdenEmpleadoController@nueva')->name('solicitud.nuevo');
 // FETCH
 Route::get('comunas/{id}','ComunaController@buscar');
 // Route::get('prueba', function(){
 //     return view('prueba.index');
 // });
-Route::get('verhorario/fecha/{fecha}','ReservarHoraController@horasDisponibles');
-Route::get('detalleservicios/cantidad/producto/{id}','ProductoController@buscarProducto');
-Route::get('generarcodigo','OrdenEmpleadoController@code')->name('generarCodigo');
+Route::get('verhorario/fecha/{fecha}','ReservarHoraController@horasDisponibles')->name('fetch.horaDisponible');
+Route::get('detalleservicios/cantidad/producto/{id}','ProductoController@buscarProducto')->name('fetch.buscarDatosProductos');
+Route::get('generarcodigo','OrdenEmpleadoController@code')->name('fetch.generarCodigo');
+Route::get('proveedor/productos/buscar/{id}','DetalleProveedorController@buscarProductosProveedor')->name('fetch.buscarProdcutosProveedor');
 
 
 Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
