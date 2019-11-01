@@ -38,3 +38,32 @@
 											</td>
 										</tr>
 										@endforeach
+
+
+
+
+//metodo post
+
+	function post(id){
+
+		const token = '{{ csrf_token() }}';
+		web = "{{request()->getHttpHost()}}" ;
+        url = 'http://' + web + '/metodo';
+		
+		fetch(url, {
+			method: 'post',
+			credentials: "same-origin",
+			headers: {
+				'Content-Type': 'application/json',
+				"X-CSRF-Token": token
+        	},
+			body: JSON.stringify({
+				key: id
+			})
+			}).then(response => {
+				return response.json();
+			}).then(text => {
+				return console.log(text);
+			}).catch(error => console.error(error));
+
+	}

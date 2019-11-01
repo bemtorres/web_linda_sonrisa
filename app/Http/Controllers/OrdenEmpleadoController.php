@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Modelo\Producto;
 use App\Modelo\Orden_empleado as Orden;
+use App\Modelo\Detalle_orden as Detalle;
 
 class OrdenEmpleadoController extends Controller
 {
@@ -93,6 +94,21 @@ class OrdenEmpleadoController extends Controller
     }
 
 
+
+    public function enviar($id)
+    {
+        try {
+            $o = Orden::findOrFail($id);
+            $o->enviado = 1;
+            $o->update();
+            return back()->with('success','Se ha enviado la solicitud código ' . $o->codigo ."." ); 
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+       
+        return $o;
+    }
+
     public function code(){
         $code = $this->generarCodigo(5);
         try {
@@ -112,4 +128,11 @@ class OrdenEmpleadoController extends Controller
         for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
         return $key;
     }
+
+    public function buscarProductosPedidoCodigo($id){        
+        $listado = Orden::join('Detalle_orden', 'Orden_empleado.id_orden_empleado', '=', 'Detalle_orden.id_orden_empleado')
+                        ->join('Producto', 'Detalle_orden.id_producto', '=', 'Producto.id_producto')->where('Orden_empleado.codigo',$id)->get();
+        return $listado;
+    }
+
 }

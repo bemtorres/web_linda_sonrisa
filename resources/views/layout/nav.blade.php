@@ -78,7 +78,7 @@
             </ul>
         </div>
     </li>
-    <li class="nav-item {{ activar('ordenempleado*') }}">
+    <li class="nav-item {{ activar('ordenempleado*') }}  {{ activar('ordenpedido*') }}">
             <a data-toggle="collapse" href="#soli">
                 <i class="fa fa-file"></i>
                 <p>Solicitudes</p>

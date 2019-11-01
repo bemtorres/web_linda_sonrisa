@@ -227,16 +227,20 @@ $detallesP = App\Modelo\Detalle_proveedor::get();
 				// alert('checked');
 				console.log("si");
 				input.setAttribute("required", true);
+				input.removeAttribute("disabled"); 
 			} else {
 				// alert('not checked');
 				console.log("no");
 				input.removeAttribute("required"); 
+				input.setAttribute("disabled", true);
 			}
 		})
 	}
 
 	function buscarProductos() {
-            var id_proveedor = document.getElementById('id_proveedor').value;
+			
+
+        var id_proveedor = document.getElementById('id_proveedor').value;
 			$('#id_ficha_proveedor').val(id_proveedor);
             web = "{{request()->getHttpHost()}}" ;
             url = 'http://' + web + '/proveedor/productos/buscar/' + id_proveedor;
@@ -255,7 +259,7 @@ $detallesP = App\Modelo\Detalle_proveedor::get();
 										"<input class=\"form-check-input\" name=\"listado[]\" type=\"checkbox\" id=\"check_"+value.id_producto+"\" onclick=\"checkRequiered(this.id)\" value=\""+value.id_producto+"\">"+
 											"<span class=\"form-check-sign\"></span></label></div>";
 							
-				    var input = "<input type=\"number\" class=\"form-control\" id=\"cantidad_"+value.id_producto+"\" name=\"cantidad"+value.id_producto+"\">";
+				    var input = "<input type=\"number\" disabled class=\"form-control\" id=\"cantidad_"+value.id_producto+"\" name=\"cantidad"+value.id_producto+"\">";
 						$('#table_nueva tbody').append(
 							'<tr><td>'+html+'</td><td>'+value.nombre_producto+'</td><td>'+value.stock+'/'+value.stock_critico+'</td><td>'+input+'</td></tr>'
 						)
@@ -266,7 +270,7 @@ $detallesP = App\Modelo\Detalle_proveedor::get();
             });
         }
 
-		
+	
 	
 </script>
 @stop
