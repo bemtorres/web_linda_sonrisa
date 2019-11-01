@@ -2,7 +2,11 @@
 	$nombreUsuario = "";
 	if (auth('empleado')->check()){
 		$nombreUsuario =  auth('empleado')->user()->nombres;
-	}    
+	}else{
+      header("Location: / ");
+      // header('Location: 404 ', true, 404);
+
+    }
 	
 
 	// if(Auth::guard('empleado')->check()){
