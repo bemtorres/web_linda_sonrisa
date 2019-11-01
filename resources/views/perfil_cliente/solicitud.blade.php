@@ -118,9 +118,9 @@
             var fecha = document.getElementById('fecha_agenda').value;
 			console.log(fecha);
 			
-            // web = "{{request()->getHttpHost()}}" ;
-            // url = 'http://' + web + '/verhorario/fecha/' + fecha;
-			url = "{{ route('fetch.buscarDatosProductos') }}" + fecha ;
+            web = "{{request()->getHttpHost()}}" ;
+            url = 'http://' + web + '/verhorario/fecha/' + fecha;
+
             fetch(url)
                 .then(resp=>{
                     return resp.json();
