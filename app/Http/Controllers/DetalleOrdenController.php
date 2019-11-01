@@ -118,4 +118,28 @@ class DetalleOrdenController extends Controller
     {
         //
     }
+
+   /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function eliminar(Request $request){
+        try {
+            
+            $orden = Orden::where('codigo',$request->input('codigo_orden'))->firstOrFail();
+            $listados = Detalle::where('id_orden_empleado',$orden->id_orden_empleado)->get();
+
+            foreach ($listados as $l) {
+                $l->delete();
+            }
+            $orden->delete();
+            return back()->with('success','Se ha eliminado la orden.');
+        } catch (\Throwable $th) {
+            return back()->with('info','Error intente nuevamente.'); 
+        }
+        
+        
+    }
 }

@@ -13,6 +13,9 @@ class Orden_empleado extends Model
     public function empleado(){
         return $this->belongsTo(Empleado::class,'id_empleado');
     }
+    public function empleado_r(){
+        return $this->belongsTo(Empleado::class,'id_empleado_r');
+    }
      
     public function proveedor(){
         return $this->belongsTo(Ficha_proveedor::class,'id_ficha_proveedor');

@@ -18,6 +18,8 @@ class CrearTablaDetalleOrden extends Migration
             $table->integer('id_orden_empleado');
             $table->integer('id_producto');
             $table->integer('cantidad');
+            $table->integer('cantidad_recibida')->nullable();
+            $table->integer('entregado')->nullable();
             $table->timestamps();
         });
     }

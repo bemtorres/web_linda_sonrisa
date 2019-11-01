@@ -17,6 +17,7 @@ class CrearTablaOrdenEmpleado extends Migration
             $table->bigIncrements('id_orden_empleado');
             $table->string('codigo');
             $table->integer('id_empleado');
+            $table->integer('id_empleado_r')->nullable();
             $table->integer('id_ficha_proveedor');
             $table->integer('enviado');
             $table->timestamps();

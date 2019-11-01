@@ -54,6 +54,7 @@ Route::resource('detalleservicio','DetalleServicioController');
 Route::resource('detalleproveedor','DetalleProveedorController');
 Route::resource('ordenempleado','OrdenEmpleadoController');
 Route::resource('ordenpedido','DetalleOrdenController');
+Route::resource('recepcion','RecepcionProductoController');
 
 Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
 //Servicios
@@ -68,6 +69,8 @@ Route::get('cliente-historial','ReservarHoraController@historial')->name('client
 
 //Orden Proveedores
 Route::get('orden/solicitud','OrdenEmpleadoController@nueva')->name('solicitud.nuevo');
+Route::get('orden/send/{id}','OrdenEmpleadoController@enviar')->name('solicitud.enviar');
+
 // FETCH
 Route::get('comunas/{id}','ComunaController@buscar');
 // Route::get('prueba', function(){
@@ -77,10 +80,18 @@ Route::get('verhorario/fecha/{fecha}','ReservarHoraController@horasDisponibles')
 Route::get('detalleservicios/cantidad/producto/{id}','ProductoController@buscarProducto')->name('fetch.buscarDatosProductos');
 Route::get('generarcodigo','OrdenEmpleadoController@code')->name('fetch.generarCodigo');
 Route::get('proveedor/productos/buscar/{id}','DetalleProveedorController@buscarProductosProveedor')->name('fetch.buscarProdcutosProveedor');
+Route::get('ordenpedido/codigo/{id}','OrdenEmpleadoController@buscarProductosPedidoCodigo')->name('fetch.pedidoCodigo');
 
 
+//Recepcion
+// Route::resource('recepcion/{id}','RecepcionProductoController@ver');
+
+
+// Eliminar
 Route::post('documento/subir' ,'DetalleDocumentoController@subir')->name('documento.subir');
 Route::get('documento/eliminar/{id}' ,'DetalleDocumentoController@eliminar')->name('documento.eliminar');
+Route::post('detalle/solicitud/eliminar' ,'DetalleOrdenController@eliminar')->name('detallesolicitud.eliminar');
+
 
 
 
