@@ -4,7 +4,10 @@
 	if (auth('cliente')->check()){
 		$nombreUsuario =  auth('cliente')->user()->nombres;
 		$id_usuario =  auth('cliente')->user()->id_ficha_cliente;
-	}    
+	}else{
+      header("Location: / ");
+      // header('Location: 404 ', true, 404);
+    }    
 @endphp
 <!DOCTYPE html>
 <html lang="es">

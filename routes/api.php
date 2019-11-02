@@ -20,3 +20,10 @@ Route::get('usuarios', function () {
     $usuarios = App\Modelo\Empleado::all();
     return  $usuarios;
 });
+
+
+Route::get('comunas/{id}', function(){
+    $comunas = App\Modelo\Comuna::get();
+    // return $comuna;
+    return response()->json(['camunas' => $comunas], 200);
+});
