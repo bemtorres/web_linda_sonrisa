@@ -25,5 +25,5 @@ Route::get('usuarios', function () {
 Route::get('comunas/{id}', function(){
     $comunas = App\Modelo\Comuna::get();
     // return $comuna;
-    return response()->json(['camunas' => $comunas], 200);
+    return response()->json(['comunas' => $comunas], 200);
 });
