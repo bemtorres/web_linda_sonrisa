@@ -59,6 +59,8 @@ class DetalleOrdenController extends Controller
                     $detalle->id_orden_empleado = $orden->id_orden_empleado;
                     $detalle->id_producto = (int)$l;
                     $detalle->cantidad = (int)$cantidad;
+                    $detalle->cantidad_recibida = 0;
+                    $detalle->entregado = 0;
                     $detalle->save();            
                 }
     
