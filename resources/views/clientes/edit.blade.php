@@ -113,7 +113,7 @@
 										<div class="form-group">
 											<label for="text1">Documentos listos <small>(Has click para activar o desactivar cliente)</small></label>
 											@if ($cliente->bloqueo==0)
-												<a href="{{ route('cliente.activar', $cliente->id_ficha_cliente) }}" class="btn btn-success  btn-block pull-right"><i class="fa fa-ok"></i>Activado</a>
+												<a href="{{ route('cliente.activar', $cliente->id_ficha_cliente) }}" class="btn btn-success  btn-block pull-right"><i class="fa fa-ok"></i>Habilitado</a>
 											@else
 												<a href="{{ route('cliente.activar', $cliente->id_ficha_cliente) }}" class="btn btn-danger btn-block pull-right"><i class="fa"></i>Pendientes</a>
 											@endif
