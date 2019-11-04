@@ -1,5 +1,5 @@
 @php
- $numeroTelefono = "+ 562 2855 0556";	
+ $numeroTelefono = "+ 562 2855 1234";	
 @endphp
 <!DOCTYPE html>
 <html lang="es">
