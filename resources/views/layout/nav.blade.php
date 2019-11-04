@@ -144,11 +144,11 @@
                         <span class="sub-item">Boleta de servicio</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="charts/sparkline.html">
                         <span class="sub-item">Estados</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </li>
