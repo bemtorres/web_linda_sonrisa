@@ -55,6 +55,7 @@ Route::resource('detalleproveedor','DetalleProveedorController');
 Route::resource('ordenempleado','OrdenEmpleadoController');
 Route::resource('ordenpedido','DetalleOrdenController');
 Route::resource('recepcion','RecepcionProductoController');
+Route::resource('boletas','BoletaServicioController');
 
 Route::get('servicio/ocultar/{id}','ServicioController@mostrar')->name('servicio.mostrar');
 //Servicios
