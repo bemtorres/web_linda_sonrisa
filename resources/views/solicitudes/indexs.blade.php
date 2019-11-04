@@ -67,7 +67,7 @@
 
 									@endphp
 									<tr class="{{ $text_color }} {{ $bg_color }}">
-										<td class="label label-warning">{{ $s->codigo }}</td>							
+										<td class="">{{ $s->codigo }}</td>							
 										<td>{{ $proxima_fecha }}</td>	
 										@php
 											$nombre = "";
