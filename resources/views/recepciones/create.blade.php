@@ -63,7 +63,7 @@ $detalles = App\Modelo\Detalle_orden::where('id_orden_empleado',$o->id_orden_emp
 									@if ($o->enviado==2)
 									<tr>						
 										<td>Recibido por</td>
-										<td>{{ $o->empleado_r->nombres . " " . $o->empleado->apellidos }}</td>
+										<td>{{ $o->empleado_r->nombres . " " . $o->empleado_r->apellidos }}</td>
 									</tr>
 									@endif
 								</tbody>
