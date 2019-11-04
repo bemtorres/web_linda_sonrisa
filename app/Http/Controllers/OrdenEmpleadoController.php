@@ -130,8 +130,8 @@ class OrdenEmpleadoController extends Controller
     }
 
     public function buscarProductosPedidoCodigo($id){        
-        $listado = Orden::join('Detalle_orden', 'Orden_empleado.id_orden_empleado', '=', 'Detalle_orden.id_orden_empleado')
-                        ->join('Producto', 'Detalle_orden.id_producto', '=', 'Producto.id_producto')->where('Orden_empleado.codigo',$id)->get();
+        $listado = Orden::join('detalle_orden', 'orden_empleado.id_orden_empleado', '=', 'detalle_orden.id_orden_empleado')
+                        ->join('producto', 'detalle_orden.id_producto', '=', 'producto.id_producto')->where('orden_empleado.codigo',$id)->get();
         return $listado;
     }
 
