@@ -6,7 +6,11 @@
       header("Location: / ");
       // header('Location: 404 ', true, 404);
 
-    }
+	}
+	
+	if($nombreUsuario==""){
+		header("Location: / ");
+	}
 	
 
 	// if(Auth::guard('empleado')->check()){
