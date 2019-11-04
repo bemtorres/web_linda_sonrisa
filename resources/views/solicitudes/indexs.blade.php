@@ -47,7 +47,6 @@
 										<th>Empleado</th>
 										<th>Proveedor</th>
 										<th>Estado</th>
-										<th>Estado</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -68,13 +67,19 @@
 
 									@endphp
 									<tr class="{{ $text_color }} {{ $bg_color }}">
-										<td>{{ $s->codigo }}</td>							
+										<td class="">{{ $s->codigo }}</td>							
 										<td>{{ $proxima_fecha }}</td>	
-										<td>{{ $s->empleado->nombres . " " . $s->empleado->apellidos }}</td>
+										@php
+											$nombre = "";
+											$nombreCompleto = $s->empleado->nombres . " " . $s->empleado->apellidos;
+											$n = explode(" ", $nombreCompleto);
+											$nombre = $n[0] . " " . $n[2]; 
+										@endphp
+										<td>{{ $nombre }}</td>
 										<td>{{ $s->proveedor->nombre_empresa }}</td>
 										<td> 
 											@if ($s->enviado==0)
-												<span class="rounded bg-warning btn-sm text-white">Pendientes de envio</span>
+												<span class="rounded bg-warning btn-sm text-white">Pendientes</span>
 											@else											 
 												@if ($s->enviado==1)
 													<span class="rounded bg-info btn-sm text-white">Enviado</span> 													
@@ -82,16 +87,14 @@
 													<span class="rounded bg-success btn-sm text-white">Recibido</span> 
 												@endif
 											@endif
-										</td>
-										<td> 
 										@if ($s->enviado==0)
 											<a href="{{ route('solicitud.enviar',$s->id_orden_empleado) }}" class="btn btn-sm btn-success "><i class="far fa-check-circle"></i> Enviar</a>
-											<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver solicitud</span>
+											<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
 										@else											 
 											@if ($s->enviado==1)
-												<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver solicitud</span>
+												<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
 											@else  
-												<span class="btn-sm btn btn-info" onclick="buscarProductosListos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver solicitud</span>
+												<span class="btn-sm btn btn-info" onclick="buscarProductosListos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
 											@endif
 										@endif
 										</td>
