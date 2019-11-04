@@ -86,6 +86,7 @@
 										<td> 
 										@if ($s->enviado==0)
 											<a href="{{ route('solicitud.enviar',$s->id_orden_empleado) }}" class="btn btn-sm btn-success "><i class="far fa-check-circle"></i> Enviar</a>
+											<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver solicitud</span>
 										@else											 
 											@if ($s->enviado==1)
 												<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver solicitud</span>
