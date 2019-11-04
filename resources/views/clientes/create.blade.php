@@ -67,7 +67,7 @@
 										</div>
 										<div class="form-group">
 											<label for="text1">Telefono</label>
-											<input type="tel" class="form-control" id="text1" name="telefono"  value="{{ old('correo') }}" placeholder="" required>
+											<input type="tel" class="form-control" id="text1" name="telefono"  value="{{ old('telefono') }}" placeholder="" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">

@@ -78,24 +78,25 @@
             </ul>
         </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ activar('ordenempleado*') }}  {{ activar('ordenpedido*') }}">
             <a data-toggle="collapse" href="#soli">
                 <i class="fa fa-file"></i>
                 <p>Solicitudes</p>
                 <span class="caret"></span>
             </a>
-            <div class="collapse" id="soli">
+            <div class="collapse {{ show('ordenempleado*') }} {{ show('ordenpedido*') }}" id="soli"> 
                 <ul class="nav nav-collapse">
-                    <li>
+                    <li class=" {{ activar('ordenempleado*') }}">
                         <a href="{{ route('ordenempleado.index')}}">
-                            <span class="sub-item">Solicitudes</span>
+                            <span class="sub-item">Monitoreo</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <span class="sub-item">Recepción de Productos</span>
+                    <li class=" {{ activar('ordenpedido*') }}">
+                        <a href="{{ route('ordenpedido.index')}}">
+                            <span class="sub-item">Solicitudes</span>
                         </a>
-                    </li>                  
+                    </li>                 
+                                  
                 </ul>
             </div>
         </li>
@@ -130,28 +131,28 @@
             </ul>
         </div>
     </li>
-    {{-- <li class="nav-item">
+    <li class="nav-item  {{ show('boletas*') }}">
         <a data-toggle="collapse" href="#charts">
             <i class="far fa-chart-bar"></i>
             <p>Estadísticas</p>
             <span class="caret"></span>
         </a>
-        <div class="collapse" id="charts">
+        <div class="collapse " id="charts">
             <ul class="nav nav-collapse">
-                <li>
-                    <a href="">
-                        <span class="sub-item">Boleta de servicios</span>
+                <li class="{{ activar('boletas*') }}">
+                    <a href="{{ route('boletas.index') }}">
+                        <span class="sub-item">Boleta de servicio</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="charts/sparkline.html">
                         <span class="sub-item">Estados</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a data-toggle="collapse" href="#config">
             <i class="fa fa-cog"></i>
             <p>Configuración</p>

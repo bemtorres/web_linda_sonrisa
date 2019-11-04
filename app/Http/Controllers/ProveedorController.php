@@ -41,7 +41,7 @@ class ProveedorController extends Controller
         $p = new Proveedor;        
         $p->username = $request->input('username'); 
         // $p->password = bcrypt('12345');
-        $p->password =  hash('sha256', $request->input('password'));
+        $p->password =  hash('sha256', '12345');
         $p->nombre_empresa = $request->input('nombre_empresa');
         $p->rubro = $request->input('rubro');
         $p->telefono = $request->input('telefono');

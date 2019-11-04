@@ -77,7 +77,7 @@
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-6 pt-5 ftco-animate">
           	<div class="mt-5">
-          		<span class="text-dark"><u>Proyecto Linda Sonrisa</u></span>
+          		{{-- <span class="text-dark"><u>Proyecto Linda Sonrisa</u></span> --}}
 	            <h1 class="mb-4">Salud Dental</h1>
 	            <p class="mb-4 bg-grey">Ofrece una nueva experiencia en servicio y atención, con box dentales equipados con la mejor tecnología y que atienden diversas especialidades, para el tratamiento dental.</p>
 	            <p><a href="{{ route('loginCliente') }}" class="btn btn-primary py-3 px-4">Reserva tu hora</a></p>
@@ -232,7 +232,7 @@
 												<span class="flaticon-stethoscope"></span>
 											</div>
 											<h3><a href="#">Paso 2</a></h3>
-											<p>Acércate a nuestro Centro Ubicado en .....</p>
+											<p>Acércate a nuestro Centro Ubicado en Freire 897, San Bernardo, Región Metropolitana.</p>
 										</div>
 									</div>
 
@@ -278,7 +278,7 @@
 							</div>
 							<div class="text pt-3 text-center">
 								<h3 class="mb-2">Dr. Luis </h3>
-								<span class="position mb-2">Dentista</span>
+								<span class="position mb-2">Odontólogo</span>
 								<div class="faded">
 									<p>De pequeño mi padre me hablaba de la importancia de la higene bucal, como cepillarse los dientes, hasta el día de hoy lo cuido.</p>
 								</div>
@@ -292,7 +292,7 @@
 							</div>
 							<div class="text pt-3 text-center">
 								<h3 class="mb-2">Dr. Marco</h3>
-								<span class="position mb-2">Dentista</span>
+								<span class="position mb-2">Odontólogo</span>
 								<div class="faded">
 									<p>Siempre optamos por entregar una atención de calidad beneficiendo a nuestros clientes.</p>
 								</div>

@@ -110,5 +110,18 @@ class DetalleProveedorController extends Controller
         return view('proveedores.detalles.index',compact('proveedor'));
     }
 
+    public function buscarProductosProveedor($id)
+    {
+        $detalles = Detalle::where('id_ficha_proveedor',$id)->get();
+
+        $productos = array();
+        
+        foreach ($detalles as $d) {
+            array_push($productos,$d->producto);
+        }      
+        return $productos;      
+    }
+
+    
     
 }

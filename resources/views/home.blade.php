@@ -8,7 +8,14 @@
 	$nOdontologo = App\Modelo\Odontologo::count();
 	$nProveedores = App\Modelo\Ficha_proveedor::count();
 	$nConsultas = 100;
+	$nombreUsuario = "";
+	if (auth('empleado')->check()){
+		$nombreUsuario =  auth('empleado')->user()->nombres;
+	}else{
+      header("Location: / ");
+      // header('Location: 404 ', true, 404);
 
+	}
 @endphp
 <div class="content">
 	<div class="page-inner">

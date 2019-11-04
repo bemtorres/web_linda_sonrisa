@@ -120,6 +120,7 @@
 			
             web = "{{request()->getHttpHost()}}" ;
             url = 'http://' + web + '/verhorario/fecha/' + fecha;
+
             fetch(url)
                 .then(resp=>{
                     return resp.json();

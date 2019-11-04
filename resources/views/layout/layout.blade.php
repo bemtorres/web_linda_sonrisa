@@ -2,7 +2,15 @@
 	$nombreUsuario = "";
 	if (auth('empleado')->check()){
 		$nombreUsuario =  auth('empleado')->user()->nombres;
-	}    
+	}else{
+      header("Location: / ");
+      // header('Location: 404 ', true, 404);
+
+	}
+	
+	if($nombreUsuario==""){
+		header("Location: / ");
+	}
 	
 
 	// if(Auth::guard('empleado')->check()){
@@ -42,6 +50,8 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="/assets/css/demo.css">
 	<link rel="stylesheet" href="/assets/css/stylelindasonrisa.css">
+	<script src="/assets/jspdf/js/jspdf.min.js"></script>
+	<script src="/assets/jspdf/js/jspdf.plugin.autotable.js"></script>
 </head>
 <body data-background-color="bg3">
 	<div class="wrapper">
