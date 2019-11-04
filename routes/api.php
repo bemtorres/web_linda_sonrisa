@@ -55,8 +55,8 @@ Route::get('ordenempleado/codigo/{codigo}', function($codigo){
             'empleado_r' => $empleadoRecibido,
             'proveedor' => $proveedor
         ));
-    
-        return $json;
+        return Response()->json(array('productos'=>$json),200);   
+        // return $json;
 
     } catch (\Throwable $th) {
         return response()->json(['errors'=>array(['code'=>404,'message'=>'No se encuentra.'])],404);
