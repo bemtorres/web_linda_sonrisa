@@ -32,9 +32,9 @@ Route::get('ordenempleado/codigo/{codigo}', function($codigo){
     try {
         $orden = App\Modelo\Orden_empleado::where('codigo',$codigo)->first();
 
-        $detalle = App\Modelo\Detalle_orden::join('Producto', 'Detalle_orden.id_producto', '=', 'Producto.id_producto')
+        $detalle = App\Modelo\Detalle_orden::join('producto', 'detalle_orden.id_producto', '=', 'producto.id_producto')
                                         ->where('id_orden_empleado',$orden->id_orden_empleado)
-                                        ->select('Producto.id_producto','nombre_producto', 'cantidad as cantidad_solicitada','cantidad_recibida','entregado')->get();
+                                        ->select('producto.id_producto','nombre_producto', 'cantidad as cantidad_solicitada','cantidad_recibida','entregado')->get();
         $proveedor = App\Modelo\Ficha_proveedor::where('id_ficha_proveedor',$orden->id_ficha_proveedor)->first();
         $empleadoSolicitante = App\Modelo\Empleado::where('id_empleado',$orden->id_empleado)->select('run as rut','nombres','apellidos')->first();    
         $empleadoRecibido = array();

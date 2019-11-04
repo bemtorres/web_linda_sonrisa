@@ -131,17 +131,17 @@
             </ul>
         </div>
     </li>
-    {{-- <li class="nav-item">
+    <li class="nav-item  {{ show('boletas*') }}">
         <a data-toggle="collapse" href="#charts">
             <i class="far fa-chart-bar"></i>
             <p>Estadísticas</p>
             <span class="caret"></span>
         </a>
-        <div class="collapse" id="charts">
+        <div class="collapse " id="charts">
             <ul class="nav nav-collapse">
-                <li>
-                    <a href="">
-                        <span class="sub-item">Boleta de servicios</span>
+                <li class="{{ activar('boletas*') }}">
+                    <a href="{{ route('boletas.index') }}">
+                        <span class="sub-item">Boleta de servicio</span>
                     </a>
                 </li>
                 <li>
@@ -152,7 +152,7 @@
             </ul>
         </div>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a data-toggle="collapse" href="#config">
             <i class="fa fa-cog"></i>
             <p>Configuración</p>
