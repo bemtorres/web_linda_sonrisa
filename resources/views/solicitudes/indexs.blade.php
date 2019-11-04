@@ -81,16 +81,16 @@
 											@if ($s->enviado==0)
 												<span class="rounded bg-warning btn-sm text-white">Pendientes</span>
 												<a href="{{ route('solicitud.enviar',$s->id_orden_empleado) }}" class="btn btn-sm btn-success "><i class="far fa-check-circle"></i> Enviar</a>
-												<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
+												<span class="btn-sm btn btn-secondary" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
 									
 											@else											 
 												@if ($s->enviado==1)
 													<span class="rounded bg-info btn-sm text-white">Enviado</span> 	
-													<span class="btn-sm btn btn-info" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
+													<span class="btn-sm btn btn-secondary" onclick="buscarProductos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
 																					
 												@else 
 													<span class="rounded bg-success btn-sm text-white">Recibido</span> 
-													<span class="btn-sm btn btn-info" onclick="buscarProductosListos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
+													<span class="btn-sm btn btn-secondary" onclick="buscarProductosListos('{{ $s->codigo }}')"><i class="far fa-eye"></i> Ver</span>
 									
 												@endif
 											@endif
