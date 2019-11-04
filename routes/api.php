@@ -54,7 +54,7 @@ Route::get('ordenempleado/codigo/{codigo}', function($codigo){
             'empleado_s' => $empleadoSolicitante,
             'empleado_r' => $empleadoRecibido,
             'proveedor' => $proveedor
-        ));
+        ),200);
      
         return $json;
 
