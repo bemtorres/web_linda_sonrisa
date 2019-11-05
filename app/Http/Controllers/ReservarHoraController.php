@@ -81,8 +81,10 @@ class ReservarHoraController extends Controller
             $r->save();
             $estado = 1;
 
-            $servicios = Servicio::get();
-            return view('perfil_cliente.solicitud',compact('estado','servicios'));
+            // $servicios = Servicio::get();
+            return back()->with('success','Se ha agendado una hora correctamente');
+          
+            // return view('perfil_cliente.solicitud',compact('estado','servicios'));
         } catch (\Throwable $th) {
             return back()->with('info','Error intente nuevamente ' . $th);
         }

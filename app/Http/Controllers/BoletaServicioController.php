@@ -34,7 +34,7 @@ class BoletaServicioController extends Controller
         //             ->groupBy('producto.nombre_producto')
         //             ->get();
 
-        $pr = DB::Select('SELECT pro.nombre_producto , COUNT(*) AS total FROM boleta_servicio bol JOIN detalle_servicio deta ON(bol.id_servicio=deta.id_servicio) JOIN producto pro ON (deta.id_producto=pro.id_producto) GROUP BY pro.nombre_producto');
+        $pr = DB::Select('SELECT pro.nombre_producto , SUM(deta.cantidad) AS total FROM boleta_servicio bol JOIN detalle_servicio deta ON(bol.id_servicio=deta.id_servicio) JOIN producto pro ON (deta.id_producto=pro.id_producto) GROUP BY pro.nombre_producto');
         return view('boleta_servicio.productos.index',compact('pr'));
         
         // return $r;

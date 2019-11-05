@@ -17,12 +17,11 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				@if (isset($estado))
-					@if ($estado==1)
-						<div class="alert alert-success">
-							Se ha agendado una hora correctamente.
-						</div>
-					@endif				
+			
+				@if (session('success'))
+				<div class="alert alert-success" >
+					{{ session('success') }}					
+				</div>
 				@endif
 				@if (session('info'))
 					<div class="alert alert-danger" >
@@ -140,5 +139,24 @@
             });
         }   
 	</script>	
+			@if (session('success'))
+			<div class="alert alert-success" >
+					<script>
+
+							swal({
+							  title: "¡Hemos registrado su hora!",
+							  text: "",
+							  icon: "success",
+							  button: {
+								text: "OK",
+								value: null,
+								visible: true,
+								className: "btn-success",
+								closeModal: true
+							  }
+							});
+						</script>				
+			</div>
+			@endif
 
 @stop
