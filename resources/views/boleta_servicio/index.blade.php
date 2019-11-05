@@ -34,11 +34,12 @@
 					<div class="card-header">
 						<div class="d-flex align-items-center">
 							<h4 class="card-title">Tabla de Boletas Servicios</h4>
-							<div class="pull-right">
-								<button type="button" class="btn btn-danger btn-danger" onclick="descargarPDF()"> <i class="fas fa-file-pdf"></i> Descargar PDF </button>
-								<button type="button" class="btn btn-success btn-success" onclick="descargarExcel()"> <i class="fas fa-file-excel"></i> Descargar Excel </button>
-						    </div>  
+							
+							
+						   
 						</div>	
+						<button type="button" class="btn btn-danger btn-danger" onclick="descargarPDF()"> <i class="fas fa-file-pdf"></i> Descargar PDF </button>
+						<button type="button" class="btn btn-success btn-success" onclick="descargarExcel()"> <i class="fas fa-file-excel"></i> Descargar Excel </button>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -80,7 +81,7 @@
 										<td>{{ $b->nombre_servicio }}</td>
 							
 										<td>										
-											<a href="{{ route('recepcion.show',$b->id_boleta_servicio) }}" class="btn btn-info "><i class="fas fa-box-open"></i> Recepción</a>										
+											<a href="{{ route('boletas.show',$b->id_boleta_servicio) }}" class="btn btn-secondary "><i class="fas fa-eye"></i> Ver</a>										
 										</td>
 									</tr>
 									@endforeach

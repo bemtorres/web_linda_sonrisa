@@ -8,10 +8,6 @@
 
 	}
 	
-	if($nombreUsuario==""){
-		header("Location: / ");
-	}
-	
 
 	// if(Auth::guard('empleado')->check()){
 	// 	$nombreUsuario = Auth::guard('empleado')->user()->nombres;

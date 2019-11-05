@@ -211,6 +211,7 @@
 
 <script src="/assets/js/growl/jquery.bootstrap-growl.js"></script>
 
+<script src="/assets/sweetalert/js/sweetalert.min.js"></script>
 <script>
 $(document).ready(function() {
     $('#basic-datatables').DataTable({

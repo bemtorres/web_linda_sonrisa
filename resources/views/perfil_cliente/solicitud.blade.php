@@ -25,8 +25,8 @@
 					@endif				
 				@endif
 				@if (session('info'))
-					<div class="alert alert-danger">
-						{{ session('info') }}
+					<div class="alert alert-danger" >
+						{{ session('info') }}					
 					</div>
 				@endif
 				<div class="card">
@@ -139,6 +139,6 @@
                    });                    
             });
         }   
-	</script>			
-	
+	</script>	
+
 @stop

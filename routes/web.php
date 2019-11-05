@@ -83,6 +83,8 @@ Route::get('generarcodigo','OrdenEmpleadoController@code')->name('fetch.generarC
 Route::get('proveedor/productos/buscar/{id}','DetalleProveedorController@buscarProductosProveedor')->name('fetch.buscarProdcutosProveedor');
 Route::get('ordenpedido/codigo/{id}','OrdenEmpleadoController@buscarProductosPedidoCodigo')->name('fetch.pedidoCodigo');
 
+Route::get('estadistica','BoletaServicioController@estadistica')->name('estadistica');
+
 
 //Recepcion
 // Route::resource('recepcion/{id}','RecepcionProductoController@ver');
@@ -100,6 +102,7 @@ Route::post('detalle/solicitud/eliminar' ,'DetalleOrdenController@eliminar')->na
 Route::get('limpio', ['as' => 'limpio' , function () {
     return view('limpio');
 }]);
+
 
 
 
