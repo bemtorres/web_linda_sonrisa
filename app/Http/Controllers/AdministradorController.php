@@ -38,19 +38,25 @@ class AdministradorController extends Controller
      */
     public function store(CreateEmpleadoRequest $request)
     {
-        $e = new Empleado;        
-        $e->run = $request->input('run');
-        $e->username = $e->run; 
-        $e->password = bcrypt('12345');
-        $e->nombres = $request->input('nombres');
-        $e->apellidos = $request->input('apellidos');
-        $e->telefono = $request->input('telefono');
-        $e->correo = $request->input('correo');
-        $e->bloqueado = 0;
-        $e->activo = 1;
-        $e->id_tipo_empleado=1;
-        $e->save(); 
-        return redirect()->route('administrador.index');
+        try {
+            $em = Empleado::where('run', $request->input('run'))->firstOrFail();
+            return back()->with('info','Error. Empleado ya existe.'); 
+        } catch (\Throwable $th) {
+
+            $e = new Empleado;        
+            $e->run = $request->input('run');
+            $e->username = $e->run; 
+            $e->password = bcrypt('12345');
+            $e->nombres = $request->input('nombres');
+            $e->apellidos = $request->input('apellidos');
+            $e->telefono = $request->input('telefono');
+            $e->correo = $request->input('correo');
+            $e->bloqueado = 0;
+            $e->activo = 1;
+            $e->id_tipo_empleado=1;
+            $e->save(); 
+            return redirect()->route('administrador.index')->with('success','Se ha agregado correctamente');
+        }
     }
 
     /**

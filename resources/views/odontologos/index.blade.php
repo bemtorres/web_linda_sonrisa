@@ -32,7 +32,7 @@
 									<tr>
 										<th>Run</th>
 										<th>Nombre</th>
-										<th>Apellido</th>
+										<th>Correo</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -53,7 +53,37 @@
 										<td>{{ $o->correo }}</td>
 										<td>
 											<a href="{{ route('odontologo.edit', $o->id_odontologo) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
-											{{-- <a href="{{ route('cliente.edit', $c->id_ficha_cliente) }}" class="btn btn-warning"><i class="fa fa-file"></i></a> --}}
+											
+											<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEditar{{ $o->id_odontologo }}">
+												<i class="fas fa-trash"></i>
+											</button>		
+											<!-- Modal -->
+											<div class="modal fade" id="modalEditar{{ $o->id_odontologo }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel">¿Ocultar Servicio?</h5>
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">&times;</span>
+															</button>
+														</div>															
+															<div class="modal-body">		
+																<h3>¿Desea ocultar servicio?</h3>
+															</div>
+															<div class="modal-footer">
+																<form action="{{ route('odontologo.destroy' , $o->id_odontologo ) }}" method="post">
+																	{!! csrf_field() !!}
+																	{!! method_field('DELETE') !!}
+																		
+
+																	<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+																	<button type="submit" class="btn btn-primary">Sí</button>
+																</form>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
 										</td>
 									</tr>
 									@endforeach

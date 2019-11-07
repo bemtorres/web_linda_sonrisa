@@ -35,6 +35,7 @@
 										<th>Rubro</th>
 										<th>Correo</th>
 										<th></th>
+										<th></th>
 									</tr>
 								</thead>
 								<tfoot>
@@ -52,14 +53,15 @@
 										<td>{{ $p->nombre_empresa }}</td>
 										<td>{{ $p->rubro }}</td>
 										<td>{{ $p->correo }}</td>
-										<td><a href="{{ route('proveedor.ver', $p->id_ficha_proveedor ) }}" class="btn btn-warning"><i class="fa fa-barcode"></i> Ver productos</a></td>
-										<td>	
-											<a href="{{ route('proveedor.edit', $p->id_ficha_proveedor ) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-											<form action="{{ route('proveedor.destroy' , $p->id_ficha_proveedor ) }}" method="post">
+										<td><a href="{{ route('proveedor.ver', $p->id_ficha_proveedor ) }}" class="btn btn-warning"><i class="fa fa-barcode"></i> Ver productos</a>
+										</td>
+										<td>
+											<a href="{{ route('proveedor.edit', $p->id_ficha_proveedor ) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+											{{-- <form action="{{ route('proveedor.destroy' , $p->id_ficha_proveedor ) }}" method="post">
 													{!! csrf_field() !!}
 													{!! method_field('DELETE') !!}
-													<button type="submit" class="btn btn-danger btn-sm my-1"><i class="fa fa-trash"></i></button>
-												</form>
+													<button type="submit" class="btn btn-danger "><i class="fa fa-trash"></i></button>
+												</form> --}}
 										</td>
 									</tr>
 									@endforeach

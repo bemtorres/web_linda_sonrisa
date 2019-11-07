@@ -37,19 +37,25 @@ class OdontologoController extends Controller
      */
     public function store(CreateOdontologoRequest $request)
     {
-        $o = new Odontologo;        
-        $o->run = $request->input('run');
-        $o->username = $o->run; 
-        // $o->password = bcrypt('12345');
-        
-        $o->password = hash('sha256',12345);
-        $o->nombres = $request->input('nombres');
-        $o->apellidos = $request->input('apellidos');
-        $o->telefono = $request->input('telefono');
-        $o->correo = $request->input('correo');
-        $o->activo = 1;
-        $o->save(); 
-        return redirect()->route('odontologo.index');
+  
+            try {
+                $odo = Odontologo::where('run', $request->input('run'))->firstOrFail();
+                return back()->with('info','Error Odontólogo ya existe.'); 
+            } catch (\Throwable $th) {              
+                $o = new Odontologo;        
+                $o->run = $request->input('run');
+                $o->username = $o->run; 
+                // $o->password = bcrypt('12345');                
+                $o->password = hash('sha256',12345);
+                $o->nombres = $request->input('nombres');
+                $o->apellidos = $request->input('apellidos');
+                $o->telefono = $request->input('telefono');
+                $o->correo = $request->input('correo');
+                $o->activo = 1;
+                $o->save(); 
+                return redirect()->route('odontologo.index')->with('success','Se ha agregdo correctamente.');
+            }           
+     
     }
 
     /**
@@ -71,7 +77,9 @@ class OdontologoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $o = Odontologo::findOrFail($id);
+
+        return view('odontologos.edit', compact('o'));
     }
 
     /**
@@ -83,7 +91,23 @@ class OdontologoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         
+        try {
+            $o = Odontologo::findOrFail($id);
+            $o->run = $request->input('run');
+            $o->username = $o->run; 
+            // $o->password = bcrypt('12345');          
+            $o->nombres = $request->input('nombres');
+            $o->apellidos = $request->input('apellidos');
+            $o->telefono = $request->input('telefono');
+            $o->correo = $request->input('correo');
+            $o->activo = 1;
+            $o->update(); 
+            return back()->with('success','Se ha actualizado correctamente.');
+        } catch (\Throwable $th) {              
+         
+            return back()->with('info','Error no se puede editar.'); 
+        }    
     }
 
     /**
@@ -94,6 +118,6 @@ class OdontologoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $id;
     }
 }

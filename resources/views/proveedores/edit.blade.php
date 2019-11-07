@@ -17,7 +17,7 @@
 		<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Nuevo Administrador</h4>
+						<h4 class="page-title">Nuevo Proveedor</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -29,57 +29,66 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6">
+							@if (session('info'))
+								<div class="alert alert-danger">
+									{{ session('info') }}
+								</div>
+							@endif
+							@if (session('success'))
+								<div class="alert alert-success">
+									{{ session('success') }}
+								</div>
+							@endif
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Formulario Nuevo Administrador</div>
+									<div class="card-title">Formulario Nuevo Proveedor</div>
 								</div>
-								<form action="{{ route('administrador.store') }}" method="post">
+								<form action="{{ route('proveedor.store') }}" method="post">
 									<div class="card-body">
-										{!! csrf_field() !!}									
+										{!! csrf_field() !!}		
 										<div class="form-group">
-											<label for="text1">Run</label>
-											<input type="text" class="form-control" id="text1" name="run" required value="{{ old('run') }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres">
+											<label for="text1">Usuario de sesión</label>
+											<input type="text" class="form-control" id="text1" name="username" required value="{{ $p->username }}" placeholder="">
+											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+										</div>									
+										<div class="form-group">
+											<label for="text1">Nombre Empresa</label>
+											<input type="text" class="form-control" id="text1" name="nombre_empresa" required value="{{ $p->nombre_empresa }}" placeholder="">
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">
-											<label for="text1">Nombres</label>
-											<input type="text" class="form-control" id="text1" name="nombres" required value="{{ old('nombres') }}" placeholder="">
-											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-										</div>
-										
-										<div class="form-group">
-											<label for="text1">Apellidos</label>
-											<input type="text" class="form-control" id="text1" name="apellidos" required value="{{ old('apellidos') }}" placeholder="">
+											<label for="text1">Rubro</label>
+											<input type="text" class="form-control" id="text1" name="rubro" required value="{{ $p->username }}" placeholder="">
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>
 										<div class="form-group">
 											<label for="text1">Correo</label>
-											<input type="email" class="form-control" id="text1" name="correo" required value="{{ old('correo') }}" placeholder="">
+											<input type="email" class="form-control" id="text1" name="correo" required value="{{ $p->correo }}" placeholder="">
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>	
 										<div class="form-group">
 											<label for="text1">Telefono</label>
-											<input type="text" class="form-control" value="+56" id="telefono" name="telefono"  value="{{ old('telefono') }}" size="12" placeholder="" maxlength="12" required>
+											<input type="text" class="form-control" id="telefono" name="telefono"  value="{{ $p->telefono }}" size="12" placeholder="" maxlength="12" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>	
 									</div>
 									<div class="card-action">
-										<a href="{{ route('administrador.index') }}" class="btn btn-danger">Volver</a>
+										<a href="{{ route('proveedor.index') }}" class="btn btn-danger">Volver</a>
 										<button type="submit" class="btn btn-success pull-right">Agregar</button>
 										<br>
 									</div>
 								</form>
 							</div>							
 						</div>	
-						<div class="col-md-6 hidden-sm-down">
-							<img src="/assets_home/images/Fondo/fondo_admin_vertical.jpg" alt="">	
-						</div>				
+						<div class="col-md-6">
+							<img src="/assets_home/images/Fondo/proveedor_fondo.jpg" width="100%" alt="">
+							<img src="/assets_home/images/Fondo/proveedor.jfif" width="100%" alt="">
+						</div>					
 					</div>
 				</div>
 			</div>
 	
 @stop
-	
 @section('scripts')
 <script>
 

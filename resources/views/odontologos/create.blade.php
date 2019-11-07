@@ -35,6 +35,7 @@
 									{{ session('info') }}
 								</div>
 							@endif
+
 							<div class="card">
 								<div class="card-header">
 									<div class="card-title">Formulario Nuevo Odontólogo</div>
@@ -61,7 +62,7 @@
 										</div>
 										<div class="form-group">
 											<label for="text1">Telefono</label>
-											<input type="number" class="form-control" id="text1" name="telefono"  value="{{ old('correo') }}" placeholder="" required>
+											<input type="text" class="form-control" value="+56" id="telefono" name="telefono"  value="{{ old('telefono') }}" size="12" placeholder="" maxlength="12" required>
 											{{-- <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
 										</div>	
 										<div class="form-group">
@@ -86,4 +87,32 @@
 			</div>
 	
 @stop
+@section('scripts')
+<script>
+
+var regex = /[^+\d]/g;
+
+//JQuery
+$("#telefono").keyup(function(){
+   if($("#telefono").val() == ""){
+       $("#telefono").val("+56")
+   }
+   $("#telefono").val($("#telefono").val().replace(regex, ""))
+});
+
+//Javascript
+
+var numTel = document.getElementById("telefono2");
+
+numTel.addEventListener("keyup", function(){
+    if (numTel.value == ""){
+       numTel.value = "+";
+    }
+    numTel.value = numTel.value.replace(regex,"");
+})
 	
+		
+	
+	
+</script>
+@stop
