@@ -46,13 +46,18 @@
 					{{ session('info') }}
 				</div>
 			@endif
+			@if (session('success'))
+			<div class="alert alert-success">
+				{{ session('success') }}
+			</div>
+			@endif
 			<div class="login-form">
-				<form action="{{ route('loginSocio') }}" method="POST">
+				<form action="{{ route('mail.recuperarAdmin') }}" method="POST">
 					{!! csrf_field() !!}
 					<div class="form-group {{ $errors->has('correo') ? 'has-error' : '' }}">
 						<h3>Recuperar Contraseña</h3>
 						<label for="username" class="placeholder"><b>Correo Electrónico</b></label>
-						<input type="email" class="form-control" id="correo" name="correo" value="{{ old('correo') }}" placeholder="" maxlength="9" required>
+						<input type="email" class="form-control" id="correo" name="correo" value="{{ old('correo') }}" placeholder="" maxlength="60" required>
 										
 						{!! $errors->first('correo', '<span class="help-block">:message</span>') !!}
 					</div>				

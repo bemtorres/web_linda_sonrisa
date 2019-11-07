@@ -97,6 +97,12 @@ Route::post('detalle/solicitud/eliminar' ,'DetalleOrdenController@eliminar')->na
 
 
 
+//Correo
+Route::get('send/email', 'MailController@mail');
+Route::post('email/recuperar/admin', 'MailController@recuperarEmpleado')->name('mail.recuperarAdmin');
+Route::post('email/recuperar/cliente', 'MailController@recuperarCliente')->name('mail.recuperarCliente');
+
+
 
 
 Route::get('limpio', ['as' => 'limpio' , function () {

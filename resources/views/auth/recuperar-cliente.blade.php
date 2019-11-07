@@ -58,15 +58,20 @@
 					{{ session('info') }}
 				</div>
 			@endif
+			@if (session('success'))
+			<div class="alert alert-success">
+				{{ session('success') }}
+			</div>
+			@endif
 			<div class="login-form">
-				<form action="{{ route('loginSocio') }}" method="POST">
+				<form action="{{ route('mail.recuperarCliente') }}" method="POST">
 					{!! csrf_field() !!}
-					<div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
+					<div class="form-group {{ $errors->has('run') ? 'has-error' : '' }}">
 						<h3>Recuperar Contraseña</h3>
 						<label for="username" class="placeholder"><b>RUT</b></label>
-						<input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
+						<input type="text" class="form-control" id="run" name="run" value="{{ old('run') }}" placeholder="19000111K (Sin Guión y puntos)" maxlength="9" onkeyup="this.value = validarRut(this.value)" pattern=".{8,9}" title="Requiere 8 a 9 caracteres" required>
 										
-						{!! $errors->first('username', '<span class="help-block">:message</span>') !!}
+						{!! $errors->first('run', '<span class="help-block">:message</span>') !!}
 					</div>				
 					<div class="form-group form-action-d-flex mb-3">
 						<div class="custom-control custom-checkbox">
