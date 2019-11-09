@@ -17,12 +17,10 @@ Route::get('proveedor/auth', 'Autentificador\ApiAuthProveedorController@login');
 Route::post('proveedor/auth', 'Autentificador\ApiAuthProveedorController@login');
 Route::get('email/recuperar/proveedor/{correo}', 'MailController@recuperarProveedor');
 
-
 Route::get('usuarios', function () {
     $usuarios = App\Modelo\Empleado::all();
     return  $usuarios;
 });
-
 
 Route::get('comunas/{id}', function(){
     $comunas = App\Modelo\Comuna::get();
@@ -80,7 +78,6 @@ Route::get('ordenempleado/proveedor/{id}', function($id){
     }
     
 });
-
 
 Route::get('proveedor/login/{username}/{password}', function($username,$password){
 
