@@ -45,10 +45,10 @@ class DetalleDocumentoController extends Controller
 
         $cliente = Cliente::findOrFail($detalle->id_ficha_cliente);
         $detalle->ruta =  $request->file('archivo')->store('public');  
+        
         $detalle->save();
    
         return redirect()->route('cliente.documento',$detalle->id_ficha_cliente);
- 
     }
 
     /**

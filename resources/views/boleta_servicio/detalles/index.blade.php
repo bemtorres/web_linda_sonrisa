@@ -42,7 +42,10 @@
 								<tbody>						
 									<tr>	
 										<td>N° Boleta {{ $b->id_boleta_servicio }}</td>	
-										<th class="text-right">Fecha:  {{ $b->fecha_servicio }} {{ $b->horario }}</td>
+										@php											
+											$proxima_fecha = date_format(date_create($b->fecha_servicio), 'd-m-Y') . " " . $b->horario;
+										@endphp
+										<th class="text-right">Fecha:  {{ $proxima_fecha }}</td>
 									</tr>
 									<tr>										
 										<td>Cliente: {{ $b->nombre_cliente }}</td>										

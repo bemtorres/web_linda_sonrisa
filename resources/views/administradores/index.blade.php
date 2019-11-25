@@ -52,11 +52,11 @@
 										<td>{{ $a->nombres . " " . $a->apellidos }}</td>
 										<td>{{ $a->correo }}</td>
 										<td>
-											<a href="{{ route('administrador.edit', $a->id_empleado ) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+											<a href="{{ route('administrador.edit', $a->id_empleado ) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
 											<form action="{{ route('administrador.destroy' , $a->id_empleado ) }}" method="post">
 													{!! csrf_field() !!}
 													{!! method_field('DELETE') !!}
-													<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+													{{-- <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button> --}}
 												</form>
 										</td>
 									</tr>

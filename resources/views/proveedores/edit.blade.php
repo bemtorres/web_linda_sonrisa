@@ -43,9 +43,10 @@
 								<div class="card-header">
 									<div class="card-title">Formulario Nuevo Proveedor</div>
 								</div>
-								<form action="{{ route('proveedor.store') }}" method="post">
+								<form action="{{ route('proveedor.update', $p->id_ficha_proveedor) }}" method="post">
 									<div class="card-body">
-										{!! csrf_field() !!}		
+										{!! csrf_field() !!}	
+										{!! method_field('PUT') !!}	
 										<div class="form-group">
 											<label for="text1">Usuario de sesión</label>
 											<input type="text" class="form-control" id="text1" name="username" required value="{{ $p->username }}" placeholder="">
@@ -74,7 +75,7 @@
 									</div>
 									<div class="card-action">
 										<a href="{{ route('proveedor.index') }}" class="btn btn-danger">Volver</a>
-										<button type="submit" class="btn btn-success pull-right">Agregar</button>
+										<button type="submit" class="btn btn-success pull-right">Guardar Cambios</button>
 										<br>
 									</div>
 								</form>

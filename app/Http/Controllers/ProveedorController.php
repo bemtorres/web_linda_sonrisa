@@ -60,7 +60,9 @@ class ProveedorController extends Controller
      */
     public function show($id)
     {
-        //
+        $p = Proveedor::findOrFail($id);
+
+        return view('proveedores.edit', compact('p'));
     }
 
     /**
@@ -86,7 +88,21 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $p = Proveedor::findOrFail($id);     
+            $p->username = $request->input('username'); 
+            // $p->password = bcrypt('12345');
+            $p->nombre_empresa = $request->input('nombre_empresa');
+            $p->rubro = $request->input('rubro');
+            $p->telefono = $request->input('telefono');
+            $p->correo = $request->input('correo');
+            $p->save(); 
+            return back()->with('success','Se ha actualizado correctamente.'); 
+        } catch (\Throwable $th) {
+            return back()->with('info','Error. Intente nuevamente.'); 
+        }
+     
+      
     }
 
     /**

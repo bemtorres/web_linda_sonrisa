@@ -69,8 +69,8 @@ class EmpleadoController extends Controller
     public function show($id)
     {
         //
-        $u = Empleado::findOrFail($id);
-        return view('empleados.show', compact('u'));
+        $empleado = Empleado::findOrFail($id);
+        return view('empleados.show', compact('empleado'));
     }
 
     /**
@@ -82,9 +82,9 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         //
-        $u = Empleado::findOrFail($id);
+        $empleado = Empleado::findOrFail($id);
 
-        return view('empleados.edit', compact('u'));
+        return view('empleados.edit', compact('empleado'));
     }
 
     /**
@@ -97,17 +97,25 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $e = Empleado::findOrFail($id);
-        $e->username= $request->input('username');;
-        $e->password= bcrypt('12345');
-        $e->run= $request->input('rut');;
-        $e->nombres= $request->input('nombres');;
-        $e->apellidos= $request->input('apellidos');;
-        // $e->id_tipo_user='2';
-        $e->correo= $request->input('correo');;
-        $e->activo=1;
-        $e->update();
-        return redirect()->route('empleado.index');
+        try {
+            $e = Empleado::findOrFail($id);
+            $e->username= $request->input('username');
+            // $e->password= bcrypt('12345');
+            $e->run= $request->input('run');
+            $e->nombres= $request->input('nombres');
+            $e->apellidos= $request->input('apellidos');
+            // $e->id_tipo_user='2';
+            $e->correo= $request->input('correo');
+            // $e->activo=1;            
+            $e->telefono = $request->input('telefono');
+            $e->update();
+            // return redirect()->route('empleado.index');
+            return back()->with('success','Se ha actualizado correctamente.'); 
+        } catch (\Throwable $th) {
+            // return $th;
+            return back()->with('info','Error. Intente nuevamente.'); 
+        }
+       
     }
 
     /**

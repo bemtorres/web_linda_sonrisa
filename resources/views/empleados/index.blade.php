@@ -54,10 +54,10 @@
 										<td>
 											<a href="{{ route('empleado.edit', $e->id_empleado ) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
 											<form action="{{ route('empleado.destroy' , $e->id_empleado ) }}" method="post">
-													{!! csrf_field() !!}
-													{!! method_field('DELETE') !!}
-													<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-												</form>
+												{!! csrf_field() !!}
+												{!! method_field('DELETE') !!}
+												{{-- <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button> --}}
+											</form>
 										</td>
 									</tr>
 									@endforeach
