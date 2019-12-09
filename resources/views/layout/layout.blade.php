@@ -2,10 +2,6 @@
 	$nombreUsuario = "";
 	if (auth('empleado')->check()){
 		$nombreUsuario =  auth('empleado')->user()->nombres;
-	}else{
-      header("Location: / ");
-      // header('Location: 404 ', true, 404);
-
 	}
 	
 
@@ -132,7 +128,7 @@
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
 									{{ $nombreUsuario }}
-								<span class="user-level">Administrator</span>
+								<span class="user-level">Administrador</span>
 									<span class="caret"></span>
 								</span>
 							</a>

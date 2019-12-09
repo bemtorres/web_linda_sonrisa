@@ -5,7 +5,14 @@
     function show($url){
         return request()->is($url) ? 'show' : '';
     }
+
+    if (auth('empleado')->check()){
+		$tipo =  auth('empleado')->user()->id_tipo_empleado;
+	}
 @endphp
+
+
+
 <ul class="nav">
     <li class="nav-item {{ activar('home') }}">
         <a href="/home">
@@ -14,6 +21,7 @@
             {{-- <span class="badge badge-count">5</span> --}}
         </a>
     </li>
+    @if ($tipo==1)
     <li class="nav-section">
         <span class="sidebar-mini-icon">
             <i class="fa fa-ellipsis-h"></i>
@@ -79,27 +87,30 @@
         </div>
     </li>
     <li class="nav-item {{ activar('ordenempleado*') }}  {{ activar('ordenpedido*') }}">
-            <a data-toggle="collapse" href="#soli">
-                <i class="fa fa-file"></i>
-                <p>Solicitudes</p>
-                <span class="caret"></span>
-            </a>
-            <div class="collapse {{ show('ordenempleado*') }} {{ show('ordenpedido*') }}" id="soli"> 
-                <ul class="nav nav-collapse">
-                    <li class=" {{ activar('ordenempleado*') }}">
-                        <a href="{{ route('ordenempleado.index')}}">
-                            <span class="sub-item">Monitoreo</span>
-                        </a>
-                    </li>
-                    <li class=" {{ activar('ordenpedido*') }}">
-                        <a href="{{ route('ordenpedido.index')}}">
-                            <span class="sub-item">Solicitudes</span>
-                        </a>
-                    </li>                 
-                                  
-                </ul>
-            </div>
-        </li>
+        <a data-toggle="collapse" href="#soli">
+            <i class="fa fa-file"></i>
+            <p>Solicitudes</p>
+            <span class="caret"></span>
+        </a>
+        <div class="collapse {{ show('ordenempleado*') }} {{ show('ordenpedido*') }}" id="soli"> 
+            <ul class="nav nav-collapse">
+                <li class=" {{ activar('ordenempleado*') }}">
+                    <a href="{{ route('ordenempleado.index')}}">
+                        <span class="sub-item">Monitoreo</span>
+                    </a>
+                </li>
+                <li class=" {{ activar('ordenpedido*') }}">
+                    <a href="{{ route('ordenpedido.index')}}">
+                        <span class="sub-item">Solicitudes</span>
+                    </a>
+                </li>                 
+                                
+            </ul>
+        </div>
+    </li>  
+    @endif
+   
+
     <li class="nav-item {{ activar('servicio*') }}{{ activar('producto*') }}{{ activar('tipoproducto*') }}{{ activar('familia*') }}">
         <a data-toggle="collapse" href="#charts1">
             <i class="fa fa-barcode"></i>
@@ -151,38 +162,5 @@
                 </li>
             </ul>
         </div>
-    </li>
-    {{-- <li class="nav-item">
-        <a data-toggle="collapse" href="#config">
-            <i class="fa fa-cog"></i>
-            <p>Configuración</p>
-            <span class="caret"></span>
-        </a>
-        <div class="collapse" id="config">
-            <ul class="nav nav-collapse">
-                <li>
-                    <a href="">
-                        <span class="sub-item">Control Correo</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="sub-item">Perfil</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="sub-item">Cambiar Contraseña</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </li> --}}
-    {{-- <li class="nav-item">
-        <a href="widgets.html">
-            <i class="fas fa-desktop"></i>
-            <p>Widgets</p>
-            <span class="badge badge-count badge-success">4</span>
-        </a>
-    </li> --}}
+    </li>   
 </ul>

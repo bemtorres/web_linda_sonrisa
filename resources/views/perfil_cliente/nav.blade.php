@@ -34,7 +34,7 @@
         </a>    
     </li>
     <li class="nav-item bg-danger ">
-        <a href="{{ route('cliente.historial') }}">
+        <a href="{{ route('salirCliente') }}">
             <i class="fas fa-sign-out-alt text-white"></i>
             <p class="text-white">Salir</p>
             {{-- <span class="badge badge-count">5</span> --}}

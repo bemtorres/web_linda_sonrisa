@@ -125,6 +125,7 @@
 
             web = "{{request()->getHttpHost()}}" ;
             url = 'http://' + web + '/comunas/' + id_region;
+
             fetch(url)
                 .then(resp=>{
                     return resp.json();

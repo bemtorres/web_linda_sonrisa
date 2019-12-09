@@ -50,7 +50,10 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $routeMiddleware = [
+    protected $routeMiddleware = [        
+        'zona.cliente' => \App\Http\Middleware\ZonaCliente::class,
+        'zona.admin' => \App\Http\Middleware\ZonaAdmin::class,
+        'zona.empleado' => \App\Http\Middleware\ZonaEmpleado::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

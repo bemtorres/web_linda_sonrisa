@@ -102,6 +102,9 @@
 @stop
 	
 @section('scripts')
+
+
+
 <script>
 function descargarPDF() {           
     var doc = new jsPDF();      
@@ -110,21 +113,38 @@ function descargarPDF() {
 }
 
 //  Le falta utf - 8
- function descargarExcel(){
+ function descargarExcel(nombreArchivo=''){
         var idtabla = "basic-datatables";
         var nombreArchivo = "Reporte";
-        //Creamos un Elemento Temporal en forma de enlace
-        var tmpElemento = document.createElement('a');
-        // obtenemos la información desde el div que lo contiene en el html
-        // Obtenemos la información de la tabla
-        var data_type = 'data:application/vnd.ms-excel';    
-        var tabla_div = document.getElementById(idtabla);
-         // var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
-        tmpElemento.href = data_type + ', ' + encodeURIComponent(tabla_div.outerHTML);
-        //Asignamos el nombre a nuestro EXCEL
-        tmpElemento.download = nombreArchivo + '.xls';
-        // Simulamos el click al elemento creado para descargarlo
-        tmpElemento.click();
+
+		var downloadLink;
+        var dataType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(idtabla);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+        
+        // Specify file name
+        nombreArchivo = nombreArchivo?nombreArchivo+'.xls':'excel_data.xls';
+        
+        // Create download link element
+        downloadLink = document.createElement("a");
+        
+        document.body.appendChild(downloadLink);
+        
+        if(navigator.msSaveOrOpenBlob){
+            var blob = new Blob(['ufeff', tableHTML], {
+                type: dataType
+            });
+            navigator.msSaveOrOpenBlob( blob, filename);
+        }else{
+            // Create a link to the file
+            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+        
+            // Setting the file name
+            downloadLink.download = filename;
+            
+            //triggering the function
+            downloadLink.click();
+        }
     }
 
 </script>
