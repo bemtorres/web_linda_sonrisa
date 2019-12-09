@@ -76,69 +76,31 @@ $detallesP = App\Modelo\Detalle_proveedor::get();
 							<h4 class="card-title">Productos destacados en estado crítico</h4>
 						</div>
 					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<table border="1" class="display table table-striped table-hover table-bordered" >
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Nombre Producto</th>
-										<th>SD/SC</th>
-										<th>Proveedor</th>
-									</tr>
-								</thead>
-								<tbody>
-									@php
-										$i=1;	
-									@endphp
-									@foreach ($productos as $p)									
-									@php
-										if($p->stock>$p->stock_critico){
-											continue;
-										}
-									
-										$text_color = "";
-										$bg_color = "";
-									
-										if($p->stock>0 && $p->stock<=$p->stock_critico){
-											$bg_color = "bg-warning";
-											$text_color = "text-white";
-										}	
-										if ($p->stock<=0) {
-											$bg_color = "bg-danger";
-											$text_color = "text-white";
-										}
-									
-									@endphp
-									<tr class="{{ $text_color }} {{ $bg_color }}">
-										<td>{{ $i }}</td>
-										@php
-											$i++;	
-										@endphp
-										<td>{{ $p->nombre_producto }}</td>										
-										<td>{{ $p->stock }}/{{ $p->stock_critico }}</td>
-										{{-- <td>
-											<a href="{{ route('producto.edit', $p->id_producto ) }}" class="btn btn-success"><i class="fa fa-edit"></i></a>
-											<a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-										</td> --}}
-										<td>
-											@foreach ($detallesP as $de)
-												@if ($de->id_producto==$p->id_producto)
-													{{ $de->proveedor->nombre_empresa . " " }}
-												@endif
-											@endforeach
-										</td>
-									</tr>
-									@endforeach										
-									</tbody>
-								</table>
-							</div>
-						</div>
+					<div class="card-body">		
+						<table class="table table-bordered table-sm">
+							<thead>
+								<tr>
+									<th>Descripción</th>
+									<th>Color</th>
+								</tr>
+							</thead>
+							<tbody >
+								<tr>
+									<td><strong>Stock > 0 y Stock <= Stock Critico</strong></td>
+									<td class="bg-warning text-dark"><strong>Alerta se esta acabando</strong></td>
+								</tr>
+								<tr>
+									<td><strong>Stock <= 0</strong></td>
+									<td class="bg-danger text-white"><strong>No tenemos productos</strong></td>
+								</tr>
+							</tbody>
+						</table>									
 					</div>
 				</div>
+			</div>
 		</div>
 		<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
@@ -153,7 +115,7 @@ $detallesP = App\Modelo\Detalle_proveedor::get();
 									<input type="text" hidden id="id_ficha_proveedor" name="id_ficha_proveedor" value="">
 									<input type="text" hidden id="codigo_orden" name="codigo_orden" value="">
 								
-									<table id="table_nueva"  border="1" class="display table table-striped table-hover table-bordered" >
+									<table id="table_nueva"  border="1" class="display table table-striped table-hover table-bordered table-sm" >
 										<thead>
 											<tr>
 												<th>Seleccionar</th>
@@ -252,16 +214,29 @@ $detallesP = App\Modelo\Detalle_proveedor::get();
                    
 					RemoveRow();
 					
-					
+		
+
                     $.each(result, function(key,value) {
 						var html = "<div class=\"form-check\">"+
 									"<label class=\"form-check-label\">"+
 										"<input class=\"form-check-input\" name=\"listado[]\" type=\"checkbox\" id=\"check_"+value.id_producto+"\" onclick=\"checkRequiered(this.id)\" value=\""+value.id_producto+"\">"+
 											"<span class=\"form-check-sign\"></span></label></div>";
+
+						var text_color = "";
+						var bg_color = "";
+									
+						if(value.stock>0 && value.stock<=value.stock_critico){
+							bg_color = "bg-warning";
+							text_color = "text-white";
+						}	
+						if (value.stock<=0) {
+							bg_color = "bg-danger";
+							text_color = "text-white";
+						}
 							
 				    var input = "<input type=\"number\" disabled class=\"form-control\" id=\"cantidad_"+value.id_producto+"\" name=\"cantidad"+value.id_producto+"\">";
 						$('#table_nueva tbody').append(
-							'<tr><td>'+html+'</td><td>'+value.nombre_producto+'</td><td>'+value.stock+'/'+value.stock_critico+'</td><td>'+input+'</td></tr>'
+							'<tr><td>'+html+'</td><td>'+value.nombre_producto+'</td><td class=\"'+bg_color+'\"><strong>'+value.stock+'/'+value.stock_critico+'</strong></td><td>'+input+'</td></tr>'
 						)
 					});
 

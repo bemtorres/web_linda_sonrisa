@@ -2,6 +2,11 @@
 	$nombreUsuario = "";
 	if (auth('empleado')->check()){
 		$nombreUsuario =  auth('empleado')->user()->nombres;
+		if(auth('empleado')->user()->id_tipo_empleado==1){
+			$cargo = "Administrador";
+		}else{
+			$cargo = "Empleado";
+		}
 	}
 	
 
@@ -22,7 +27,7 @@
 	<title>Linda Sonrisa</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="/assets/img/icono.ico" type="image/x-icon"/>
-
+	<meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">  
 	<!-- Fonts and icons -->
 	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
@@ -99,10 +104,10 @@
 								</li>
 								<li>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Mi perfil</a>
+									{{-- <a class="dropdown-item" href="#">Mi perfil</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">Cambiar Contraseña</a>
-									<div class="dropdown-divider"></div>
+									<div class="dropdown-divider"></div> --}}
 									<a class="dropdown-item" href="{{ route('salirAdmin') }}">Salir</a>
 								</li>
 							</ul>
@@ -128,7 +133,7 @@
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
 									{{ $nombreUsuario }}
-								<span class="user-level">Administrador</span>
+								<span class="user-level">{{ $cargo }}</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -136,7 +141,7 @@
 
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
-									<li>
+									{{-- <li>
 										<a href="#profile">
 											<span class="link-collapse btn btn-block btn-success text-white">Mi Perfil</span>
 										</a>
@@ -145,7 +150,7 @@
 										<a href="#edit">
 											<span class="link-collapse btn btn-block btn-warning text-white">Cambio de Contraseña</span>
 										</a>
-									</li>
+									</li> --}}
 									<li>
 									<a href="{{ route('salirAdmin') }}">
 										<span class="link-collapse btn btn-block btn-danger text-white">Salir</span>

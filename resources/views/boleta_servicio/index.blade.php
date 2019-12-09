@@ -33,14 +33,12 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="d-flex align-items-center">
-							<h4 class="card-title">Tabla de Boletas Servicios</h4>
-							
-							
+							<h4 class="card-title">Tabla de Boletas Servicios</h4>							
 						   
-						</div>	
-						<button type="button" class="btn btn-danger btn-danger" onclick="descargarPDF()"> <i class="fas fa-file-pdf"></i> Descargar PDF </button>
-						<button type="button" class="btn btn-success btn-success" onclick="descargarExcel()"> <i class="fas fa-file-excel"></i> Descargar Excel </button>
-					</div>
+						</div>		
+						<button  class="btn btn-success pull-right" onclick="tableToExcel('basic-datatables', 'ReporteExcel')"><i class="fas fa-file-excel"></i> Descargar Excel</button>
+						<button type="button" class="btn btn-danger  pull-right"" onclick="descargarPDF()"> <i class="fas fa-file-pdf"></i> Descargar PDF </button>
+				</div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="basic-datatables" class="display table table-striped table-hover" >
@@ -111,41 +109,18 @@ function descargarPDF() {
     doc.autoTable({html: '#basic-datatables'});    
     doc.save('Reporte.pdf');      
 }
-
-//  Le falta utf - 8
- function descargarExcel(nombreArchivo=''){
-        var idtabla = "basic-datatables";
-        var nombreArchivo = "Reporte";
-
-		var downloadLink;
-        var dataType = 'application/vnd.ms-excel';
-        var tableSelect = document.getElementById(idtabla);
-        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-        
-        // Specify file name
-        nombreArchivo = nombreArchivo?nombreArchivo+'.xls':'excel_data.xls';
-        
-        // Create download link element
-        downloadLink = document.createElement("a");
-        
-        document.body.appendChild(downloadLink);
-        
-        if(navigator.msSaveOrOpenBlob){
-            var blob = new Blob(['ufeff', tableHTML], {
-                type: dataType
-            });
-            navigator.msSaveOrOpenBlob( blob, filename);
-        }else{
-            // Create a link to the file
-            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-        
-            // Setting the file name
-            downloadLink.download = filename;
-            
-            //triggering the function
-            downloadLink.click();
-        }
-    }
-
 </script>
+<script type="text/javascript"> 
+	var tableToExcel = (function() { 
+	var uri = 'data:application/vnd.ms-excel;base64,' 
+	, template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>' 
+	, base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) } 
+	, format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) } 
+	return function(table, name) { 
+	if (!table.nodeType) table = document.getElementById(table) 
+	var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML} 
+	window.location.href = uri + base64(format(template, ctx)) 
+	} 
+	})(); 
+</script> 
 @stop

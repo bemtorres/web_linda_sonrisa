@@ -169,7 +169,7 @@
 				</div>				
 				<div class="modal-body">		
 					<div class="card-body">							
-						<table id="table_nueva_lista" class="display table table-striped table-hover" >
+						<table id="table_nueva_lista" class="display table table-striped table-hover table-sm" >
 							<thead>
 								<tr>									
 									<th>Nombre Producto</th>										
