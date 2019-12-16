@@ -18,7 +18,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::get();
+        $clientes = Cliente::where('activo',1)->get();
         return view('clientes.index',compact('clientes'));
     }
 
