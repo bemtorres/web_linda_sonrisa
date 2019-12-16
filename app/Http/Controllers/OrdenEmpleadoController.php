@@ -8,6 +8,9 @@ use App\Modelo\Producto;
 use App\Modelo\Orden_empleado as Orden;
 use App\Modelo\Detalle_orden as Detalle;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EnviarProveedor;
+
 class OrdenEmpleadoController extends Controller
 {
     /**
@@ -101,12 +104,26 @@ class OrdenEmpleadoController extends Controller
             $o = Orden::findOrFail($id);
             $o->enviado = 1;
             $o->update();
+            $correo = $o->proveedor->correo;
+            $nombre = $o->proveedor->nombre_empresa;
+            $arreglo = Array();
+            $detalles = Detalle::where('id_orden_empleado',$o->id_orden_empleado)->get();
+            
+            foreach ($detalles as $d) {
+                $a = array('nombre' => $d->producto->nombre_producto, 'cantidad' => $d->cantidad );
+                array_push($arreglo,$a);
+            }
+
+            // return $arreglo;
+            // return new EnviarProveedor($nombre,$arreglo,$o->codigo);
+            Mail::to($correo)->queue(new EnviarProveedor($nombre,$arreglo,$o->codigo));
             return back()->with('success','Se ha enviado la solicitud código ' . $o->codigo ."." ); 
         } catch (\Throwable $th) {
+            // return $th;
             return back()->with('info','Error intente nuevamente.'); 
         }
        
-        return $o;
+        // return $o;
     }
 
     public function code(){

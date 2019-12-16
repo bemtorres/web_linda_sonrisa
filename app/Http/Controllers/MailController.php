@@ -77,8 +77,7 @@ class MailController extends Controller
         } catch (\Throwable $th) {
             // return $th;
             return back()->with('info',"Error intente nuevamente."); 
-        }
-   
+        }  
        
        
     }

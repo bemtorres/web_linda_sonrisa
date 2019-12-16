@@ -109,6 +109,12 @@
 							</table>
 						</div>
 					</div>
+					@if ($e!=1)
+					<div class="card-action">
+						<a href="{{ route('cliente.index') }}" class="btn btn-danger">Volver</a>
+					</div>
+					@endif
+					
 				</div>
 			</div>
 

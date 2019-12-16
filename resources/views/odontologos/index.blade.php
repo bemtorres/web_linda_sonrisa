@@ -62,13 +62,13 @@
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">
 														<div class="modal-header">
-															<h5 class="modal-title" id="exampleModalLabel">¿Ocultar Servicio?</h5>
+															<h5 class="modal-title" id="exampleModalLabel">¿Ocultar Odontólogo?</h5>
 															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">&times;</span>
 															</button>
 														</div>															
 															<div class="modal-body">		
-																<h3>¿Desea ocultar servicio?</h3>
+																<h3>¿Desea Eliminar al Odontólogo?</h3>
 															</div>
 															<div class="modal-footer">
 																<form action="{{ route('odontologo.destroy' , $o->id_odontologo ) }}" method="post">

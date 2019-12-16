@@ -143,20 +143,20 @@
         </div>
     </li> 
     
-    <li class="nav-item  {{ show('boletas*') }}">
+    <li class="nav-item  {{ activar('boletas*') }}{{ activar('estadistica*') }}">
         <a data-toggle="collapse" href="#charts">
             <i class="far fa-chart-bar"></i>
             <p>Estadísticas</p>
             <span class="caret"></span>
         </a>
-        <div class="collapse " id="charts">
+        <div class="collapse {{ show('boletas*') }} {{ show('estadistica*') }}" id="charts">
             <ul class="nav nav-collapse">
                 <li class="{{ activar('boletas*') }}">
                     <a href="{{ route('boletas.index') }}">
                         <span class="sub-item">Boleta de servicio</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ activar('estadistica*') }}">
                     <a href="{{ route('estadistica') }}">
                         <span class="sub-item">Contador de Productos</span>
                     </a>
